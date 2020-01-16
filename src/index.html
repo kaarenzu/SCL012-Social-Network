@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Title</title>
 </head>
+
 <body>
-  <script type="module" src="main.js"></script>
+  <h4>Registro de Usuarios</h4>
+  <input type="email" name="" id="email" placeholder="Ingresa correo">
+  <input type="password" name="" id="password" placeholder="Ingresa contrasena">
+  <button id="enviar">Enviar</button>
+
+  <h4>Ingreso de Usuarios</h4>
+  <input type="email" name="" id="email2" placeholder="Ingresa correo">
+  <input type="password" name="" id="password2" placeholder="Ingresa contrasena">
+  <button id="acceder">Acceder</button>
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA7jCdKwxu7rMOIZgT4UVqbodivHP1vU3g",
+    authDomain: "tipstech-c6fe7.firebaseapp.com",
+    databaseURL: "https://tipstech-c6fe7.firebaseio.com",
+    projectId: "tipstech-c6fe7",
+    storageBucket: "tipstech-c6fe7.appspot.com",
+    messagingSenderId: "1080240040676",
+    appId: "1:1080240040676:web:800d2066b638052d8cdaf1"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+  </script>
+  <script src="main.js"></script>
 </body>
+
 </html>
