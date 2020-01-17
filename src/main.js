@@ -11,9 +11,9 @@ btnEnviar.addEventListener('click', () => {
 	let email = document.getElementById('email').value;
 	let password = document.getElementById('password').value;
 	firebase.auth().createUserWithEmailAndPassword(email, password)
-		.then((response) => {
-			console.log(response);
-		})
+		// .then((response) => {
+		// 	console.log(response);
+		// })
 		.catch(function (error) {
 			// Handle Errors here.
 			var errorCode = error.code;
@@ -58,15 +58,12 @@ function observador(){
 		  // ...
 		} else {
 			console.log('no existe usuario activo');
-		  // User is signed out.
-		  // ...
 		}
 	  });email-password.html
 }
 observador();
-
 function aparece(){
 	let contenido=document.getElementById('root');
-	contenido.innerHTML=
-	"Aparece contenido cuando inicia sesión </div>"
+	contenido.innerHTML= "Aparece contenido cuando inicia sesión </div>"
+
 }
