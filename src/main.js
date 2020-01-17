@@ -20,7 +20,7 @@ btnEnviar.addEventListener('click', () => {
 			var errorMessage = error.message;
 
 			console.log(errorCode);
-			console.log(errorMessage); 
+			console.log(errorMessage);
 		});
 
 });
