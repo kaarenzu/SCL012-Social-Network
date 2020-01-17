@@ -3,27 +3,28 @@
 // import { myFunction } from './lib/index.js';
 
 // myFunction();
+let contenido=document.getElementById('root');
 
 //Registro de Usuarios
-let btnEnviar = document.getElementById('enviar')
+// let btnEnviar = document.getElementById('enviar')
 
-btnEnviar.addEventListener('click', () => {
-	let email = document.getElementById('email').value;
-	let password = document.getElementById('password').value;
-	firebase.auth().createUserWithEmailAndPassword(email, password)
-		.then((response) => {
-			console.log(response);
-		})
-		.catch(function (error) {
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
+// btnEnviar.addEventListener('click', () => {
+// 	let email = document.getElementById('email').value;
+// 	let password = document.getElementById('password').value;
+// 	firebase.auth().createUserWithEmailAndPassword(email, password)
+// 		.then((response) => {
+// 			console.log(response);
+// 		})
+// 		.catch(function (error) {
+// 			// Handle Errors here.
+// 			var errorCode = error.code;
+// 			var errorMessage = error.message;
 
-			console.log(errorCode);
-			console.log(errorMessage);
-		});
+// 			console.log(errorCode);
+// 			console.log(errorMessage); 
+// 		});
 
-});
+// });
 //Ingreso de Usuarios
 let acceder = document.getElementById('acceder');
 
@@ -59,21 +60,38 @@ function observador(){
 		} else {
 			console.log('no existe usuario activo');
 		}
-	  });email-password.html
+	  })
 }
 observador();
 function aparece(){
-	let contenido=document.getElementById('root');
+	
 	contenido.innerHTML= `
     <p>Bienvenido a la Red Social</p>
 	<button id="cerrarSesion">Cerrar Sesion</button>
 	`;
 
 let cerrarSesion=document.querySelector('#cerrarSesion');
+
 cerrarSesion.addEventListener('click', () => {
 	console.log('entro el click')
 firebase.auth().signOut()
 .then(function(){
+
+	contenido.innerHTML = `<div >
+    <img src="img/logo tech.png"class="logo" >
+   </div>
+   <div class="registro">
+    <h1>Inicia Sesión</h1>
+    <h2></h2>
+
+    <input type="email" name="" id="email2" placeholder="Usuario o correo electronico" class="input" >
+    <input type="password" name="" id="password2" placeholder="**************" class="input">
+    <button id="acceder" class="btn">Acceder</button>
+    <button id="gmail" class="btn2">Gmail</button>
+  </div>
+
+ </div>`;
+
 	console.log('Saliendo...')
 })
 .catch(function(error){
