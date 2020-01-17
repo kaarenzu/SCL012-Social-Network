@@ -11,9 +11,9 @@ btnEnviar.addEventListener('click', () => {
 	let email = document.getElementById('email').value;
 	let password = document.getElementById('password').value;
 	firebase.auth().createUserWithEmailAndPassword(email, password)
-		.then((response) => {
-			console.log(response);
-		})
+		// .then((response) => {
+		// 	console.log(response);
+		// })
 		.catch(function (error) {
 			// Handle Errors here.
 			var errorCode = error.code;
