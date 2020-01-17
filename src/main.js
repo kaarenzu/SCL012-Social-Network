@@ -11,16 +11,16 @@ btnEnviar.addEventListener('click', () => {
 	let email = document.getElementById('email').value;
 	let password = document.getElementById('password').value;
 	firebase.auth().createUserWithEmailAndPassword(email, password)
-		// .then((response) => {
-		// 	console.log(response);
-		// })
+		.then((response) => {
+			console.log(response);
+		})
 		.catch(function (error) {
 			// Handle Errors here.
 			var errorCode = error.code;
 			var errorMessage = error.message;
 
 			console.log(errorCode);
-			console.log(errorMessage);
+			console.log(errorMessage); 
 		});
 
 });
@@ -64,6 +64,20 @@ function observador(){
 observador();
 function aparece(){
 	let contenido=document.getElementById('root');
-	contenido.innerHTML= "Aparece contenido cuando inicia sesión </div>"
+	contenido.innerHTML= `
+    <p>Bienvenido a la Red Social</p>
+	<button id="cerrarSesion">Cerrar Sesion</button>
+	`;
 
-}
+let cerrarSesion=document.querySelector('#cerrarSesion');
+cerrarSesion.addEventListener('click', () => {
+	console.log('entro el click')
+firebase.auth().signOut()
+.then(function(){
+	console.log('Saliendo...')
+})
+.catch(function(error){
+	console.log(error);
+})
+})
+};
