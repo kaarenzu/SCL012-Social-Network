@@ -64,7 +64,7 @@ function observador(){
 }
 observador();
 function aparece(){
-	contenido.innerHTML='';
+	
 	contenido.innerHTML= `
     <p>Bienvenido a la Red Social</p>
 	<button id="cerrarSesion">Cerrar Sesion</button>
@@ -87,7 +87,9 @@ firebase.auth().signOut()
     <input type="email" name="" id="email2" placeholder="Usuario o correo electronico" class="input" >
     <input type="password" name="" id="password2" placeholder="**************" class="input">
     <button id="acceder" class="btn">Acceder</button>
-    <button id="gmail" class="btn2">Gmail</button>
+	<button id="gmail" class="btn2">Gmail</button>
+	<h2 > ¿Olvidaste tu contraseña?</h2><a  href="#" class="recuperar">Recuperala Aqui</a>
+	<h3> Crea tu cuenta</h3> <a href="#"class="aqui">Aqui</a>
   </div>
 
  </div>`;
