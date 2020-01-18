@@ -66,8 +66,20 @@ observador();
 function aparece(){
 	
 	contenido.innerHTML= `
-    <p>Bienvenido a la Red Social</p>
-	<button id="cerrarSesion">Cerrar Sesion</button>
+    <header>
+                            <nav>
+                                <img src = "img/logoblanco.png" class= "imagenes">
+                             <ul>
+                                <li><a href= "#"class= "btnMenu">Inicio </a> </li>
+                                 <li><a href= "#"class= "btnMenu">Computación</a></li>
+                                 <li><a href= "#"class= "btnMenu"> Videojuegos</a></li>
+                                 <li><a href= "#"class= "btnMenu">Accesorio </a></li>
+								 <li><a href= "#" class= "btnMenu">Publica tus ventas</a> </li>
+								 <li><a href= "#" class= "btnMenu"id="cerrarSesion">Cerrar Sesion</a></li>
+                             </ul>
+                            </nav> 
+                           </header>
+	
 	`;
 
 let cerrarSesion=document.querySelector('#cerrarSesion');
