@@ -80,16 +80,16 @@ firebase.auth().signOut()
 	contenido.innerHTML = `<div >
     <img src="img/logo tech.png"class="logo" >
    </div>
-   <div class="registro">
+   <div class="login">
     <h1>Inicia Sesión</h1>
     <h2></h2>
 
-    <input type="email" name="" id="email2" placeholder="Usuario o correo electronico" class="input" >
+    <input type="email" name="" id="email2" placeholder="Usuario o correo electrónico" class="input" >
     <input type="password" name="" id="password2" placeholder="**************" class="input">
-    <button id="acceder" class="btn">Acceder</button>
+    <button id="ingresar" class="btn">Ingresar</button>
 	<button id="gmail" class="btn2">Gmail</button>
-	<h2 > ¿Olvidaste tu contraseña?</h2><a  href="#" class="recuperar">Recuperala Aqui</a>
-	<h3> Crea tu cuenta</h3> <a href="#"class="aqui">Aqui</a>
+	<h2 > ¿Olvidaste tu contraseña?</h2><a  href="#" class="recuperar">Recupérala Aquí</a>
+	<h3> Crea tu cuenta</h3> <a href="#"class="aquí">Aqui</a>
   </div>
 
  </div>`;
