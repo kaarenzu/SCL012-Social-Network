@@ -14,60 +14,52 @@
 </head>
 
 <body>
- <!--
-<h4>Registro de Usuarios</h4>
+  <!--
+  <h4>Registro de Usuarios</h4>
   <input type="email" name="" id="email" placeholder="Ingresa correo">
   <input type="password" name="" id="password" placeholder="Ingresa contrasena">
   <button id="enviar">Enviar</button>
- --> 
- <div id="root" class="container">
-   <div >
-    <img src="img/logo tech.png"class="logo" >
-
-   </div>
-   
+  -->
+  <div id="root" class="container">
+  <div>
+    <img src="img/logo tech.png" class="logo">
+  </div>
+<!-- Iniciar Sesión  -->
   <div class="login">
     <h1>Inicia sesión</h1>
-    <input type="email" name="" id="email2" placeholder="  Usuario o correo electrónico" class="input" >
-    <input type="password" name="" id="password2" placeholder="  **************" class="input">
-    <button id="ingresar" class="btn">Ingresar</button>
+    <form>
+      <input type="email" name="" id="email2" placeholder="  Usuario o correo electrónico" class="input" required>
+      <input type="password" name="" id="password2" placeholder="  **************" class="input" required>
+      <button id="ingresar" class="btn">Ingresar</button>
+    </form>
     <button id="gmail" class="btn2">Gmail</button>
-    <h2 >¿Olvidaste tu contraseña? </h2> <a  href="#" class="recuperar"> Recupérala Aquí</a>
-     <h3> Crea tu cuenta</h3> <a href="#"class="aqui">Aquí</a>
+    <h2>¿Olvidaste tu contraseña? </h2> <a href="#" class="recuperar"> Recupérala Aquí</a>
+    <h3> Crea tu cuenta</h3> <a href="#" class="aqui">Aquí</a>
   </div>
 
- </div>
- 
- 
-  
+  </div>
 
-  <!-- <div id="root">
-    
-  </div> -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
 
-
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyA7jCdKwxu7rMOIZgT4UVqbodivHP1vU3g",
-    authDomain: "tipstech-c6fe7.firebaseapp.com",
-    databaseURL: "https://tipstech-c6fe7.firebaseio.com",
-    projectId: "tipstech-c6fe7",
-    storageBucket: "tipstech-c6fe7.appspot.com",
-    messagingSenderId: "1080240040676",
-    appId: "1:1080240040676:web:800d2066b638052d8cdaf1"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyA7jCdKwxu7rMOIZgT4UVqbodivHP1vU3g",
+      authDomain: "tipstech-c6fe7.firebaseapp.com",
+      databaseURL: "https://tipstech-c6fe7.firebaseio.com",
+      projectId: "tipstech-c6fe7",
+      storageBucket: "tipstech-c6fe7.appspot.com",
+      messagingSenderId: "1080240040676",
+      appId: "1:1080240040676:web:800d2066b638052d8cdaf1"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
   </script>
   <script src="main.js"></script>
 </body>

@@ -62,49 +62,41 @@ function observador(){
 		}
 	  })
 }
+
 observador();
 function aparece(){
-	
 	contenido.innerHTML= `
     <header>
-                            <nav>
-                                <img src = "img/logoblanco.png" class= "imagenes">
-                             <ul>
-                                <li><a href= "#"class= "btnMenu">Inicio </a> </li>
-                                 <li><a href= "#"class= "btnMenu">Computación</a></li>
-                                 <li><a href= "#"class= "btnMenu"> Videojuegos</a></li>
-                                 <li><a href= "#"class= "btnMenu">Accesorio </a></li>
-								 <li><a href= "#" class= "btnMenu">Publica tus ventas</a> </li>
-								 <li><a href= "#" class= "btnMenu"id="cerrarSesion">Cerrar Sesion</a></li>
-                             </ul>
-                            </nav> 
-                           </header>
-	
+        <nav>
+        <img src = "img/logoblanco.png" class= "imagenes">
+            <ul>
+                <li><a href= "#"class= "btnMenu">Inicio </a> </li>
+                <li><a href= "#"class= "btnMenu">Computación</a></li>
+                <li><a href= "#"class= "btnMenu"> Videojuegos</a></li>
+                <li><a href= "#"class= "btnMenu">Accesorio </a></li>
+				<li><a href= "#" class= "btnMenu">Publica tus ventas</a> </li>
+				<li><a href= "#" class= "btnMenu"id="cerrarSesion">Cerrar Sesion</a></li>
+            </ul>
+        </nav> 
+    </header>
 	`;
-
-let cerrarSesion=document.querySelector('#cerrarSesion');
-
-cerrarSesion.addEventListener('click', () => {
-	console.log('entro el click')
+//<-------------Función botón Cerrar Sesión-------------->
+document.querySelector('#cerrarSesion').addEventListener('click', () => {
 firebase.auth().signOut()
 .then(function(){
-
-	contenido.innerHTML = `<div >
-    <img src="img/logo tech.png"class="logo" >
-   </div>
-   <div class="login">
-    <h1>Inicia Sesión</h1>
-    <h2></h2>
-
-    <input type="email" name="" id="email2" placeholder="Usuario o correo electrónico" class="input" >
-    <input type="password" name="" id="password2" placeholder="**************" class="input">
-    <button id="ingresar" class="btn">Ingresar</button>
-	<button id="gmail" class="btn2">Gmail</button>
-	<h2 > ¿Olvidaste tu contraseña?</h2><a  href="#" class="recuperar">Recupérala Aquí</a>
-	<h3> Crea tu cuenta</h3> <a href="#"class="aquí">Aqui</a>
-  </div>
-
- </div>`;
+contenido.innerHTML = 
+	`<div>
+      <img src="img/logo tech.png"class="logo" >
+     </div>
+     <div class="login">
+    	<h1>Inicia Sesión</h1>
+    	<input type="email" name="" id="email2" placeholder="Usuario o correo electrónico" class="input">
+    	<input type="password" name="" id="password2" placeholder="**************" class="input">
+		<button id="ingresar" class="btn">Ingresar</button>
+		<button id="gmail" class="btn2">Gmail</button>
+		<h2 > ¿Olvidaste tu contraseña?</h2><a  href="#" class="recuperar">Recupérala Aquí</a>
+		<h3> Crea tu cuenta</h3> <a href="#"class="aquí">Aqui</a>
+    </div>`;
 
 	console.log('Saliendo...')
 })
