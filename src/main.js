@@ -26,9 +26,9 @@ let contenido=document.getElementById('root');
 
 // });
 //Ingreso de Usuarios
-let acceder = document.getElementById('acceder');
+let acceder = document.getElementById('ingresar');
 
-acceder.addEventListener('click', () => {
+ingresar.addEventListener('click', () => {
 	let email2 = document.getElementById('email2').value;
 	let password2 = document.getElementById('password2').value;
 	firebase.auth().signInWithEmailAndPassword(email2, password2)
