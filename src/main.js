@@ -2,7 +2,6 @@
 
 // import { myFunction } from './lib/index.js';
 
-// myFunction();
 let contenido = document.getElementById('root');
 function mostrarLogin(){
 	contenido.innerHTML =
@@ -64,7 +63,8 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 		firebase.auth().createUserWithEmailAndPassword(email, password)
 			.then((response) => {
 				alert('Su usuarios ha sido creado correctamente')
-				aparece();
+				mostrarHome();
+				verificar();
 				console.log(response);
 			})
 			.catch(function (error) {
@@ -85,10 +85,13 @@ function observador() {
 	firebase.auth().onAuthStateChanged(function (user) {
 		if (user) {
 			console.log('existe usuario activo');
-			aparece();
+			mostrarHome();
 			// User is signed in.
 			var displayName = user.displayName;
 			var email = user.email;
+			console.log('*****************');
+			console.log(user.emailVerified);
+			console.log('*****************');
 			var emailVerified = user.emailVerified;
 			var photoURL = user.photoURL;
 			var isAnonymous = user.isAnonymous;
@@ -102,7 +105,7 @@ function observador() {
 }
 
 observador();
-function aparece() {
+function mostrarHome() {
 	contenido.innerHTML = `
     <header>
         <nav>
@@ -122,20 +125,7 @@ function aparece() {
 	document.querySelector('#cerrarSesion').addEventListener('click', () => {
 		firebase.auth().signOut()
 			.then(function () {
-				contenido.innerHTML =
-					`<div>
-      <img src="img/logo tech.png"class="logo" >
-     </div>
-     <div class="login">
-    	<h1>Inicia Sesión</h1>
-    	<input type="email" name="" id="email2" placeholder="Usuario o correo electrónico" class="input">
-    	<input type="password" name="" id="password2" placeholder="**************" class="input">
-		<button id="ingresar" class="btn">Ingresar</button>
-		<button id="gmail" class="btn2">Gmail</button>
-		<h2 > ¿Olvidaste tu contraseña?</h2><a  href="#" class="recuperar">Recupérala Aquí</a>
-		<h3> Crea tu cuenta</h3> <a href="#"class="aquí">Aqui</a>
-    </div>`;
-
+				mostrarLogin();
 				console.log('Saliendo...')
 			})
 			.catch(function (error) {
@@ -143,3 +133,14 @@ function aparece() {
 			})
 	})
 };
+//<-------------Función mensaje de verificaión usuario-------------->
+function verificar(){
+	let user = firebase.auth().currentUser;
+	
+	user.sendEmailVerification()
+	.then(function() {
+	  console.log('enviando correo...');
+	}).catch(function(error) {
+	  console.log('error');
+	});
+}
