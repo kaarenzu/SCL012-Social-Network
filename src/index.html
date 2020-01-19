@@ -15,37 +15,29 @@
 
 <body>
   <!--
-<h4>Registro de Usuarios</h4>
+  <h4>Registro de Usuarios</h4>
   <input type="email" name="" id="email" placeholder="Ingresa correo">
   <input type="password" name="" id="password" placeholder="Ingresa contrasena">
   <button id="enviar">Enviar</button>
- -->
+  -->
   <div id="root" class="container">
-    <div>
-      <img src="img/logo tech.png" class="logo">
-
-    </div>
-
-    <div class="login">
-      <h1>Inicia sesión</h1>
-      <input type="email" name="" id="email2" placeholder="  Usuario o correo electrónico" class="input">
-      <input type="password" name="" id="password2" placeholder="  **************" class="input">
+  <div>
+    <img src="img/logo tech.png" class="logo">
+  </div>
+<!-- Iniciar Sesión  -->
+  <div class="login">
+    <h1>Inicia sesión</h1>
+    <form>
+      <input type="email" name="" id="email2" placeholder="  Usuario o correo electrónico" class="input" required>
+      <input type="password" name="" id="password2" placeholder="  **************" class="input" required>
       <button id="ingresar" class="btn">Ingresar</button>
-      <button id="gmail" class="btn2">Gmail</button>
-      <h2>¿Olvidaste tu contraseña? </h2> <a href="#" class="recuperar"> Recupérala Aquí</a>
-      <h3> Crea tu cuenta</h3> <a href="#" class="aqui">Aquí</a>
-    </div>
-
-
+    </form>
+    <button id="gmail" class="btn2">Gmail</button>
+    <h2>¿Olvidaste tu contraseña? </h2> <a href="#" class="recuperar"> Recupérala Aquí</a>
+    <h3> Crea tu cuenta</h3> <a href="#" class="aqui">Aquí</a>
   </div>
 
-
-
-  <!-- <div id="root">
-    
-  </div> -->
-
-
+  </div>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>

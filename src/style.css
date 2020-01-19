@@ -90,3 +90,37 @@ h3{
     background: #EC2E2E;
     color: floralwhite;
 }
+header {
+    position: absolute;
+    width: 1366px;
+    height: 122px;
+    left: 0px;
+    top: 0px;
+    background: #323676;
+}
+
+.imagenes {
+    position: absolute;
+    width: 109px;
+    height: 108px;
+    left: 52px;
+    top: 7px;
+}
+ ul {
+    list-style: none;
+    display: inline-block;
+    margin-left: 8%;
+}
+li {
+   list-style: none;
+   display: inline-block;
+  
+}
+.btnMenu {
+    display: block;
+    padding: 27px 42px;
+    color: floralwhite;
+    font-family: 'open sans';
+    text-decoration: none;
+    font-size: 146%;
+}
