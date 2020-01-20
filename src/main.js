@@ -70,7 +70,7 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 		firebase.auth().createUserWithEmailAndPassword(email, password)
 			.then((response) => {
 				verificar();
-				alert('Su usuario ha sido creado correctamente, por favor verifica tu correo para poder continuar')
+				alert('Su usuario ha sido creado correctamente, por favor verifica tu bandeja de entrada en tu email')
 			})
 			.catch(function (error) {
 				alert('Upps!! Su usuario no ha sido creado correctamente, por favor intentalo nuevamente')
@@ -137,7 +137,6 @@ function mostrarHome(user) {
 		 <div class= "comentario">
 		 <img src = "img/comment.png" class= "comentar" id= "comentar">
 		 </div>                                                     
-
 		</div>		
 		
 		`;
