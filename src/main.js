@@ -118,12 +118,28 @@ function mostrarHome(user) {
 					<li><a href= "#"class= "btnMenu">Inicio </a> </li>
 					<li><a href= "#"class= "btnMenu">Computación</a></li>
 					<li><a href= "#"class= "btnMenu"> Videojuegos</a></li>
-					<li><a href= "#"class= "btnMenu">Accesorio </a></li>
+					<li><a href= "#"class= "btnMenu">Accesorios</a></li>
 					<li><a href= "#" class= "btnMenu">Publica tus ventas</a> </li>
-					<li><a href= "#" class= "btnMenu"id="cerrarSesion">Cerrar Sesion</a></li>
+					<img src = "img/cerrablanco.png" class= "cerrar"id="cerrarSesion">
 				</ul>
 			</nav> 
 		</header>
+			<div class= "contenedor"> 
+		<div class= "icono">
+		<img src = "img/icono-imagen.png" class= "iconos">
+		 </div>
+		<div class= "poster">
+		<input type="text" id="post" class="post" >
+		 </div>
+		 <div class= "like">
+		 <img src = "img/like.png" class= "like" id= "like">
+		 </div>
+		 <div class= "comentario">
+		 <img src = "img/comment.png" class= "comentar" id= "comentar">
+		 </div>                                                     
+
+		</div>		
+		
 		`;
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
