@@ -3,39 +3,44 @@
 // import { myFunction } from './lib/index.js';
 
 let contenido = document.getElementById('root');
-function mostrarLogin(){
+function mostrarLogin() {
 	contenido.innerHTML =
-					`<div>
-      <img src="img/logo tech.png"class="logo" >
-     </div>
-     <div class="login">
-    	<h1>Inicia Sesión</h1>
-    	<input type="email" name="" id="email2" placeholder="Usuario o correo electrónico" class="input">
-    	<input type="password" name="" id="password2" placeholder="**************" class="input">
-		<button id="ingresar" class="btn">Ingresar</button>
+		`<div>
+		<img src="img/logo tech.png" class="logo">
+	  	</div>
+	  	<div class="login">
+		<h1>Inicia sesión</h1>
+		<form>
+		  <input type="email" name="" id="email2" placeholder="  Usuario o correo electrónico" class="input" required>
+		  <input type="password" name="" id="password2" placeholder="  **************" class="input" required>
+		  <button id="ingresar" class="btn">Ingresar</button>
+		</form>
 		<button id="gmail" class="btn2">Gmail</button>
-		<h2 > ¿Olvidaste tu contraseña?</h2><a  href="#" class="recuperar">Recupérala Aquí</a>
-		<h3> Crea tu cuenta</h3> <a href="#"class="aquí">Aqui</a>
-    </div>`;
+		<h2>¿Olvidaste tu contraseña? </h2> <a href="#" class="recuperar"> Recupérala Aquí</a>
+		<h3> Crea tu cuenta</h3> <a id="crearCuenta" class="aqui">Aquí</a>
+	  </div>`;
 }
+//<-------------Inicia Sesión-------------->
+let ingresar = document.getElementById('ingresar');
 
-//Ingreso de Usuarios
-let acceder = document.getElementById('ingresar');
-
-ingresar.addEventListener('click', () => {
+ingresar.addEventListener('click', (e) => {
+	e.preventDefault();
+	console.log('entro click');
 	let email2 = document.getElementById('email2').value;
 	let password2 = document.getElementById('password2').value;
 	firebase.auth().signInWithEmailAndPassword(email2, password2)
+		.then((response) => {	
+		mostrarHome();
+		})
 		.catch(function (error) {
-			// Handle Errors here.
 			var errorCode = error.code;
 			var errorMessage = error.message;
-
 			console.log(errorCode);
 			console.log(errorMessage);
 		});
 
 });
+
 //<-------------Link crea tu cuenta aquí-------------->
 document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
@@ -55,25 +60,23 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 		<button id="registrarse" class="btn">Registrarse</button>
 		</form>
 	</div>`;
-	
-//<-------------Botón Registrarse-------------->
-	document.getElementById('registrarse').addEventListener('click', () => {
+
+	//<-------------Crear Usuario-------------->
+	document.getElementById('registrarse').addEventListener('click', (e) => {
+		e.preventDefault();
 		let email = document.getElementById('email').value;
 		let password = document.getElementById('password').value;
+
 		firebase.auth().createUserWithEmailAndPassword(email, password)
 			.then((response) => {
-				alert('Su usuarios ha sido creado correctamente')
-				mostrarHome();
 				verificar();
-				console.log(response);
+				alert('Su usuario ha sido creado correctamente, por favor verifica tu correo para poder continuar')
 			})
 			.catch(function (error) {
-				alert('Su usuarios no ha sido creado correctamente, por favor intentalo nuevamente')
-				mostrarLogin();
+				alert('Upps!! Su usuario no ha sido creado correctamente, por favor intentalo nuevamente')
 				// Handle Errors here.
 				var errorCode = error.code;
 				var errorMessage = error.message;
-
 				console.log(errorCode);
 				console.log(errorMessage);
 			});
@@ -85,7 +88,7 @@ function observador() {
 	firebase.auth().onAuthStateChanged(function (user) {
 		if (user) {
 			console.log('existe usuario activo');
-			mostrarHome();
+			mostrarHome(user);
 			// User is signed in.
 			var displayName = user.displayName;
 			var email = user.email;
@@ -105,42 +108,45 @@ function observador() {
 }
 
 observador();
-function mostrarHome() {
-	contenido.innerHTML = `
-    <header>
-        <nav>
-        <img src = "img/logoblanco.png" class= "imagenes">
-            <ul>
-                <li><a href= "#"class= "btnMenu">Inicio </a> </li>
-                <li><a href= "#"class= "btnMenu">Computación</a></li>
-                <li><a href= "#"class= "btnMenu"> Videojuegos</a></li>
-                <li><a href= "#"class= "btnMenu">Accesorio </a></li>
-				<li><a href= "#" class= "btnMenu">Publica tus ventas</a> </li>
-				<li><a href= "#" class= "btnMenu"id="cerrarSesion">Cerrar Sesion</a></li>
-            </ul>
-        </nav> 
-    </header>
-	`;
-	//<-------------Función botón Cerrar Sesión-------------->
-	document.querySelector('#cerrarSesion').addEventListener('click', () => {
-		firebase.auth().signOut()
-			.then(function () {
-				mostrarLogin();
-				console.log('Saliendo...')
-			})
-			.catch(function (error) {
-				console.log(error);
-			})
-	})
+function mostrarHome(user) {
+	if (user.emailVerified) {
+		contenido.innerHTML = `
+		<header>
+			<nav>
+			<img src = "img/logoblanco.png" class= "imagenes">
+				<ul>
+					<li><a href= "#"class= "btnMenu">Inicio </a> </li>
+					<li><a href= "#"class= "btnMenu">Computación</a></li>
+					<li><a href= "#"class= "btnMenu"> Videojuegos</a></li>
+					<li><a href= "#"class= "btnMenu">Accesorio </a></li>
+					<li><a href= "#" class= "btnMenu">Publica tus ventas</a> </li>
+					<li><a href= "#" class= "btnMenu"id="cerrarSesion">Cerrar Sesion</a></li>
+				</ul>
+			</nav> 
+		</header>
+		`;
+		//<-------------Función botón Cerrar Sesión-------------->
+		document.getElementById('cerrarSesion').addEventListener('click', () => {
+			firebase.auth().signOut()
+				.then(function () {
+					mostrarLogin();
+					console.log('Saliendo...')
+				})
+				.catch(function (error) {
+					console.log(error);
+				})
+		});
+	}
 };
 //<-------------Función mensaje de verificaión usuario-------------->
-function verificar(){
+function verificar() {
+	console.log('entor a verificar');
 	let user = firebase.auth().currentUser;
-	
+
 	user.sendEmailVerification()
-	.then(function() {
-	  console.log('enviando correo...');
-	}).catch(function(error) {
-	  console.log('error');
-	});
+		.then(function () {
+			console.log('enviando correo...');
+		}).catch(function (error) {
+			console.log('error');
+		});
 }
