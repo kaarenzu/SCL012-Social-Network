@@ -1,6 +1,4 @@
-// // Este es el punto de entrada de tu aplicacion
-
-// import { myFunction } from './lib/index.js';
+import { signIn } from './lib/index.js';
 
 let contenido = document.getElementById('root');
 function mostrarLogin() {
@@ -20,25 +18,11 @@ function mostrarLogin() {
 		<h3> Crea tu cuenta</h3> <a id="crearCuenta" class="aqui">Aquí</a>
 	  </div>`;
 }
-//<-------------Inicia Sesión-------------->
-let ingresar = document.getElementById('ingresar');
-
-ingresar.addEventListener('click', (e) => {
+//<-------------Iniciar Sesión-------------->
+document.getElementById('ingresar').addEventListener('click', (e) => {
+	console.log('entró el click')
 	e.preventDefault();
-	console.log('entro click');
-	let email2 = document.getElementById('email2').value;
-	let password2 = document.getElementById('password2').value;
-	firebase.auth().signInWithEmailAndPassword(email2, password2)
-		.then((response) => {	
-		mostrarHome();
-		})
-		.catch(function (error) {
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			console.log(errorCode);
-			console.log(errorMessage);
-		});
-
+	signIn(email2,password2);
 });
 
 //<-------------Link crea tu cuenta aquí-------------->
@@ -108,19 +92,20 @@ function observador() {
 }
 
 observador();
-function mostrarHome(user) {
+
+export function mostrarHome(user) {
 	if (user.emailVerified) {
 		contenido.innerHTML = `
 		<header>
 			<nav>
-			<img src = "img/logoblanco.png" class= "imagenes">
+			<img src="img/logoblanco.png" class="imagenes">
 				<ul>
-					<li><a href= "#"class= "btnMenu">Inicio </a> </li>
-					<li><a href= "#"class= "btnMenu">Computación</a></li>
-					<li><a href= "#"class= "btnMenu"> Videojuegos</a></li>
-					<li><a href= "#"class= "btnMenu">Accesorios</a></li>
-					<li><a href= "#" class= "btnMenu">Publica tus ventas</a> </li>
-					<img src = "img/cerrablanco.png" class= "cerrar"id="cerrarSesion">
+					<li><a href="#" class="btnMenu">Inicio </a> </li>
+					<li><a href="#" class="btnMenu">Computación</a></li>
+					<li><a href="#" class="btnMenu"> Videojuegos</a></li>
+					<li><a href="#" class="btnMenu">Accesorios</a></li>
+					<li><a href="#" class="btnMenu">Publica tus ventas</a> </li>
+					<img src="img/cerrablanco.png" class="cerrar"id="cerrarSesion">
 				</ul>
 			</nav> 
 		</header>
@@ -155,7 +140,7 @@ function mostrarHome(user) {
 };
 //<-------------Función mensaje de verificaión usuario-------------->
 function verificar() {
-	console.log('entor a verificar');
+	console.log('entro a verificar');
 	let user = firebase.auth().currentUser;
 
 	user.sendEmailVerification()
