@@ -34,38 +34,22 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
     </div>
     <div class="login">
 		<h1>Crea tu cuenta</h1>
-		<form>
-		<input type="text" name="" placeholder="Nombre" class="input" requiere>
-    	<input type="text" name=""  placeholder="Apellido" class="input"requiere>
-    	<input type="email" name="" id="email" placeholder="Usuario o correo electrónico" class="input"requiere>
-    	<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
-		<p>Contraseña debe tener mínimo 8 caracteres.</p>
-		<p>Campos con * son obligatorios.</p>
-		<button id="registrarse" class="btn">Registrarse</button>
-		</form>
+			<form>
+				<input type="text" name="" placeholder="Nombre" class="input" requiere>
+    			<input type="text" name=""  placeholder="Apellido" class="input"requiere>
+    			<input type="email" name="" id="email" placeholder="Usuario o correo electrónico" class="input"requiere>
+    			<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
+				<p>Contraseña debe tener mínimo 8 caracteres.</p>
+				<p>Campos con * son obligatorios.</p>
+				<button id="registrarse" class="btn">Registrarse</button>
+			</form>
 	</div>`;
-
 	//<-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
 		e.preventDefault();
-		let email = document.getElementById('email').value;
-		let password = document.getElementById('password').value;
-
-		firebase.auth().createUserWithEmailAndPassword(email, password)
-			.then((response) => {
-				verificar();
-				alert('Su usuario ha sido creado correctamente, por favor verifica tu bandeja de entrada en tu email')
-			})
-			.catch(function (error) {
-				alert('Upps!! Su usuario no ha sido creado correctamente, por favor intentalo nuevamente')
-				// Handle Errors here.
-				var errorCode = error.code;
-				var errorMessage = error.message;
-				console.log(errorCode);
-				console.log(errorMessage);
-			});
-	})
-})
+		createUser(email,password);
+	});
+});
 
 
 function observador() {
@@ -100,13 +84,13 @@ export function mostrarHome(user) {
 			<nav>
 			<img src="img/logoblanco.png" class="imagenes">
 				<ul>
-					<li><a href="#" class="btnMenu">Inicio </a> </li>
-					<li><a href="#" class="btnMenu">Computación</a></li>
-					<li><a href="#" class="btnMenu"> Videojuegos</a></li>
-					<li><a href="#" class="btnMenu">Accesorios</a></li>
-					<li><a href="#" class="btnMenu">Publica tus ventas</a> </li>
-					<img src="img/cerrablanco.png" class="cerrar"id="cerrarSesion">
+					<li><a class="btnMenu">Inicio </a></li>
+					<li><a class="btnMenu">Computación</a></li>
+					<li><a class="btnMenu"> Videojuegos</a></li>
+					<li><a class="btnMenu">Accesorios</a></li>
+					<li><a class="btnMenu">Publica tus ventas</a></li>
 				</ul>
+			<img src="img/cerrablanco.png" class="cerrar"id="cerrarSesion">
 			</nav> 
 		</header>
 			<div class= "contenedor"> 
