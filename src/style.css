@@ -124,3 +124,37 @@ li {
     text-decoration: none;
     font-size: 146%;
 }
+.post {
+    margin-top: 134%;
+    margin-left: -292%;
+    position: relative;
+    width: 391%;
+    height: 57%;
+    background: #E0E2FA;
+    border-radius: 4%;
+}
+.cerrar {
+    max-width: 5%;
+    margin-left: 7%;
+}
+.iconos {
+    max-width: 10%;
+    margin-top: 57%;
+    margin-left: -38%;
+}
+.like {
+    position: absolute;
+    width: 29px;
+    left: 60%;
+    top: 205px;
+
+}
+.contenedor {
+    display: flex;
+}
+.comentar{
+    position: absolute;
+    width: 29px;
+    left: 67%;
+    top: 411px;
+}
