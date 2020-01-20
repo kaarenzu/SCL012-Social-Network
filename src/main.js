@@ -118,7 +118,7 @@ function mostrarHome(user) {
 					<li><a href= "#"class= "btnMenu">Inicio </a> </li>
 					<li><a href= "#"class= "btnMenu">Computación</a></li>
 					<li><a href= "#"class= "btnMenu"> Videojuegos</a></li>
-					<li><a href= "#"class= "btnMenu">Accesorio </a></li>
+					<li><a href= "#"class= "btnMenu">Accesorios</a></li>
 					<li><a href= "#" class= "btnMenu">Publica tus ventas</a> </li>
 					<img src = "img/cerrablanco.png" class= "cerrar"id="cerrarSesion">
 				</ul>
