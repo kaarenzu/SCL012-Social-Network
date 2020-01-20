@@ -23,3 +23,33 @@
 [debug] [2020-01-20T13:04:02.140Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: src
 [info] +  hosting: Local server: http://localhost:5000
+[debug] [2020-01-20T13:30:37.795Z] ----------------------------------------------------------------------
+[debug] [2020-01-20T13:30:37.804Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cristian\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-01-20T13:30:37.804Z] CLI Version:   7.12.1
+[debug] [2020-01-20T13:30:37.805Z] Platform:      win32
+[debug] [2020-01-20T13:30:37.805Z] Node Version:  v10.16.3
+[debug] [2020-01-20T13:30:37.808Z] Time:          Mon Jan 20 2020 10:30:37 GMT-0300 (GMT-03:00)
+[debug] [2020-01-20T13:30:37.809Z] ----------------------------------------------------------------------
+[debug] [2020-01-20T13:30:37.809Z] 
+[debug] [2020-01-20T13:30:37.866Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-20T13:30:37.867Z] > authorizing via signed-in user
+[debug] [2020-01-20T13:30:37.868Z] [iam] checking project tipstech-c6fe7 for permissions ["firebase.projects.get"]
+[debug] [2020-01-20T13:30:37.876Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-01-20T13:30:37.877Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-01-20T13:30:38.133Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-20T13:30:38.213Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tipstech-c6fe7:testIamPermissions  
+
+[debug] [2020-01-20T13:30:39.373Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-20T13:30:39.387Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7  
+ 
+[debug] [2020-01-20T13:30:40.562Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Cristian\Desktop\redSocial\SCL012-Social-Network'...
+[info] 
+[debug] [2020-01-20T13:30:40.577Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7/webApps/-/config  
+ 
+[debug] [2020-01-20T13:30:41.892Z] <<< HTTP RESPONSE 200
+[warn] !  hosting: Port 5000 is not available. Trying another port...
+[info] i  hosting: Serving hosting files from: src
+[info] +  hosting: Local server: http://localhost:5005
