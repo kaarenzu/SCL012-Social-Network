@@ -14,9 +14,7 @@ export let signIn = (email2, password2) => {
 }
 
 //---------------Función para Crear Usuario------------------------>
-export let createUser = () => {
-	let email = document.getElementById('email').value;
-	let password = document.getElementById('password').value;
+export let createUser = (email, password) => {
 	firebase.auth().createUserWithEmailAndPassword(email, password)
 			.then((response) => {
 				verificar();

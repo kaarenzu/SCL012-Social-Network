@@ -1,9 +1,9 @@
-import { signIn, createUser} from './lib/index.js';
+import { signIn, createUser } from './lib/index.js';
 
 let contenido = document.getElementById('root');
 function mostrarLogin() {
-	window.location.hash='/Inicio';
-	contenido.innerHTML =`	
+	window.location.hash = '/Inicio';
+	contenido.innerHTML = `	
 		<div>
 			<img src="img/logo tech.png" class="logo">
 	  	</div>
@@ -22,8 +22,8 @@ function mostrarLogin() {
 //<-------------Iniciar Sesión-------------->
 document.getElementById('ingresar').addEventListener('click', (e) => {
 	console.log('entró el click')
-	let email2=document.getElementById('email2').value;
-	let password2=document.getElementById('password2').value;
+	let email2 = document.getElementById('email2').value;
+	let password2 = document.getElementById('password2').value;
 	e.preventDefault();
 	signIn(email2, password2);
 });
@@ -48,6 +48,8 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 	</div>`;
 	//<-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
+		let email = document.getElementById('email').value;
+		let password = document.getElementById('password').value;
 		e.preventDefault();
 		createUser(email, password);
 	});
@@ -77,7 +79,7 @@ observador();
 
 function mostrarHome(user) {
 	if (user.emailVerified) {
-		window.location.hash='/Home';
+		window.location.hash = '/Home';
 		contenido.innerHTML = `
 		<header>
 			<nav>
