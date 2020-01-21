@@ -1,6 +1,4 @@
-// // Este es el punto de entrada de tu aplicacion
-
-// import { myFunction } from './lib/index.js';
+import { signIn, createUser } from './lib/index.js';
 
 let contenido = document.getElementById('root');
 function mostrarLogin() {
@@ -20,25 +18,11 @@ function mostrarLogin() {
 		<h3> Crea tu cuenta</h3> <a id="crearCuenta" class="aqui">Aquí</a>
 	  </div>`;
 }
-//<-------------Inicia Sesión-------------->
-let ingresar = document.getElementById('ingresar');
-
-ingresar.addEventListener('click', (e) => {
+//<-------------Iniciar Sesión-------------->
+document.getElementById('ingresar').addEventListener('click', (e) => {
+	console.log('entró el click')
 	e.preventDefault();
-	console.log('entro click');
-	let email2 = document.getElementById('email2').value;
-	let password2 = document.getElementById('password2').value;
-	firebase.auth().signInWithEmailAndPassword(email2, password2)
-		.then((response) => {	
-		mostrarHome();
-		})
-		.catch(function (error) {
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			console.log(errorCode);
-			console.log(errorMessage);
-		});
-
+	signIn(email2,password2);
 });
 
 //<-------------Link crea tu cuenta aquí-------------->
@@ -50,38 +34,22 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
     </div>
     <div class="login">
 		<h1>Crea tu cuenta</h1>
-		<form>
-		<input type="text" name="" placeholder="Nombre" class="input" requiere>
-    	<input type="text" name=""  placeholder="Apellido" class="input"requiere>
-    	<input type="email" name="" id="email" placeholder="Usuario o correo electrónico" class="input"requiere>
-    	<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
-		<p>Contraseña debe tener mínimo 8 caracteres.</p>
-		<p>Campos con * son obligatorios.</p>
-		<button id="registrarse" class="btn">Registrarse</button>
-		</form>
+			<form>
+				<input type="text" name="" placeholder="Nombre" class="input" requiere>
+    			<input type="text" name=""  placeholder="Apellido" class="input"requiere>
+    			<input type="email" name="" id="email" placeholder="Usuario o correo electrónico" class="input"requiere>
+    			<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
+				<p>Contraseña debe tener mínimo 8 caracteres.</p>
+				<p>Campos con * son obligatorios.</p>
+				<button id="registrarse" class="btn">Registrarse</button>
+			</form>
 	</div>`;
-
 	//<-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
 		e.preventDefault();
-		let email = document.getElementById('email').value;
-		let password = document.getElementById('password').value;
-
-		firebase.auth().createUserWithEmailAndPassword(email, password)
-			.then((response) => {
-				verificar();
-				alert('Su usuario ha sido creado correctamente, por favor verifica tu bandeja de entrada en tu email')
-			})
-			.catch(function (error) {
-				alert('Upps!! Su usuario no ha sido creado correctamente, por favor intentalo nuevamente')
-				// Handle Errors here.
-				var errorCode = error.code;
-				var errorMessage = error.message;
-				console.log(errorCode);
-				console.log(errorMessage);
-			});
-	})
-})
+		createUser(email,password);
+	});
+});
 
 
 function observador() {
@@ -108,20 +76,21 @@ function observador() {
 }
 
 observador();
-function mostrarHome(user) {
+
+export function mostrarHome(user) {
 	if (user.emailVerified) {
 		contenido.innerHTML = `
 		<header>
 			<nav>
-			<img src = "img/logoblanco.png" class= "imagenes">
+			<img src="img/logoblanco.png" class="imagenes">
 				<ul>
-					<li><a href= "#"class= "btnMenu">Inicio </a> </li>
-					<li><a href= "#"class= "btnMenu">Computación</a></li>
-					<li><a href= "#"class= "btnMenu"> Videojuegos</a></li>
-					<li><a href= "#"class= "btnMenu">Accesorios</a></li>
-					<li><a href= "#" class= "btnMenu">Publica tus ventas</a> </li>
-					<img src = "img/cerrablanco.png" class= "cerrar"id="cerrarSesion">
+					<li><a class="btnMenu">Inicio </a></li>
+					<li><a class="btnMenu">Computación</a></li>
+					<li><a class="btnMenu"> Videojuegos</a></li>
+					<li><a class="btnMenu">Accesorios</a></li>
+					<li><a class="btnMenu">Publica tus ventas</a></li>
 				</ul>
+			<img src="img/cerrablanco.png" class="cerrar"id="cerrarSesion">
 			</nav> 
 		</header>
 			<div class= "contenedor"> 
@@ -153,15 +122,3 @@ function mostrarHome(user) {
 		});
 	}
 };
-//<-------------Función mensaje de verificaión usuario-------------->
-function verificar() {
-	console.log('entor a verificar');
-	let user = firebase.auth().currentUser;
-
-	user.sendEmailVerification()
-		.then(function () {
-			console.log('enviando correo...');
-		}).catch(function (error) {
-			console.log('error');
-		});
-}
