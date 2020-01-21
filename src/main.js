@@ -2,21 +2,21 @@ import { signIn, createUser} from './lib/index.js';
 
 let contenido = document.getElementById('root');
 function mostrarLogin() {
-	contenido.innerHTML =
-		`<div>
-		<img src="img/logo tech.png" class="logo">
+	contenido.innerHTML =`	
+		<div>
+			<img src="img/logo tech.png" class="logo">
 	  	</div>
 	  	<div class="login">
-		<h1>Inicia sesión</h1>
-		<form>
-		  <input type="email" name="" id="email2" placeholder="  Usuario o correo electrónico" class="input" required>
-		  <input type="password" name="" id="password2" placeholder="  **************" class="input" required>
-		  <button id="ingresar" class="btn">Ingresar</button>
-		</form>
-		<button id="gmail" class="btn2">Gmail</button>
-		<h2>¿Olvidaste tu contraseña? </h2> <a href="#" class="recuperar"> Recupérala Aquí</a>
-		<h3> Crea tu cuenta</h3> <a id="crearCuenta" class="aqui">Aquí</a>
-	  </div>`;
+			<h1>Inicia sesión</h1>
+			<form>
+		  		<input type="email" name="" id="email2" placeholder=" Correo electrónico" class="input" required>
+		  		<input type="password" name="" id="password2" placeholder=" **************" class="input" required>
+		  		<button id="ingresar" class="btn">Ingresar</button>
+			</form>
+				<button id="gmail" class="btn2">Gmail</button>
+				<a href="#" class="recuperar">¿Olvidaste tu contraseña? Recupérala Aquí</a>
+      			<a href="#" id="crearCuenta" class="aqui">Crear cuenta aquí</a> 
+	  	</div>`;
 }
 //<-------------Iniciar Sesión-------------->
 document.getElementById('ingresar').addEventListener('click', (e) => {
@@ -29,7 +29,7 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
 	contenido.innerHTML =
 		`<div>
-    <img src="img/logo tech.png"class="logo" >
+    <img src="img/logo tech.png"class="logo">
     </div>
     <div class="login">
 		<h1>Crea tu cuenta</h1>
@@ -77,7 +77,7 @@ function mostrarHome(user) {
 		contenido.innerHTML = `
 		<header>
 			<nav>
-			<img src="img/logoblanco.png" class="imagenes">
+				<img src="img/logoblanco.png" class="imagenes">
 				<ul>
 					<li><a class="btnMenu">Inicio </a></li>
 					<li><a class="btnMenu">Computación</a></li>
@@ -88,19 +88,23 @@ function mostrarHome(user) {
 			<img src="img/cerrablanco.png" class="cerrar"id="cerrarSesion">
 			</nav> 
 		</header>
-			<div class= "contenedor"> 
-		<div class= "icono">
-		<img src = "img/icono-imagen.png" class= "iconos">
-		 </div>
-		<div class= "poster">
-		<input type="text" id="post" class="post" >
-		 </div>
-		 <div class= "like">
-		 <img src = "img/like.png" class= "like" id= "like">
-		 </div>
-		 <div class= "comentario">
-		 <img src = "img/comment.png" class= "comentar" id= "comentar">
-		 </div>                                                     
+
+		<div class="contenedor"> 
+			<div>
+				<img src="img/icono-imagen.png" class="iconos">
+			</div>
+
+			<div>
+				<input type="text" id="post" class="post">
+			</div>
+
+			<div>
+				<img src="img/like.png" class="like" id="like">
+			</div>
+
+			<div>
+				<img src="img/comment.png" class="comentar" id="comentar">
+			</div>                                                     
 		</div>		
 		`;
 		//<-------------Función botón Cerrar Sesión-------------->
