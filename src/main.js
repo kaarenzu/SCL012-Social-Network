@@ -2,6 +2,7 @@ import { signIn, createUser} from './lib/index.js';
 
 let contenido = document.getElementById('root');
 function mostrarLogin() {
+	window.location.hash='/Inicio';
 	contenido.innerHTML =`	
 		<div>
 			<img src="img/logo tech.png" class="logo">
@@ -21,6 +22,8 @@ function mostrarLogin() {
 //<-------------Iniciar Sesión-------------->
 document.getElementById('ingresar').addEventListener('click', (e) => {
 	console.log('entró el click')
+	let email2=document.getElementById('email2').value;
+	let password2=document.getElementById('password2').value;
 	e.preventDefault();
 	signIn(email2, password2);
 });
@@ -66,6 +69,7 @@ function observador() {
 			var uid = user.uid;
 			var providerData = user.providerData;
 		} else {
+			mostrarLogin();
 			console.log('no existe usuario activo');
 		}
 	})
@@ -74,6 +78,7 @@ observador();
 
 function mostrarHome(user) {
 	if (user.emailVerified) {
+		window.location.hash='/Home';
 		contenido.innerHTML = `
 		<header>
 			<nav>

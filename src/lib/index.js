@@ -1,8 +1,6 @@
 
 //---------------Función para Iniciar Sesión------------------------>
-export let signIn = () => { 
-	let email2=document.getElementById('email2').value;
-	let password2=document.getElementById('password2').value;
+export let signIn = (email2, password2) => { 
 	firebase.auth().signInWithEmailAndPassword(email2, password2)
 			.then((response) => {
 			console.log('paso el then');
