@@ -125,3 +125,33 @@
 [debug] [2020-01-21T20:48:44.975Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: src
 [info] +  hosting: Local server: http://localhost:5000
+=======
+[debug] [2020-01-21T15:43:44.744Z] ----------------------------------------------------------------------
+[debug] [2020-01-21T15:43:44.748Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2020-01-21T15:43:44.748Z] CLI Version:   7.12.1
+[debug] [2020-01-21T15:43:44.748Z] Platform:      darwin
+[debug] [2020-01-21T15:43:44.748Z] Node Version:  v12.14.1
+[debug] [2020-01-21T15:43:44.749Z] Time:          Tue Jan 21 2020 12:43:44 GMT-0300 (GMT-03:00)
+[debug] [2020-01-21T15:43:44.749Z] ----------------------------------------------------------------------
+[debug] [2020-01-21T15:43:44.749Z] 
+[debug] [2020-01-21T15:43:44.759Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-21T15:43:44.759Z] > authorizing via signed-in user
+[debug] [2020-01-21T15:43:44.760Z] [iam] checking project tipstech-c6fe7 for permissions ["firebase.projects.get"]
+[debug] [2020-01-21T15:43:44.763Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tipstech-c6fe7:testIamPermissions  
+
+[debug] [2020-01-21T15:43:45.911Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-21T15:43:45.913Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7  
+ 
+[debug] [2020-01-21T15:43:47.238Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/corinacelestevaraspestano/Desktop/TipsTech/SCL012-Social-Network'...
+[info] 
+[debug] [2020-01-21T15:43:47.242Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7/webApps/-/config  
+ 
+[debug] [2020-01-21T15:43:48.569Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[info] i  hosting: Serving hosting files from: src
+[info] ✔  hosting: Local server: http://localhost:5015
+
