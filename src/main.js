@@ -69,7 +69,6 @@ function observador() {
 			var uid = user.uid;
 			var providerData = user.providerData;
 		} else {
-			mostrarLogin();
 			console.log('no existe usuario activo');
 		}
 	})
@@ -125,3 +124,5 @@ function mostrarHome(user) {
 		});
 	}
 };
+
+
