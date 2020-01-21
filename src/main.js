@@ -1,4 +1,4 @@
-import { signIn, createUser } from './lib/index.js';
+import { signIn, createUser} from './lib/index.js';
 
 let contenido = document.getElementById('root');
 function mostrarLogin() {
@@ -67,13 +67,12 @@ function observador() {
 			var providerData = user.providerData;
 		} else {
 			console.log('no existe usuario activo');
-			mostrarLogin();
 		}
 	})
 }
 observador();
 
-export function mostrarHome(user) {
+function mostrarHome(user) {
 	if (user.emailVerified) {
 		contenido.innerHTML = `
 		<header>
