@@ -156,8 +156,8 @@ li{
 .like{
     position: absolute;
     width: 29px;
-    left: 60%;
-    top: 205px;
+    left: 63%;
+    top: 63%;
 }
 
 .contenedor{
@@ -171,7 +171,7 @@ li{
     top: 411px;
 }
 
-@media (min-width:100px) and (max-width:580px) {
+@media (min-width:100px) and (max-width:576px) {
     h1 {
      color: transparent;
     }
