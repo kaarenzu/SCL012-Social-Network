@@ -1,8 +1,6 @@
 
 //---------------Función para Iniciar Sesión------------------------>
-export let signIn = () => { 
-	let email2=document.getElementById('email2').value;
-	let password2=document.getElementById('password2').value;
+export let signIn = (email2, password2) => { 
 	firebase.auth().signInWithEmailAndPassword(email2, password2)
 			.then((response) => {
 			console.log('paso el then');
@@ -16,16 +14,14 @@ export let signIn = () => {
 }
 
 //---------------Función para Crear Usuario------------------------>
-export let createUser = () => {
-	let email = document.getElementById('email').value;
-	let password = document.getElementById('password').value;
+export let createUser = (email, password) => {
 	firebase.auth().createUserWithEmailAndPassword(email, password)
 			.then((response) => {
 				verificar();
 				alert('Su usuario ha sido creado correctamente, por favor verifica tu bandeja de entrada en tu email')
 			})
 			.catch(function (error) {
-				alert('Upps!! Su usuario no ha sido creado correctamente, por favor intentalo nuevamente')
+				alert('Upps!! Su usuario no ha sido creado correctamente, por favor inténtalo nuevamente')
 				// Handle Errors here.
 				var errorCode = error.code;
 				var errorMessage = error.message;

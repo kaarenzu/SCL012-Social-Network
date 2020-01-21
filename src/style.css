@@ -156,8 +156,8 @@ li{
 .like{
     position: absolute;
     width: 29px;
-    left: 60%;
-    top: 205px;
+    left: 63%;
+    top: 63%;
 }
 
 .contenedor{
@@ -169,4 +169,70 @@ li{
     width: 29px;
     left: 67%;
     top: 411px;
+}
+
+@media (min-width:100px) and (max-width:576px) {
+    h1 {
+     color: transparent;
+    }
+    .logo{
+        position: absolute;
+        height: 27%;
+        left: 39%;
+        top: 2%;
+    }
+    .login{
+        display: flex;
+        flex-direction: column;
+        width: 380px;
+        height: 450px;
+        margin-left: -119%;
+        top: 15%;
+        background: transparent;
+        border: transparent;
+        box-shadow: none;
+    }
+    h3{
+        font-size: 15px;
+        font-weight: normal;
+        margin-top: 12%;
+        margin-right:60px; 
+    }
+    .input{
+        align-self: center;
+        width: 90%;
+        margin: 2%;
+        height: -1%;
+        border: 1px solid #83ACB1;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    .btn{
+        align-self: center;
+        margin: 10px;
+        height: 35px;
+        width: 350px;
+        border-radius: 19px;
+        background-color: #323676;
+        color: floralwhite;
+    }
+    
+    .btn2{
+        align-self: center;
+        margin: 10px;
+        height: 35px;
+        width: 350px;
+        border-radius: 19px;
+        background: #EC2E2E;
+        color: floralwhite;
+    }
+   
+
+
+
+
+
+
+
 }
