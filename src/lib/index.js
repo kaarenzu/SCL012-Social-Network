@@ -1,3 +1,4 @@
+
 //---------------Función para Iniciar Sesión------------------------>
 export let signIn = () => { 
 	let email2=document.getElementById('email2').value;
@@ -45,25 +46,3 @@ function verificar() {
 		});
 };
 
-export function observador() {
-	firebase.auth().onAuthStateChanged(function (user) {
-		if (user) {
-			console.log('existe usuario activo');
-			mostrarHome(user);
-			// User is signed in.
-			var displayName = user.displayName;
-			var email = user.email;
-			console.log('*****************');
-			console.log(user.emailVerified);
-			console.log('*****************');
-			var emailVerified = user.emailVerified;
-			var photoURL = user.photoURL;
-			var isAnonymous = user.isAnonymous;
-			var uid = user.uid;
-			var providerData = user.providerData;
-			// ...
-		} else {
-			console.log('no existe usuario activo');
-		}
-	})
-}

@@ -22,9 +22,8 @@ function mostrarLogin() {
 document.getElementById('ingresar').addEventListener('click', (e) => {
 	console.log('entró el click')
 	e.preventDefault();
-	signIn(email2,password2);
+	signIn(email2, password2);
 });
-
 //<-------------Link crea tu cuenta aquí-------------->
 document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
@@ -47,11 +46,9 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 	//<-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
 		e.preventDefault();
-		createUser(email,password);
+		createUser(email, password);
 	});
 });
-
-
 function observador() {
 	firebase.auth().onAuthStateChanged(function (user) {
 		if (user) {
@@ -68,13 +65,12 @@ function observador() {
 			var isAnonymous = user.isAnonymous;
 			var uid = user.uid;
 			var providerData = user.providerData;
-			// ...
 		} else {
 			console.log('no existe usuario activo');
+			mostrarLogin();
 		}
 	})
 }
-
 observador();
 
 export function mostrarHome(user) {
@@ -107,7 +103,6 @@ export function mostrarHome(user) {
 		 <img src = "img/comment.png" class= "comentar" id= "comentar">
 		 </div>                                                     
 		</div>		
-		
 		`;
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
