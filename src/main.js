@@ -87,8 +87,8 @@ export function mostrarHome(user) {
 					<li><a class="btnMenu">Inicio </a></li>
 					<li><a class="btnMenu">Computación</a></li>
 					<li><a class="btnMenu"> Videojuegos</a></li>
+					<li><a class="btnMenu">Celulares</a></li>
 					<li><a class="btnMenu">Accesorios</a></li>
-					<li><a class="btnMenu">Publica tus ventas</a></li>
 				</ul>
 			<img src="img/cerrablanco.png" class="cerrar"id="cerrarSesion">
 			</nav> 
