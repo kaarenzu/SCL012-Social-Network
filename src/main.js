@@ -1,4 +1,4 @@
-import { signIn } from './lib/index.js';
+import { signIn, createUser } from './lib/index.js';
 
 let contenido = document.getElementById('root');
 function mostrarLogin() {
@@ -122,15 +122,3 @@ export function mostrarHome(user) {
 		});
 	}
 };
-//<-------------Función mensaje de verificaión usuario-------------->
-function verificar() {
-	console.log('entro a verificar');
-	let user = firebase.auth().currentUser;
-
-	user.sendEmailVerification()
-		.then(function () {
-			console.log('enviando correo...');
-		}).catch(function (error) {
-			console.log('error');
-		});
-}

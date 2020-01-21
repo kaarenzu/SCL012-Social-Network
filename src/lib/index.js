@@ -32,6 +32,18 @@ export let createUser = () => {
 				console.log(errorMessage);
 			});
 }
+//<-------------Función mensaje de verificaión usuario-------------->
+function verificar() {
+	console.log('entro a verificar');
+	let user = firebase.auth().currentUser;
+
+	user.sendEmailVerification()
+		.then(function () {
+			console.log('enviando correo...');
+		}).catch(function (error) {
+			console.log('error');
+		});
+};
 
 export function observador() {
 	firebase.auth().onAuthStateChanged(function (user) {
