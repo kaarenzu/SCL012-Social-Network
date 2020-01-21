@@ -25,7 +25,7 @@ export let createUser = () => {
 				alert('Su usuario ha sido creado correctamente, por favor verifica tu bandeja de entrada en tu email')
 			})
 			.catch(function (error) {
-				alert('Upps!! Su usuario no ha sido creado correctamente, por favor intentalo nuevamente')
+				alert('Upps!! Su usuario no ha sido creado correctamente, por favor inténtalo nuevamente')
 				// Handle Errors here.
 				var errorCode = error.code;
 				var errorMessage = error.message;
