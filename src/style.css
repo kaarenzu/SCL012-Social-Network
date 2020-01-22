@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
 } */
-
+.menu{
+    display: none;
+}
 body{
     background-image: url("img/fondo-web.jpg");
     font-family: 'PT Sans', sans-serif;
@@ -171,7 +173,7 @@ li{
     top: 411px;
 }
 
-@media (min-width:100px) and (max-width:576px) {
+@media screen and (max-width:576px) {
     h1 {
      color: transparent;
     }
@@ -227,7 +229,40 @@ li{
         background: #EC2E2E;
         color: floralwhite;
     }
-   
+     ul {
+        width: 50%;
+        height: 100%;
+        margin-top: 18%;
+        position: fixed;
+        background: white;
+    }
+    .btnMenu{
+       display: block; 
+       float: none;
+       border-bottom:#323676 ;
+       color:#323676 ;
+    }
+    .post{
+        display: none;
+    }
+    .menu {
+        display: block;
+        max-width: 12%;
+        margin-top: 2%;
+        margin-left: 4%;
+    }
+    .imagenes{
+        display: none;
+    }
+    .cerrar {
+        display: block;
+        max-width: 21%;
+        margin-top: -180%;
+        margin-left: 172%;
+        background: wheat;
+    }
+    
+    
 
 
 
