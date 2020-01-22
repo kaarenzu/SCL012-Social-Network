@@ -56,21 +56,43 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
     <div class="login">
 		<h1>Crea tu cuenta</h1>
 			<form>
-				<input type="text" name="" placeholder="Nombre" class="input" requiere>
-    			<input type="text" name=""  placeholder="Apellido" class="input"requiere>
+				<input type="text" name="" id="nombre" placeholder="Nombre" class="input" requiere>
+    			<input type="text" name=""  id="apellido" placeholder="Apellido" class="input"requiere>
     			<input type="email" name="" id="email" placeholder="Usuario o correo electrónico" class="input"requiere>
     			<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
 				<p>Contraseña debe tener mínimo 8 caracteres.</p>
 				<p>Campos con * son obligatorios.</p>
 				<button id="registrarse" class="btn">Registrarse</button>
+				
 			</form>
 	</div>`;
 	//<-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
 		let email = document.getElementById('email').value;
 		let password = document.getElementById('password').value;
-		e.preventDefault();
-		createUser(email, password);
+		let nombre= document.getElementById('nombre').value;
+		let apellido= document.getElementById('apellido').value;
+	
+		let db = firebase.firestore();
+
+		db.collection("users").add({
+		  nombre: nombre,
+		  apellido:apellido
+		 
+	  })
+	  .then(function(docRef) {
+		  console.log("Document written with ID: ", docRef.id);
+			document.getElementById('nombre').value= '';
+			document.getElementById('apellido').value= '';
+			document.getElementById('email').value= '';
+			document.getElementById('password').value= '';
+	  })
+	  .catch(function(error) {
+		  console.error("Error adding document: ", error);
+	  });
+	  e.preventDefault();
+	  createUser(email, password);
+	
 	});
 });
 function observador() {
@@ -169,3 +191,8 @@ function mostrarHome(user) {
 // Ingresar con google 
 
 document.getElementById('gmail').addEventListener('click', ingresarGoogle);
+//funcion guardar datos 
+// Initialize Cloud Firestore through Firebase
+
+
+
