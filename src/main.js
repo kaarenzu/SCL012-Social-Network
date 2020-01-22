@@ -1,4 +1,4 @@
-import { signIn, createUser } from './lib/index.js';
+import { signIn, createUser, ingresarGoogle} from './lib/index.js';
 
 let contenido = document.getElementById('root');
 function mostrarLogin() {
@@ -129,4 +129,6 @@ function mostrarHome(user) {
 	}
 };
 
+// Ingresar con google 
 
+document.getElementById('gmail').addEventListener('click', ingresarGoogle);
