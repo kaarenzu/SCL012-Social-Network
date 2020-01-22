@@ -84,6 +84,7 @@ function mostrarHome(user) {
 		contenido.innerHTML = `
 		<header>
 			<nav>
+			<img src="img/menu.png" class="menu">		
 				<img src="img/logoblanco.png" class="imagenes">
 				<ul>
 					<li><a class="btnMenu">Inicio </a></li>
@@ -91,8 +92,9 @@ function mostrarHome(user) {
 					<li><a class="btnMenu"> Videojuegos</a></li>
 					<li><a class="btnMenu">Celulares</a></li>
 					<li><a class="btnMenu">Accesorios</a></li>
+					<img src="img/cerrablanco.png" class="cerrar"id="cerrarSesion">
 				</ul>
-			<img src="img/cerrablanco.png" class="cerrar"id="cerrarSesion">
+			
 			</nav> 
 		</header>
 
