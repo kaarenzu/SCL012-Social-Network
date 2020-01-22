@@ -94,17 +94,15 @@ function mostrarHome(user) {
 					<li><a class="btnMenu">Accesorios</a></li>
 					<img src="img/cerrablanco.png" class="cerrar"id="cerrarSesion">
 				</ul>
-			
 			</nav> 
 		</header>
-
 		<div class="contenedor"> 
 			<div>
 				<img src="img/icono-imagen.png" class="iconos">
 			</div>
 
 			<div>
-				<input type="text" id="post" class="post">
+				<input type="text" class="post">
 			</div>
 
 			<div>
@@ -112,12 +110,12 @@ function mostrarHome(user) {
 			</div>
 
 			<div>
-				<img src="img/comment.png" class="comentar" id="saveButton">
+				<img src="img/comment.png" class="comentar">
 			</div>                                                     
 		</div>		
 		`;
 		//<----------------Agregar documentos-------------------->
-		document.getElementById('saveButton').addEventListener('click', () => {
+		document.getElementById('publicar').addEventListener('click', () => {
 			let writePost=document.getElementById('post').value;
 			db.collection("post").add({
 				mensaje: writePost
@@ -130,6 +128,12 @@ function mostrarHome(user) {
 				console.error("Error adding document: ", error);
 			});
 		})
+		//<----------------Lee los datos y los imprime-------------------->
+		db.collection("users").get().then((querySnapshot) => {
+			querySnapshot.forEach((doc) => {
+				console.log(`${doc.id} => ${doc.data()}`);
+			});
+		});
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
 			firebase.auth().signOut()

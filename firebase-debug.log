@@ -248,3 +248,34 @@
 =======
 
 >>>>>>> f0086022445ce6ff7e0a65f290caf7bcd0b36a7f
+[debug] [2020-01-22T17:05:46.211Z] ----------------------------------------------------------------------
+[debug] [2020-01-22T17:05:46.213Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2020-01-22T17:05:46.214Z] CLI Version:   7.12.1
+[debug] [2020-01-22T17:05:46.214Z] Platform:      darwin
+[debug] [2020-01-22T17:05:46.214Z] Node Version:  v12.14.1
+[debug] [2020-01-22T17:05:46.215Z] Time:          Wed Jan 22 2020 14:05:46 GMT-0300 (GMT-03:00)
+[debug] [2020-01-22T17:05:46.215Z] ----------------------------------------------------------------------
+[debug] [2020-01-22T17:05:46.215Z] 
+[debug] [2020-01-22T17:05:46.224Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-22T17:05:46.224Z] > authorizing via signed-in user
+[debug] [2020-01-22T17:05:46.225Z] [iam] checking project tipstech-c6fe7 for permissions ["firebase.projects.get"]
+[debug] [2020-01-22T17:05:46.226Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-01-22T17:05:46.227Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-01-22T17:05:46.361Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T17:05:46.369Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tipstech-c6fe7:testIamPermissions  
+
+[debug] [2020-01-22T17:05:47.652Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T17:05:47.654Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7  
+ 
+[debug] [2020-01-22T17:05:48.062Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/corinacelestevaraspestano/Desktop/TipsTech/SCL012-Social-Network'...
+[info] 
+[debug] [2020-01-22T17:05:48.065Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7/webApps/-/config  
+ 
+[debug] [2020-01-22T17:05:48.545Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[info] i  hosting: Serving hosting files from: src
+[info] ✔  hosting: Local server: http://localhost:5010
