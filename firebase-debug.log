@@ -1,63 +1,46 @@
-[debug] [2020-01-20T14:04:57.138Z] ----------------------------------------------------------------------
-[debug] [2020-01-20T14:04:57.140Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
-[debug] [2020-01-20T14:04:57.140Z] CLI Version:   7.12.1
-[debug] [2020-01-20T14:04:57.140Z] Platform:      darwin
-[debug] [2020-01-20T14:04:57.140Z] Node Version:  v12.14.1
-[debug] [2020-01-20T14:04:57.141Z] Time:          Mon Jan 20 2020 11:04:57 GMT-0300 (GMT-03:00)
-[debug] [2020-01-20T14:04:57.141Z] ----------------------------------------------------------------------
-[debug] [2020-01-20T14:04:57.141Z] 
-[debug] [2020-01-20T14:04:57.151Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-01-20T14:04:57.151Z] > authorizing via signed-in user
-[debug] [2020-01-20T14:04:57.151Z] [iam] checking project tipstech-c6fe7 for permissions ["firebase.projects.get"]
-[debug] [2020-01-20T14:04:57.153Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2020-01-20T14:04:57.153Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[debug] [2020-01-22T13:50:41.942Z] ----------------------------------------------------------------------
+[debug] [2020-01-22T13:50:42.084Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cristian\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-01-22T13:50:42.085Z] CLI Version:   7.12.1
+[debug] [2020-01-22T13:50:42.085Z] Platform:      win32
+[debug] [2020-01-22T13:50:42.085Z] Node Version:  v10.16.3
+[debug] [2020-01-22T13:50:43.346Z] Time:          Wed Jan 22 2020 10:50:42 GMT-0300 (GMT-03:00)
+[debug] [2020-01-22T13:50:43.346Z] ----------------------------------------------------------------------
+[debug] [2020-01-22T13:50:43.346Z] 
+[debug] [2020-01-22T13:50:43.702Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-22T13:50:43.703Z] > authorizing via signed-in user
+[debug] [2020-01-22T13:50:43.704Z] [iam] checking project tipstech-c6fe7 for permissions ["firebase.projects.get"]
+[debug] [2020-01-22T13:50:43.710Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-01-22T13:50:43.711Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  <request body omitted>
-[debug] [2020-01-20T14:04:57.307Z] <<< HTTP RESPONSE 200
-[debug] [2020-01-20T14:04:57.314Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tipstech-c6fe7:testIamPermissions  
+[debug] [2020-01-22T13:50:45.659Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T13:50:45.749Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tipstech-c6fe7:testIamPermissions  
 
-[debug] [2020-01-20T14:04:58.360Z] <<< HTTP RESPONSE 200
-[debug] [2020-01-20T14:04:58.361Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7  
+[debug] [2020-01-22T13:50:47.169Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T13:50:47.172Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7  
  
-[debug] [2020-01-20T14:04:59.560Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T13:50:47.902Z] <<< HTTP RESPONSE 200
 [info] 
-[info] === Serving from '/Users/corinacelestevaraspestano/Desktop/TipsTech/SCL012-Social-Network'...
+[info] === Serving from 'C:\Users\Cristian\Desktop\RedSocial\SCL012-Social-Network'...
 [info] 
-[debug] [2020-01-20T14:04:59.563Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7/webApps/-/config  
+[debug] [2020-01-22T13:50:47.968Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7/webApps/-/config  
  
-[debug] [2020-01-20T14:05:00.922Z] <<< HTTP RESPONSE 200
-[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
-[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
-[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
-[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
-[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
-[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
-[info] i  hosting: Serving hosting files from: src
-[info] ✔  hosting: Local server: http://localhost:5030
-[debug] [2020-01-20T15:28:08.281Z] ----------------------------------------------------------------------
-[debug] [2020-01-20T15:28:08.335Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cristian\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
-[debug] [2020-01-20T15:28:08.336Z] CLI Version:   7.12.1
-[debug] [2020-01-20T15:28:08.337Z] Platform:      win32
-[debug] [2020-01-20T15:28:08.337Z] Node Version:  v10.16.3
-[debug] [2020-01-20T15:28:08.342Z] Time:          Mon Jan 20 2020 12:28:08 GMT-0300 (GMT-03:00)
-[debug] [2020-01-20T15:28:08.342Z] ----------------------------------------------------------------------
-[debug] [2020-01-20T15:28:08.342Z] 
-[debug] [2020-01-20T15:28:08.410Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-01-20T15:28:08.419Z] > authorizing via signed-in user
-[debug] [2020-01-20T15:28:08.420Z] [iam] checking project tipstech-c6fe7 for permissions ["firebase.projects.get"]
-[debug] [2020-01-20T15:28:08.431Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tipstech-c6fe7:testIamPermissions  
-
-[debug] [2020-01-20T15:28:09.723Z] <<< HTTP RESPONSE 200
-[debug] [2020-01-20T15:28:09.728Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7  
- 
-[debug] [2020-01-20T15:28:10.103Z] <<< HTTP RESPONSE 200
-[info] 
-[info] === Serving from 'C:\Users\Cristian\Desktop\redSocial\SCL012-Social-Network'...
-[info] 
-[debug] [2020-01-20T15:28:10.140Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7/webApps/-/config  
- 
-[debug] [2020-01-20T15:28:11.414Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T13:50:48.446Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: src
 [info] +  hosting: Local server: http://localhost:5000
+<<<<<<< HEAD
+[debug] [2020-01-22T13:51:31.244Z] ----------------------------------------------------------------------
+[debug] [2020-01-22T13:51:31.252Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cristian\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-01-22T13:51:31.252Z] CLI Version:   7.12.1
+[debug] [2020-01-22T13:51:31.253Z] Platform:      win32
+[debug] [2020-01-22T13:51:31.253Z] Node Version:  v10.16.3
+[debug] [2020-01-22T13:51:31.271Z] Time:          Wed Jan 22 2020 10:51:31 GMT-0300 (GMT-03:00)
+[debug] [2020-01-22T13:51:31.271Z] ----------------------------------------------------------------------
+[debug] [2020-01-22T13:51:31.271Z] 
+[debug] [2020-01-22T13:51:31.312Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-22T13:51:31.313Z] > authorizing via signed-in user
+[debug] [2020-01-22T13:51:31.314Z] [iam] checking project tipstech-c6fe7 for permissions ["firebase.projects.get"]
+[debug] [2020-01-22T13:51:31.323Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tipstech-c6fe7:testIamPermissions  
+=======
 [debug] [2020-01-21T20:11:13.618Z] ----------------------------------------------------------------------
 [debug] [2020-01-21T20:11:13.672Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cristian\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
 [debug] [2020-01-21T20:11:13.673Z] CLI Version:   7.12.1
@@ -74,57 +57,52 @@
  <request body omitted>
 [debug] [2020-01-21T20:11:14.808Z] <<< HTTP RESPONSE 200
 [debug] [2020-01-21T20:11:14.950Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tipstech-c6fe7:testIamPermissions  
+>>>>>>> 3c884ff54074057407fcf93d00aae56c64477b0d
 
-[debug] [2020-01-21T20:11:16.094Z] <<< HTTP RESPONSE 200
-[debug] [2020-01-21T20:11:16.098Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7  
+[debug] [2020-01-22T13:51:32.624Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T13:51:32.630Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7  
  
-[debug] [2020-01-21T20:11:17.224Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T13:51:33.860Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from 'C:\Users\Cristian\Desktop\RedSocial\SCL012-Social-Network'...
 [info] 
-[debug] [2020-01-21T20:11:17.331Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7/webApps/-/config  
+[debug] [2020-01-22T13:51:33.874Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7/webApps/-/config  
  
-[debug] [2020-01-21T20:11:18.812Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T13:51:34.360Z] <<< HTTP RESPONSE 200
+[warn] !  hosting: Port 5000 is not available. Trying another port...
 [info] i  hosting: Serving hosting files from: src
-[info] +  hosting: Local server: http://localhost:5000
-[debug] [2020-01-21T20:46:07.912Z] Error [ERR_STREAM_WRITE_AFTER_END]: write after end
-    at write_ (_http_outgoing.js:572:17)
-    at ServerResponse.write (_http_outgoing.js:567:10)
-    at ReadStream.ondata (_stream_readable.js:709:20)
-    at ReadStream.emit (events.js:198:13)
-    at ReadStream.EventEmitter.emit (domain.js:448:20)
-    at addChunk (_stream_readable.js:288:12)
-    at readableAddChunk (_stream_readable.js:269:11)
-    at ReadStream.Readable.push (_stream_readable.js:224:10)
-    at lazyFs.read (internal/fs/streams.js:181:12)
-    at FSReqWrap.wrapper [as oncomplete] (fs.js:467:17)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2020-01-21T20:48:42.272Z] ----------------------------------------------------------------------
-[debug] [2020-01-21T20:48:42.284Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cristian\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
-[debug] [2020-01-21T20:48:42.285Z] CLI Version:   7.12.1
-[debug] [2020-01-21T20:48:42.286Z] Platform:      win32
-[debug] [2020-01-21T20:48:42.286Z] Node Version:  v10.16.3
-[debug] [2020-01-21T20:48:42.380Z] Time:          Tue Jan 21 2020 17:48:42 GMT-0300 (GMT-03:00)
-[debug] [2020-01-21T20:48:42.380Z] ----------------------------------------------------------------------
-[debug] [2020-01-21T20:48:42.381Z] 
-[debug] [2020-01-21T20:48:42.539Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-01-21T20:48:42.541Z] > authorizing via signed-in user
-[debug] [2020-01-21T20:48:42.542Z] [iam] checking project tipstech-c6fe7 for permissions ["firebase.projects.get"]
-[debug] [2020-01-21T20:48:42.548Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tipstech-c6fe7:testIamPermissions  
+[info] +  hosting: Local server: http://localhost:5005
+[debug] [2020-01-22T15:49:27.728Z] ----------------------------------------------------------------------
+[debug] [2020-01-22T15:49:27.738Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Cristian\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-01-22T15:49:27.739Z] CLI Version:   7.12.1
+[debug] [2020-01-22T15:49:27.739Z] Platform:      win32
+[debug] [2020-01-22T15:49:27.739Z] Node Version:  v10.16.3
+[debug] [2020-01-22T15:49:27.743Z] Time:          Wed Jan 22 2020 12:49:27 GMT-0300 (GMT-03:00)
+[debug] [2020-01-22T15:49:27.743Z] ----------------------------------------------------------------------
+[debug] [2020-01-22T15:49:27.743Z] 
+[debug] [2020-01-22T15:49:27.869Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-22T15:49:27.871Z] > authorizing via signed-in user
+[debug] [2020-01-22T15:49:27.872Z] [iam] checking project tipstech-c6fe7 for permissions ["firebase.projects.get"]
+[debug] [2020-01-22T15:49:27.877Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-01-22T15:49:27.878Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-01-22T15:49:28.540Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T15:49:28.606Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/tipstech-c6fe7:testIamPermissions  
 
-[debug] [2020-01-21T20:48:44.075Z] <<< HTTP RESPONSE 200
-[debug] [2020-01-21T20:48:44.081Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7  
+[debug] [2020-01-22T15:49:30.234Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T15:49:30.248Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7  
  
-[debug] [2020-01-21T20:48:44.380Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T15:49:31.534Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from 'C:\Users\Cristian\Desktop\RedSocial\SCL012-Social-Network'...
 [info] 
-[debug] [2020-01-21T20:48:44.426Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7/webApps/-/config  
+[debug] [2020-01-22T15:49:31.673Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/tipstech-c6fe7/webApps/-/config  
  
-[debug] [2020-01-21T20:48:44.975Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-22T15:49:33.101Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: src
 [info] +  hosting: Local server: http://localhost:5000
+<<<<<<< HEAD
+=======
 =======
 [debug] [2020-01-21T15:43:44.744Z] ----------------------------------------------------------------------
 [debug] [2020-01-21T15:43:44.748Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
@@ -247,4 +225,8 @@
 [info] ✔  hosting: Local server: http://localhost:5010
 =======
 
+<<<<<<< HEAD
+>>>>>>> 3c884ff54074057407fcf93d00aae56c64477b0d
+=======
 >>>>>>> f0086022445ce6ff7e0a65f290caf7bcd0b36a7f
+>>>>>>> 87df1eecd912be6fdc5a4bfcb24676832e3e5d7d
