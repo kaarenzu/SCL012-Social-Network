@@ -116,6 +116,20 @@ function mostrarHome(user) {
 			</div>                                                     
 		</div>		
 		`;
+		//<----------------Agregar documentos-------------------->
+		document.getElementById('saveButton').addEventListener('click', () => {
+			let writePost=document.getElementById('post').value;
+			db.collection("post").add({
+				mensaje: writePost
+			})
+			.then(function(docRef) {
+				console.log("Document written with ID: ", docRef.id);
+				document.getElementById('post').value=''; //para que después de enviar los datos se vacié el input
+			})
+			.catch(function(error) {
+				console.error("Error adding document: ", error);
+			});
+		})
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
 			firebase.auth().signOut()
@@ -129,18 +143,6 @@ function mostrarHome(user) {
 		});
 	}
 };
-//<----------------Agregar documentos-------------------->
-db.collection("users").add({
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
-})
-.then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
-})
-.catch(function(error) {
-    console.error("Error adding document: ", error);
-});
 
 
 
