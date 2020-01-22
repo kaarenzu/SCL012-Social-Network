@@ -1,6 +1,25 @@
 import { signIn, createUser, ingresarGoogle} from './lib/index.js';
 
 let contenido = document.getElementById('root');
+loginPage();
+function loginPage() {
+	contenido.innerHTML = `	
+	<div>
+		<img src="img/logo tech.png" class="logo">
+	  </div>
+	  <div class="login">
+		<h1>Inicia sesión</h1>
+		<form>
+			  <input type="email" name="" id="email2" placeholder=" Correo electrónico" class="input" required>
+			  <input type="password" name="" id="password2" placeholder=" **************" class="input" required>
+			  <button id="ingresar" class="btn">Ingresar</button>
+		</form>
+			<button id="gmail" class="btn2">Gmail</button>
+			<a href="#" class="recuperar">¿Olvidaste tu contraseña? Recupérala Aquí</a>
+			  <a href="#" id="crearCuenta" class="aqui">Crear cuenta aquí</a> 
+	  </div>`;
+};
+
 function mostrarLogin() {
 	window.location.hash = '/Inicio';
 	contenido.innerHTML = `	
@@ -110,29 +129,29 @@ function mostrarHome(user) {
 
 			<div>
 				<img src="img/comment.png" class="comentar">
-			</div>                                                     
-		</div>		
+			</div>                                                      
+		</div>
 		`;
-		//<----------------Agregar documentos-------------------->
-		document.getElementById('publicar').addEventListener('click', () => {
-			let writePost=document.getElementById('post').value;
-			db.collection("post").add({
-				mensaje: writePost
-			})
-			.then(function(docRef) {
-				console.log("Document written with ID: ", docRef.id);
-				document.getElementById('post').value=''; //para que después de enviar los datos se vacié el input
-			})
-			.catch(function(error) {
-				console.error("Error adding document: ", error);
-			});
-		})
+		// //<----------------Agregar documentos-------------------->
+		// document.getElementById('publicar').addEventListener('click', () => {
+		// 	let writePost=document.getElementById('post').value;
+		// 	db.collection("post").add({
+		// 		mensaje: writePost
+		// 	})
+		// 	.then(function(docRef) {
+		// 		console.log("Document written with ID: ", docRef.id);
+		// 		document.getElementById('post').value=''; //para que después de enviar los datos se vacié el input
+		// 	})
+		// 	.catch(function(error) {
+		// 		console.error("Error adding document: ", error);
+		// 	});
+		// })
 		//<----------------Lee los datos y los imprime-------------------->
-		db.collection("users").get().then((querySnapshot) => {
-			querySnapshot.forEach((doc) => {
-				console.log(`${doc.id} => ${doc.data()}`);
-			});
-		});
+		// db.collection("users").get().then((querySnapshot) => {
+		// 	querySnapshot.forEach((doc) => {
+		// 		console.log(`${doc.id} => ${doc.data()}`);
+		// 	});
+		// });
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
 			firebase.auth().signOut()
