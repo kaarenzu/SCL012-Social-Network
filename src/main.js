@@ -1,4 +1,5 @@
 import { signIn, createUser } from './lib/index.js';
+let db = firebase.firestore();
 
 let contenido = document.getElementById('root');
 function mostrarLogin() {
@@ -109,7 +110,7 @@ function mostrarHome(user) {
 			</div>
 
 			<div>
-				<img src="img/comment.png" class="comentar" id="comentar">
+				<img src="img/comment.png" class="comentar" id="saveButton">
 			</div>                                                     
 		</div>		
 		`;
@@ -126,5 +127,18 @@ function mostrarHome(user) {
 		});
 	}
 };
+//<----------------Agregar documentos-------------------->
+db.collection("users").add({
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+})
+.then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+})
+.catch(function(error) {
+    console.error("Error adding document: ", error);
+});
+
 
 
