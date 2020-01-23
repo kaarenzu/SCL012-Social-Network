@@ -9,6 +9,7 @@ body{
     background-image: url("img/fondo-web.jpg");
     font-family: 'PT Sans', sans-serif;
     background-repeat: no-repeat;
+    margin: 0px !important;
 }
 
 h1{
@@ -90,7 +91,7 @@ h1{
 }
 
 header{
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100px;
     left: 0px;
@@ -129,7 +130,7 @@ li{
     font-size: 130%;
 }
 
-.post{
+/* .post{
     margin-top: 134%;
     margin-left: -292%;
     position: relative;
@@ -141,7 +142,7 @@ li{
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-}
+} */
 
 .cerrar{
     cursor: pointer;
@@ -162,9 +163,14 @@ li{
     top: 63%;
 }
 
-.contenedor{
-    display: flex;
+.contenedor {
+    position: relative;
+    display: block;
+    min-height: 220px;
+    max-height: 90%;
+    width: 100%;
 }
+
 
 .comentar{
     position: absolute;
@@ -173,6 +179,81 @@ li{
     top: 411px;
 }
 
+    /* Caja de post */
+    .divPrincipalPublicar {
+        width: 400px;
+        height: 80px;
+        margin-left: 60px;
+        background-color: #E0E2FA;
+        top:15px;
+        border-radius: 3px;
+        box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+        z-index: 3;
+        position: absolute;
+      }
+      .inputPost{
+        width: 400px;
+        height: 80px;
+        background-color: #E0E2FA;
+      } 
+
+    .divPrincipalImg {
+      height: 120px;
+      width: 500px;
+      margin: 50px auto;
+      overflow: hidden;
+      padding: 20px;
+      z-index: 3;
+      position: relative;
+    }
+
+  section {
+    float: right;
+    width: 90%;
+  }
+  section div img {
+    float: left;
+    width: 60px;
+    height: 60px;
+  }
+  section div textarea {
+    width: 400px;
+    height: 60px;
+    border: none;
+    padding: 5px 10px;
+    font-family: arial;
+    resize: none;
+    outline: none;
+  }
+  textarea::-webkit-scrollbar {
+    width: 0px;
+    background-color: transparent;
+  }
+  textarea::-webkit-scrollbar-thumb {
+    background-color: #CCC;
+    border-radius: 2px
+  }
+  section div [type = submit] {
+    float: right;
+    margin: 15px 10px auto auto;
+    border: none;
+    background-color: #0077CC;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+ 
+  .post {
+    background-color: #fff;
+    width: 500px;
+    margin: 10px auto;
+    padding: 10px;
+    color: #333;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    border-radius: 3px;
+  }
 @media screen and (max-width:576px) {
     h1 {
      color: transparent;

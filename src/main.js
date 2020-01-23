@@ -1,6 +1,9 @@
-import { signIn, createUser } from './lib/index.js';
+import { signIn, createUser, ingresarGoogle} from './lib/index.js';
 
 let contenido = document.getElementById('root');
+var db = firebase.firestore();
+mostrarLogin();
+
 function mostrarLogin() {
 	window.location.hash = '/Inicio';
 	contenido.innerHTML = `	
@@ -27,6 +30,8 @@ document.getElementById('ingresar').addEventListener('click', (e) => {
 	e.preventDefault();
 	signIn(email2, password2);
 });
+//<-------------Ingresar con Google-------------->
+document.getElementById('gmail').addEventListener('click', ingresarGoogle);
 //<-------------Link crea tu cuenta aquí-------------->
 document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
@@ -37,8 +42,8 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
     <div class="login">
 		<h1>Crea tu cuenta</h1>
 			<form>
-				<input type="text" name="" placeholder="Nombre" class="input" requiere>
-    			<input type="text" name=""  placeholder="Apellido" class="input"requiere>
+				<input type="text" name="" id="nombre" placeholder="Nombre" class="input" requiere>
+    			<input type="text" name=""  id="apellido" placeholder="Apellido" class="input"requiere>
     			<input type="email" name="" id="email" placeholder="Usuario o correo electrónico" class="input"requiere>
     			<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
 				<p>Contraseña debe tener mínimo 8 caracteres.</p>
@@ -51,7 +56,29 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 		let email = document.getElementById('email').value;
 		let password = document.getElementById('password').value;
 		e.preventDefault();
-		createUser(email, password);
+		createUser(email, password);	
+		let nombre= document.getElementById('nombre').value;
+		let apellido= document.getElementById('apellido').value;
+
+		let db = firebase.firestore();
+
+		db.collection("users").add({
+		  nombre: nombre,
+		  apellido:apellido
+	  })
+	  .then(function(docRef) {
+		  console.log("Document written with ID: ", docRef.id);
+			document.getElementById('nombre').value= '';
+			document.getElementById('apellido').value= '';
+			document.getElementById('email').value= '';
+			document.getElementById('password').value= '';
+	  })
+	  .catch(function(error) {
+		  console.error("Error adding document: ", error);
+	  });
+	  e.preventDefault();
+	  createUser(email, password);
+
 	});
 });
 function observador() {
@@ -82,39 +109,69 @@ function mostrarHome(user) {
 		window.location.hash = '/Home';
 		contenido.innerHTML = `
 		<header>
-			<nav>
-			<img src="img/menu.png" class="menu">		
-				<img src="img/logoblanco.png" class="imagenes">
-				<ul>
-					<li><a class="btnMenu">Inicio </a></li>
-					<li><a class="btnMenu">Computación</a></li>
-					<li><a class="btnMenu"> Videojuegos</a></li>
-					<li><a class="btnMenu">Celulares</a></li>
-					<li><a class="btnMenu">Accesorios</a></li>
-					<img src="img/cerrablanco.png" class="cerrar"id="cerrarSesion">
-				</ul>
-			
-			</nav> 
-		</header>
-
-		<div class="contenedor"> 
-			<div>
-				<img src="img/icono-imagen.png" class="iconos">
+		<nav>
+			<img src="img/menu.png" class="menu">
+			<img src="img/logoblanco.png" class="imagenes">
+			<ul>
+				<li><a class="btnMenu">Inicio </a></li>
+				<li><a class="btnMenu">Computación</a></li>
+				<li><a class="btnMenu"> Videojuegos</a></li>
+				<li><a class="btnMenu">Celulares</a></li>
+				<li><a class="btnMenu">Accesorios</a></li>
+				<img src="img/cerrablanco.png" class="cerrar" id="cerrarSesion">
+			</ul>
+		</nav>
+	</header>
+   <!----------------- Escribe aquí tu publicación  --------------------->
+	<div class="contenedor">
+		<div class="divPrincipalImg">
+			<img src="img/icono-imagen.png" style="width: 40px; height:40px">
+			<div class="divPrincipalPublicar">
+				<input id="post" class="inputPost" type="text">
 			</div>
-
-			<div>
-				<input type="text" id="post" class="post">
-			</div>
-
-			<div>
-				<img src="img/like.png" class="like" id="like">
-			</div>
-
-			<div>
-				<img src="img/comment.png" class="comentar" id="comentar">
-			</div>                                                     
-		</div>		
+			<img id="publicar" src="./img/comment.png"
+				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
+		</div>
+	</div>
+	
 		`;
+		//<----------------Agregar documentos-------------------->
+		document.getElementById('publicar').addEventListener('click', () => {
+			let writePost=document.getElementById('post').value;
+			db.collection("post").add({
+				mensaje: writePost
+			})
+			.then(function(docRef) {
+				console.log("Document written with ID: ", docRef.id);
+				document.getElementById('post').value=''; //para que después de enviar los datos se vacié el input
+			})
+			.catch(function(error) {
+				console.error("Error adding document: ", error);
+			});
+		})
+		//<!----------------Lee los datos y los imprime-------------------->
+		db.collection("post").get().then((querySnapshot) => {
+			querySnapshot.forEach((doc) => {
+			// <!----------------- Post dinámicos  --------------------->
+				contenido.innerHTML+=`
+			<div class="postDinamico">
+			<div class="divPrincipalImg">
+			<img src="img/icono-imagen.png" style="width: 40px; height:40px">
+			<div class="divPrincipalPublicar">
+				<input class="inputPost" type="text" value="${doc.data().mensaje}">
+			</div>
+			<img src="./img/comment.png"
+				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
+			<img src="./img/comment.png"
+				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
+			<img src="./img/comment.png"
+				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
+			</div>
+			</div>
+				`
+				console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+			});
+		});
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
 			firebase.auth().signOut()
