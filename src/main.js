@@ -247,10 +247,5 @@ function mostrarPost (){
 			});
 		});
 	});
-	//<!----------------Lee los datos y los imprime-------------------->
-	
-	
-	
-
 }
 
