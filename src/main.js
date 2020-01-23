@@ -1,7 +1,7 @@
 import { signIn, createUser, ingresarGoogle} from './lib/index.js';
 
 let contenido = document.getElementById('root');
-let db = firebase.firestore();
+var db = firebase.firestore();
 mostrarLogin();
 
 function mostrarLogin() {
@@ -56,28 +56,28 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 		let email = document.getElementById('email').value;
 		let password = document.getElementById('password').value;
 		e.preventDefault();
-		createUser(email, password);
-		let nombre = document.getElementById('nombre').value;
-		let apellido = document.getElementById('apellido').value;
+		createUser(email, password);	
+		let nombre= document.getElementById('nombre').value;
+		let apellido= document.getElementById('apellido').value;
 
 		let db = firebase.firestore();
 
 		db.collection("users").add({
-			nombre: nombre,
-			apellido: apellido
-		})
-			.then(function (docRef) {
-				console.log("Document written with ID: ", docRef.id);
-				document.getElementById('nombre').value = '';
-				document.getElementById('apellido').value = '';
-				document.getElementById('email').value = '';
-				document.getElementById('password').value = '';
-			})
-			.catch(function (error) {
-				console.error("Error adding document: ", error);
-			});
-		e.preventDefault();
-		createUser(email, password);
+		  nombre: nombre,
+		  apellido:apellido
+	  })
+	  .then(function(docRef) {
+		  console.log("Document written with ID: ", docRef.id);
+			document.getElementById('nombre').value= '';
+			document.getElementById('apellido').value= '';
+			document.getElementById('email').value= '';
+			document.getElementById('password').value= '';
+	  })
+	  .catch(function(error) {
+		  console.error("Error adding document: ", error);
+	  });
+	  e.preventDefault();
+	  createUser(email, password);
 
 	});
 });
@@ -114,11 +114,9 @@ function mostrarHome(user) {
     <section class="title">
         <h1>TIPS TECH</h1>
     </section>
-
     <header>
         <nav class="navegacion">
             <ul class="menu">
-
                 <li class="first-item">
                     <a href="">
                         <img src="img/01.png" alt="" class="imagen">
@@ -126,8 +124,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/02.png" alt="" class="imagen">
@@ -135,8 +131,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/03.png" alt="" class="imagen">
@@ -144,8 +138,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/04.png" alt="" class="imagen">
@@ -153,8 +145,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/05.png" alt="" class="imagen">
@@ -162,8 +152,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li id="cerrarSesion">
                     <a href="">
                         <img src="img/06.png" alt="" class="imagen">
@@ -171,14 +159,11 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
             </ul>
         </nav>
     </header>
 		
 		
-
-
    <!----------------- Escribe aquí tu publicación  --------------------->
 	<div class="contenedor">
 		<div class="divPrincipalImg">
@@ -190,20 +175,9 @@ function mostrarHome(user) {
 				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
 		</div>
 	</div>
+	
 		`;
-		//<-------------Función botón Cerrar Sesión-------------->
-		document.getElementById('cerrarSesion').addEventListener('click', () => {
-			firebase.auth().signOut()
-				.then(function () {
-					mostrarLogin();
-					console.log('Saliendo...')
-				})
-				.catch(function (error) {
-					console.log(error);
-				})
-		});
 		//<----------------Agregar documentos-------------------->
-
 		
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
@@ -240,30 +214,6 @@ function mostrarPost (){
 			// <!----------------- Post dinámicos  --------------------->
 				mostrar.innerHTML+=`
 			<div class="postDinamico">
-
-		document.getElementById('publicar').addEventListener('click', () => {
-			console.log('entro click al publicar btn')
-			
-			let writePost = document.getElementById('post').value;
-			db.collection("post").add({
-				mensaje: writePost
-			})
-				.then(function (docRef) {
-					console.log("Document written with ID: ", docRef.id);
-					document.getElementById('post').value = ''; //para que después de enviar los datos se vacié el input
-				})
-				.catch(function (error) {
-					console.error("Error adding document: ", error);
-				});
-		})
-		//<!----------------Lee los datos y los imprime-------------------->
-		db.collection("post").onSnapshot((querySnapshot) => {
-			querySnapshot.forEach((doc) => {
-				
-				// <!----------------- Post dinámicos  --------------------->
-				
-				contenido.innerHTML += `
-			<div id="postDinamicos" class="postDinamico">
 			<div class="divPrincipalImg">
 			<img src="img/iconopost.png" style="width: 40px; height:40px">
 			<div class="divPrincipalPublicar">
@@ -281,17 +231,10 @@ function mostrarPost (){
 				console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 			});
 		});
-
 	});
 	//<!----------------Lee los datos y los imprime-------------------->
 	
 	
 	
 
-		
-	}
-};
-
-
 }
-
