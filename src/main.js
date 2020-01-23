@@ -150,7 +150,7 @@ function mostrarHome(user) {
 			});
 		})
 		//<!----------------Lee los datos y los imprime-------------------->
-		db.collection("post").get().then((querySnapshot) => {
+		db.collection("post").onSnapshot((querySnapshot) => {
 			querySnapshot.forEach((doc) => {
 			// <!----------------- Post dinámicos  --------------------->
 				contenido.innerHTML+=`
