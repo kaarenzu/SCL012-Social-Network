@@ -130,13 +130,13 @@ function mostrarHome(user) {
 		//<!----------------Lee los datos y los imprime-------------------->
 		db.collection("post").get().then((querySnapshot) => {
 			querySnapshot.forEach((doc) => {
+			// <!----------------- Post dinámicos  --------------------->
 				contenido.innerHTML+=`
-				<!----------------- Post dinámicos  --------------------->
 			<div class="postDinamico">
 			<div class="divPrincipalImg">
 			<img src="img/icono-imagen.png" style="width: 40px; height:40px">
 			<div class="divPrincipalPublicar">
-				<input class="inputPost" type="text">
+				<input class="inputPost" type="text" value="${doc.data().mensaje}">
 			</div>
 			<img src="./img/comment.png"
 				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
@@ -147,7 +147,7 @@ function mostrarHome(user) {
 			</div>
 			</div>
 				`
-				console.log(`${doc.id} => ${doc.data()}`);
+				console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 			});
 		});
 		//<-------------Función botón Cerrar Sesión-------------->
