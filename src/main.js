@@ -108,28 +108,84 @@ function mostrarHome(user) {
 	if (user.emailVerified) {
 		window.location.hash = '/Home';
 		contenido.innerHTML = `
-		<header>
-		<nav>
-			<img src="img/menu.png" class="menu">
-			<img src="img/logoblanco.png" class="imagenes">
-			<ul>
-				<li><a class="btnMenu">Inicio </a></li>
-				<li><a class="btnMenu">Computación</a></li>
-				<li><a class="btnMenu"> Videojuegos</a></li>
-				<li><a class="btnMenu">Celulares</a></li>
-				<li><a class="btnMenu">Accesorios</a></li>
-				<img src="img/cerrablanco.png" class="cerrar" id="cerrarSesion">
-			</ul>
-		</nav>
-	</header>
-    <!----------------- Escribe aquí tu publicación  --------------------->
+		
+		<!------------ Menú de navegación ----------->
+    <section class="title">
+        <h1>TIPS TECH</h1>
+    </section>
+
+    <header>
+        <nav class="navegacion">
+            <ul class="menu">
+
+                <li class="first-item">
+                    <a href="">
+                        <img src="img/01.png" alt="" class="imagen">
+                        <span class="text-item">Inicio</span>
+                        <span class="down-item"></span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="">
+                        <img src="img/02.png" alt="" class="imagen">
+                        <span class="text-item">Computación</span>
+                        <span class="down-item"></span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="">
+                        <img src="img/03.png" alt="" class="imagen">
+                        <span class="text-item">Videojuegos</span>
+                        <span class="down-item"></span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="">
+                        <img src="img/04.png" alt="" class="imagen">
+                        <span class="text-item">Celulares</span>
+                        <span class="down-item"></span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="">
+                        <img src="img/05.png" alt="" class="imagen">
+                        <span class="text-item">Accesorios</span>
+                        <span class="down-item"></span>
+                    </a>
+                </li>
+
+
+                <li id="cerrarSesion">
+                    <a href="">
+                        <img src="img/06.png" alt="" class="imagen">
+                        <span class="text-item">Mi sesión</span>
+                        <span class="down-item"></span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+		
+		
+
+
+   <!----------------- Escribe aquí tu publicación  --------------------->
 	<div class="contenedor">
 		<div class="divPrincipalImg">
-			<img src="img/icono-imagen.png" style="width: 40px; height:40px">
+			<img src="img/iconopost.png" style="width: 40px; height:40px">
 			<div class="divPrincipalPublicar">
 				<input id="post" class="inputPost" type="text">
 			</div>
-			<img id="publicar" src="./img/comment.png"
+			<img id="publicar" src="./img/publicar.png"
 				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
 		</div>
 	</div>
@@ -167,15 +223,15 @@ function mostrarHome(user) {
 				contenido.innerHTML += `
 			<div class="postDinamico">
 			<div class="divPrincipalImg">
-			<img src="img/icono-imagen.png" style="width: 40px; height:40px">
+			<img src="img/iconopost.png" style="width: 40px; height:40px">
 			<div class="divPrincipalPublicar">
 				<input class="inputPost" type="text" value="${doc.data().mensaje}">
 			</div>
-			<img src="./img/comment.png"
+			<img src="./img/publicar.png"
 				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
-			<img src="./img/comment.png"
+			<img src="./img/publicar.png"
 				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
-			<img src="./img/comment.png"
+			<img src="./img/publicar.png"
 				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
 			</div>
 			</div>
