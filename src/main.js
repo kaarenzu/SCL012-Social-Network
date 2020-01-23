@@ -43,7 +43,7 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 		<h1>Crea tu cuenta</h1>
 			<form>
 				<input type="text" name="" id="nombre" placeholder="Nombre" class="input" requiere>
-    			<input type="text" name="" id="apellido" placeholder="Apellido" class="input"requiere>
+    			<input type="text" name=""  id="apellido" placeholder="Apellido" class="input"requiere>
     			<input type="email" name="" id="email" placeholder="Usuario o correo electrónico" class="input"requiere>
     			<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
 				<p>Contraseña debe tener mínimo 8 caracteres.</p>
@@ -78,6 +78,7 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 	  });
 	  e.preventDefault();
 	  createUser(email, password);
+
 	});
 });
 function observador() {
