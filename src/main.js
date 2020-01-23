@@ -204,6 +204,7 @@ function mostrarHome(user) {
 		//<----------------Agregar documentos-------------------->
 		document.getElementById('publicar').addEventListener('click', () => {
 			console.log('entro click al publicar btn')
+			
 			let writePost = document.getElementById('post').value;
 			db.collection("post").add({
 				mensaje: writePost
@@ -219,9 +220,11 @@ function mostrarHome(user) {
 		//<!----------------Lee los datos y los imprime-------------------->
 		db.collection("post").onSnapshot((querySnapshot) => {
 			querySnapshot.forEach((doc) => {
+				
 				// <!----------------- Post dinámicos  --------------------->
+				
 				contenido.innerHTML += `
-			<div class="postDinamico">
+			<div id="postDinamicos" class="postDinamico">
 			<div class="divPrincipalImg">
 			<img src="img/iconopost.png" style="width: 40px; height:40px">
 			<div class="divPrincipalPublicar">
