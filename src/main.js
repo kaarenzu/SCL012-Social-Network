@@ -86,6 +86,7 @@ function observador() {
 		if (user) {
 			console.log('existe usuario activo');
 			mostrarHome(user);
+			mostrarPost();
 			// User is signed in.
 			var displayName = user.displayName;
 			var email = user.email;
@@ -192,24 +193,41 @@ function mostrarHome(user) {
 	
 		`;
 		//<----------------Agregar documentos-------------------->
-		document.getElementById('publicar').addEventListener('click', () => {
-			let writePost=document.getElementById('post').value;
-			db.collection("post").add({
-				mensaje: writePost
-			})
-			.then(function(docRef) {
-				console.log("Document written with ID: ", docRef.id);
-				document.getElementById('post').value=''; //para que después de enviar los datos se vacié el input
-			})
-			.catch(function(error) {
-				console.error("Error adding document: ", error);
-			});
+		
+		//<-------------Función botón Cerrar Sesión-------------->
+		document.getElementById('cerrarSesion').addEventListener('click', () => {
+			firebase.auth().signOut()
+				.then(function () {
+					mostrarLogin();
+					console.log('Saliendo...')
+				})
+				.catch(function (error) {
+					console.log(error);
+				})
+		});
+	}
+};
+
+function mostrarPost (){
+	
+	document.getElementById('publicar').addEventListener('click', () => {
+		let writePost=document.getElementById('post').value;
+		let mostrar=document.getElementById('mostrar')
+		db.collection("post").add({
+			mensaje: writePost
 		})
-		//<!----------------Lee los datos y los imprime-------------------->
+		.then(function(docRef) {
+			console.log("Document written with ID: ", docRef.id);
+			document.getElementById('post').value=''; //para que después de enviar los datos se vacié el input
+		})
+		.catch(function(error) {
+			console.error("Error adding document: ", error);
+		});
 		db.collection("post").onSnapshot((querySnapshot) => {
 			querySnapshot.forEach((doc) => {
+				
 			// <!----------------- Post dinámicos  --------------------->
-				contenido.innerHTML+=`
+				mostrar.innerHTML+=`
 			<div class="postDinamico">
 			<div class="divPrincipalImg">
 			<img src="img/iconopost.png" style="width: 40px; height:40px">
@@ -228,18 +246,11 @@ function mostrarHome(user) {
 				console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 			});
 		});
-		//<-------------Función botón Cerrar Sesión-------------->
-		document.getElementById('cerrarSesion').addEventListener('click', () => {
-			firebase.auth().signOut()
-				.then(function () {
-					mostrarLogin();
-					console.log('Saliendo...')
-				})
-				.catch(function (error) {
-					console.log(error);
-				})
-		});
-	}
-};
+	});
+	//<!----------------Lee los datos y los imprime-------------------->
+	
+	
+	
 
+}
 
