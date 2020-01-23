@@ -1,6 +1,7 @@
 import { signIn, createUser, ingresarGoogle} from './lib/index.js';
 
 let contenido = document.getElementById('root');
+var db = firebase.firestore();
 mostrarLogin();
 
 function mostrarLogin() {
@@ -86,57 +87,69 @@ function mostrarHome(user) {
 		window.location.hash = '/Home';
 		contenido.innerHTML = `
 		<header>
-			<nav>
-			<img src="img/menu.png" class="menu">		
-				<img src="img/logoblanco.png" class="imagenes">
-				<ul>
-					<li><a class="btnMenu">Inicio </a></li>
-					<li><a class="btnMenu">Computación</a></li>
-					<li><a class="btnMenu"> Videojuegos</a></li>
-					<li><a class="btnMenu">Celulares</a></li>
-					<li><a class="btnMenu">Accesorios</a></li>
-					<img src="img/cerrablanco.png" class="cerrar"id="cerrarSesion">
-				</ul>
-			</nav> 
-		</header>
-		<div class="contenedor"> 
-			<div>
-				<img src="img/icono-imagen.png" class="iconos">
+		<nav>
+			<img src="img/menu.png" class="menu">
+			<img src="img/logoblanco.png" class="imagenes">
+			<ul>
+				<li><a class="btnMenu">Inicio </a></li>
+				<li><a class="btnMenu">Computación</a></li>
+				<li><a class="btnMenu"> Videojuegos</a></li>
+				<li><a class="btnMenu">Celulares</a></li>
+				<li><a class="btnMenu">Accesorios</a></li>
+				<img src="img/cerrablanco.png" class="cerrar" id="cerrarSesion">
+			</ul>
+		</nav>
+	</header>
+   <!----------------- Escribe aquí tu publicación  --------------------->
+	<div class="contenedor">
+		<div class="divPrincipalImg">
+			<img src="img/icono-imagen.png" style="width: 40px; height:40px">
+			<div class="divPrincipalPublicar">
+				<input id="post" class="inputPost" type="text">
 			</div>
-
-			<div>
-				<input type="text" class="post">
-			</div>
-
-			<div>
-				<img src="img/like.png" class="like" id="like">
-			</div>
-
-			<div>
-				<img src="img/comment.png" class="comentar">
-			</div>                                                      
+			<img id="publicar" src="./img/comment.png"
+				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
 		</div>
+	</div>
+	
 		`;
-		// //<----------------Agregar documentos-------------------->
-		// document.getElementById('publicar').addEventListener('click', () => {
-		// 	let writePost=document.getElementById('post').value;
-		// 	db.collection("post").add({
-		// 		mensaje: writePost
-		// 	})
-		// 	.then(function(docRef) {
-		// 		console.log("Document written with ID: ", docRef.id);
-		// 		document.getElementById('post').value=''; //para que después de enviar los datos se vacié el input
-		// 	})
-		// 	.catch(function(error) {
-		// 		console.error("Error adding document: ", error);
-		// 	});
-		// })
-		//<----------------Lee los datos y los imprime-------------------->
-		// db.collection("users").get().then((querySnapshot) => {
-		// 	querySnapshot.forEach((doc) => {
-		// 		console.log(`${doc.id} => ${doc.data()}`);
-		// 	});
-		// });
+		//<----------------Agregar documentos-------------------->
+		document.getElementById('publicar').addEventListener('click', () => {
+			let writePost=document.getElementById('post').value;
+			db.collection("post").add({
+				mensaje: writePost
+			})
+			.then(function(docRef) {
+				console.log("Document written with ID: ", docRef.id);
+				document.getElementById('post').value=''; //para que después de enviar los datos se vacié el input
+			})
+			.catch(function(error) {
+				console.error("Error adding document: ", error);
+			});
+		})
+		//<!----------------Lee los datos y los imprime-------------------->
+		db.collection("post").get().then((querySnapshot) => {
+			querySnapshot.forEach((doc) => {
+				contenido.innerHTML+=`
+				<!----------------- Post dinámicos  --------------------->
+			<div class="postDinamico">
+			<div class="divPrincipalImg">
+			<img src="img/icono-imagen.png" style="width: 40px; height:40px">
+			<div class="divPrincipalPublicar">
+				<input class="inputPost" type="text">
+			</div>
+			<img src="./img/comment.png"
+				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
+			<img src="./img/comment.png"
+				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
+			<img src="./img/comment.png"
+				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
+			</div>
+			</div>
+				`
+				console.log(`${doc.id} => ${doc.data()}`);
+			});
+		});
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
 			firebase.auth().signOut()
