@@ -170,7 +170,7 @@ function mostrarHome(user) {
 		<div class="divPrincipalImg">
 			<img src="img/iconopost.png" style="width: 40px; height:40px">
 			<div class="divPrincipalPublicar">
-				<input id="post" class="inputPost" type="text">
+				<textarea id="post" class="inputPost" type="text"></textarea>
 			</div>
 			<img id="publicar" src="./img/publicar.png"
 				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
@@ -201,6 +201,7 @@ function guardarPost(){
 		
 		db.collection("post").add({
 			mensaje: writePost
+			// datetime: timestamp
 		})
 		.then(function(docRef) {
 			console.log("Document written with ID: ", docRef.id);
@@ -228,13 +229,13 @@ function mostrarPost(){
 		<div class="divPrincipalImg">
 		<img src="img/iconopost.png" style="width: 40px; height:40px">
 		<div class="divPrincipalPublicar">
-			<input class="inputPost" type="text" value="${doc.data().mensaje}">
+			<textarea class="inputPost" type="text">${doc.data().mensaje}</textarea>
 		</div>
-		<img src="./img/publicar.png"
+		<img src="./img/eliminar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
-		<img src="./img/publicar.png"
+		<img src="./img/editar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
-		<img src="./img/publicar.png"
+		<img src="./img/megusta.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
 		</div>
 		</div>
@@ -246,6 +247,3 @@ function mostrarPost(){
 	
 
 }
-
-	
-
