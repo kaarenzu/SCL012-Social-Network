@@ -177,8 +177,7 @@ function mostrarHome(user) {
 	</div>
 	
 		`;
-		//<----------------Agregar documentos-------------------->
-		
+	
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
 			firebase.auth().signOut()
@@ -208,11 +207,12 @@ function mostrarPost (){
 		.catch(function(error) {
 			console.error("Error adding document: ", error);
 		});
+		//<!----------------Lee los datos y los imprime-------------------->
 		db.collection("post").onSnapshot((querySnapshot) => {
 			querySnapshot.forEach((doc) => {
 				
 			// <!----------------- Post dinámicos  --------------------->
-				mostrar.innerHTML+=`
+			mostrar.innerHTML+=`
 			<div class="postDinamico">
 			<div class="divPrincipalImg">
 			<img src="img/iconopost.png" style="width: 40px; height:40px">
@@ -232,7 +232,7 @@ function mostrarPost (){
 			});
 		});
 	});
-	//<!----------------Lee los datos y los imprime-------------------->
+	
 	
 	
 	
