@@ -231,9 +231,8 @@ function guardarPost(){
 function mostrarPost(){
 	//<!----------------Lee los datos y los imprime-------------------->
 	db.collection("post").onSnapshot((querySnapshot) => {
-		
 		let mostrar=document.getElementById('mostrar');
-		mostrar.innerHTML = '';
+		mostrar.innerHTML =''
 		querySnapshot.forEach((doc) => {
 		
 		// <!----------------- Post dinámicos  --------------------->
@@ -254,7 +253,6 @@ function mostrarPost(){
 		</div>
 		</div>
 			`
-		
 			console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 		});
 	});
