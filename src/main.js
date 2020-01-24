@@ -111,7 +111,7 @@ function mostrarHome(user) {
 		window.location.hash = '/Home';
 		contenido.innerHTML = `
 		
-		<!------------ Menú de navegación ----------->
+	<!------------ Menú de navegación ----------->
     <section class="title">
         <h1>TIPS TECH</h1>
     </section>
@@ -223,8 +223,7 @@ function mostrarPost(){
 		querySnapshot.forEach((doc) => {
 		
 		// <!----------------- Post dinámicos  --------------------->
-		
-			mostrar.innerHTML +=`
+		mostrar.innerHTML +=`
 		<div class="postDinamico">
 		<div class="divPrincipalImg">
 		<img src="img/iconopost.png" style="width: 40px; height:40px">
