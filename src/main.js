@@ -111,15 +111,13 @@ function mostrarHome(user) {
 		window.location.hash = '/Home';
 		contenido.innerHTML = `
 		
-		<!------------ Menú de navegación ----------->
+	<!------------ Menú de navegación ----------->
     <section class="title">
         <h1>TIPS TECH</h1>
     </section>
-
     <header>
         <nav class="navegacion">
             <ul class="menu">
-
                 <li class="first-item">
                     <a href="">
                         <img src="img/01.png" alt="" class="imagen">
@@ -127,8 +125,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/02.png" alt="" class="imagen">
@@ -136,8 +132,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/03.png" alt="" class="imagen">
@@ -145,8 +139,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/04.png" alt="" class="imagen">
@@ -154,8 +146,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/05.png" alt="" class="imagen">
@@ -163,8 +153,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li id="cerrarSesion">
                     <a href="">
                         <img src="img/06.png" alt="" class="imagen">
@@ -172,20 +160,17 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
             </ul>
         </nav>
     </header>
 		
 		
-
-
    <!----------------- Escribe aquí tu publicación  --------------------->
 	<div class="contenedor">
 		<div class="divPrincipalImg">
 			<img src="img/iconopost.png" style="width: 40px; height:40px">
 			<div class="divPrincipalPublicar">
-				<input id="post" class="inputPost" type="text">
+				<textarea id="post" class="inputPost" type="text"></textarea>
 			</div>
 			<img id="publicar" src="./img/publicar.png"
 				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
@@ -216,6 +201,7 @@ function guardarPost(){
 		
 		db.collection("post").add({
 			mensaje: writePost
+			// datetime: timestamp
 		})
 		.then(function(docRef) {
 			console.log("Document written with ID: ", docRef.id);
@@ -236,19 +222,18 @@ function mostrarPost(){
 		querySnapshot.forEach((doc) => {
 		
 		// <!----------------- Post dinámicos  --------------------->
-		
-			mostrar.innerHTML +=`
+		mostrar.innerHTML +=`
 		<div class="postDinamico">
 		<div class="divPrincipalImg">
 		<img src="img/iconopost.png" style="width: 40px; height:40px">
 		<div class="divPrincipalPublicar">
-			<input class="inputPost" type="text" value="${doc.data().mensaje}">
+			<textarea class="inputPost" type="text">${doc.data().mensaje}</textarea>
 		</div>
-		<img src="./img/publicar.png"
+		<img src="./img/eliminar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
-		<img src="./img/publicar.png"
+		<img src="./img/editar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
-		<img src="./img/publicar.png"
+		<img src="./img/megusta.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
 		</div>
 		</div>
@@ -259,7 +244,3 @@ function mostrarPost(){
 	
 
 }
-
-	
-
-
