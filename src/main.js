@@ -7,7 +7,6 @@ mostrarLogin();
 function mostrarLogin() {
 	window.location.hash = '/Inicio';
 	contenido.innerHTML = `	
-	<div class="container">
 		<div>
 			<img src="img/logo tech.png" class="logo">
 	  	</div>
@@ -21,9 +20,7 @@ function mostrarLogin() {
 				<button id="gmail" class="btn2">Gmail</button>
 				<a href="#" class="recuperar">¿Olvidaste tu contraseña? Recupérala Aquí</a>
       			<a href="#" id="crearCuenta" class="aqui">Crear cuenta aquí</a> 
-		  </div>
-	</div>
-		  `;
+	  	</div>`;
 }
 //<-------------Iniciar Sesión-------------->
 document.getElementById('ingresar').addEventListener('click', (e) => {
@@ -38,9 +35,8 @@ document.getElementById('gmail').addEventListener('click', ingresarGoogle);
 //<-------------Link crea tu cuenta aquí-------------->
 document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
-	contenido.innerHTML =`
-<div class="container">
-	<div>
+	contenido.innerHTML =
+		`<div>
     <img src="img/logo tech.png"class="logo">
     </div>
     <div class="login">
@@ -54,9 +50,7 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 				<p>Campos con * son obligatorios.</p>
 				<button id="registrarse" class="btn">Registrarse</button>
 			</form>
-	</div>
-</div>
-	`;
+	</div>`;
 	//<-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
 		let email = document.getElementById('email').value;
@@ -93,6 +87,7 @@ function observador() {
 			console.log('existe usuario activo');
 			mostrarHome(user);
 			mostrarPost();
+			guardarPost();
 			// User is signed in.
 			var displayName = user.displayName;
 			var email = user.email;
@@ -115,19 +110,14 @@ function mostrarHome(user) {
 	if (user.emailVerified) {
 		window.location.hash = '/Home';
 		contenido.innerHTML = `
-
-
-
-		<!------------ Menú de navegación ----------->
-<div class="container-dos"> 
+		
+	<!------------ Menú de navegación ----------->
     <section class="title">
         <h1>TIPS TECH</h1>
     </section>
-
     <header>
         <nav class="navegacion">
             <ul class="menu">
-
                 <li class="first-item">
                     <a href="">
                         <img src="img/01.png" alt="" class="imagen">
@@ -135,8 +125,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/02.png" alt="" class="imagen">
@@ -144,8 +132,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/03.png" alt="" class="imagen">
@@ -153,8 +139,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/04.png" alt="" class="imagen">
@@ -162,8 +146,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li>
                     <a href="">
                         <img src="img/05.png" alt="" class="imagen">
@@ -171,8 +153,6 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
-
                 <li id="cerrarSesion">
                     <a href="">
                         <img src="img/06.png" alt="" class="imagen">
@@ -180,28 +160,22 @@ function mostrarHome(user) {
                         <span class="down-item"></span>
                     </a>
                 </li>
-
             </ul>
         </nav>
-	</header>
-	
-	
-	
+    </header>
+		
+		
    <!----------------- Escribe aquí tu publicación  --------------------->
-	<div>
+	<div class="contenedor">
 		<div class="divPrincipalImg">
 			<img src="img/iconopost.png" style="width: 40px; height:40px">
 			<div class="divPrincipalPublicar">
-				<input id="post" class="inputPost" type="text">
+				<textarea id="post" class="inputPost" type="text"></textarea>
 			</div>
 			<img id="publicar" src="./img/publicar.png"
 				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
 		</div>
 	</div>
-
-</div>
-	
-	
 	
 		`;
 		//<----------------Agregar documentos-------------------->
@@ -220,13 +194,14 @@ function mostrarHome(user) {
 	}
 };
 
-function mostrarPost (){
+function guardarPost(){
 	
 	document.getElementById('publicar').addEventListener('click', () => {
 		let writePost=document.getElementById('post').value;
-		let mostrar=document.getElementById('mostrar')
+		
 		db.collection("post").add({
 			mensaje: writePost
+			// datetime: timestamp
 		})
 		.then(function(docRef) {
 			console.log("Document written with ID: ", docRef.id);
@@ -235,45 +210,39 @@ function mostrarPost (){
 		.catch(function(error) {
 			console.error("Error adding document: ", error);
 		});
-		db.collection("post").onSnapshot((querySnapshot) => {
-			querySnapshot.forEach((doc) => {
-				
-			// <!----------------- Post dinámicos  --------------------->
-				mostrar.innerHTML+=`
-
-
-			<div class="postDinamico">
-			<div class="divPrincipalImg">
-			<img src="img/iconopost.png" style="width: 40px; height:40px">
-			<div class="divPrincipalPublicar">
-				<input class="inputPost" type="text" value="${doc.data().mensaje}">
-			</div>
-			<img src="./img/publicar.png"
-				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
-			<img src="./img/publicar.png"
-				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
-			<img src="./img/publicar.png"
-				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
-			</div>
-			</div>
-
+		
+	});
+}
 	
-			<!------------ Footer ----------->
-	<footer>
-        <p>
-            Copyright 2020 Diseño y desarrollo por Corina Varas, Karen Zuñiga & Camila Osores.
-        </p>
-	</footer>
-
-				`
-				console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-			});
+function mostrarPost(){
+	//<!----------------Lee los datos y los imprime-------------------->
+	db.collection("post").onSnapshot((querySnapshot) => {
+		
+		let mostrar=document.getElementById('mostrar');
+		mostrar.innerHTML = '';
+		querySnapshot.forEach((doc) => {
+		
+		// <!----------------- Post dinámicos  --------------------->
+		mostrar.innerHTML +=`
+		<div class="postDinamico">
+		<div class="divPrincipalImg">
+		<img src="img/iconopost.png" style="width: 40px; height:40px">
+		<div class="divPrincipalPublicar">
+			<textarea class="inputPost" type="text">${doc.data().mensaje}</textarea>
+		</div>
+		<img src="./img/eliminar.png"
+			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
+		<img src="./img/editar.png"
+			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
+		<img src="./img/megusta.png"
+			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
+		</div>
+		</div>
+			`
+		
+			console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 		});
 	});
-	//<!----------------Lee los datos y los imprime-------------------->
-	
-	
 	
 
 }
-
