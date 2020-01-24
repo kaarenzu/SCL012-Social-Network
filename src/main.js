@@ -7,6 +7,7 @@ mostrarLogin();
 function mostrarLogin() {
 	window.location.hash = '/Inicio';
 	contenido.innerHTML = `	
+	<div class="container">
 		<div>
 			<img src="img/logo tech.png" class="logo">
 	  	</div>
@@ -20,7 +21,9 @@ function mostrarLogin() {
 				<button id="gmail" class="btn2">Gmail</button>
 				<a href="#" class="recuperar">¿Olvidaste tu contraseña? Recupérala Aquí</a>
       			<a href="#" id="crearCuenta" class="aqui">Crear cuenta aquí</a> 
-	  	</div>`;
+		  </div>
+	</div>
+		  `;
 }
 //<-------------Iniciar Sesión-------------->
 document.getElementById('ingresar').addEventListener('click', (e) => {
@@ -35,8 +38,9 @@ document.getElementById('gmail').addEventListener('click', ingresarGoogle);
 //<-------------Link crea tu cuenta aquí-------------->
 document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
-	contenido.innerHTML =
-		`<div>
+	contenido.innerHTML =`
+<div class="container">
+	<div>
     <img src="img/logo tech.png"class="logo">
     </div>
     <div class="login">
@@ -50,7 +54,9 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 				<p>Campos con * son obligatorios.</p>
 				<button id="registrarse" class="btn">Registrarse</button>
 			</form>
-	</div>`;
+	</div>
+</div>
+	`;
 	//<-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
 		let email = document.getElementById('email').value;
@@ -109,8 +115,11 @@ function mostrarHome(user) {
 	if (user.emailVerified) {
 		window.location.hash = '/Home';
 		contenido.innerHTML = `
-		
+
+
+
 		<!------------ Menú de navegación ----------->
+<div class="container-dos"> 
     <section class="title">
         <h1>TIPS TECH</h1>
     </section>
@@ -174,13 +183,12 @@ function mostrarHome(user) {
 
             </ul>
         </nav>
-    </header>
-		
-		
-
-
+	</header>
+	
+	
+	
    <!----------------- Escribe aquí tu publicación  --------------------->
-	<div class="contenedor">
+	<div>
 		<div class="divPrincipalImg">
 			<img src="img/iconopost.png" style="width: 40px; height:40px">
 			<div class="divPrincipalPublicar">
@@ -190,6 +198,10 @@ function mostrarHome(user) {
 				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
 		</div>
 	</div>
+
+</div>
+	
+	
 	
 		`;
 		//<----------------Agregar documentos-------------------->
@@ -228,6 +240,8 @@ function mostrarPost (){
 				
 			// <!----------------- Post dinámicos  --------------------->
 				mostrar.innerHTML+=`
+
+
 			<div class="postDinamico">
 			<div class="divPrincipalImg">
 			<img src="img/iconopost.png" style="width: 40px; height:40px">
@@ -242,6 +256,15 @@ function mostrarPost (){
 				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
 			</div>
 			</div>
+
+	
+			<!------------ Footer ----------->
+	<footer>
+        <p>
+            Copyright 2020 Diseño y desarrollo por Corina Varas, Karen Zuñiga & Camila Osores.
+        </p>
+	</footer>
+
 				`
 				console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 			});
