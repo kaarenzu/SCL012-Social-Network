@@ -87,6 +87,7 @@ function observador() {
 			console.log('existe usuario activo');
 			mostrarHome(user);
 			mostrarPost();
+			guardarPost();
 			// User is signed in.
 			var displayName = user.displayName;
 			var email = user.email;
@@ -177,7 +178,8 @@ function mostrarHome(user) {
 	</div>
 	
 		`;
-	
+		//<----------------Agregar documentos-------------------->
+		
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
 			firebase.auth().signOut()
@@ -192,11 +194,11 @@ function mostrarHome(user) {
 	}
 };
 
-function mostrarPost (){
+function guardarPost(){
 	
 	document.getElementById('publicar').addEventListener('click', () => {
 		let writePost=document.getElementById('post').value;
-		let mostrar=document.getElementById('mostrar')
+		
 		db.collection("post").add({
 			mensaje: writePost
 		})
@@ -207,34 +209,43 @@ function mostrarPost (){
 		.catch(function(error) {
 			console.error("Error adding document: ", error);
 		});
-		//<!----------------Lee los datos y los imprime-------------------->
-		db.collection("post").onSnapshot((querySnapshot) => {
-			querySnapshot.forEach((doc) => {
-				
-			// <!----------------- Post dinámicos  --------------------->
-			mostrar.innerHTML+=`
-			<div class="postDinamico">
-			<div class="divPrincipalImg">
-			<img src="img/iconopost.png" style="width: 40px; height:40px">
-			<div class="divPrincipalPublicar">
-				<input class="inputPost" type="text" value="${doc.data().mensaje}">
-			</div>
-			<img src="./img/publicar.png"
-				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
-			<img src="./img/publicar.png"
-				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
-			<img src="./img/publicar.png"
-				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
-			</div>
-			</div>
-				`
-				console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-			});
+		
+	});
+}
+	
+function mostrarPost(){
+	//<!----------------Lee los datos y los imprime-------------------->
+	db.collection("post").onSnapshot((querySnapshot) => {
+		
+		let mostrar=document.getElementById('mostrar');
+		mostrar.innerHTML = '';
+		querySnapshot.forEach((doc) => {
+		
+		// <!----------------- Post dinámicos  --------------------->
+		
+			mostrar.innerHTML +=`
+		<div class="postDinamico">
+		<div class="divPrincipalImg">
+		<img src="img/iconopost.png" style="width: 40px; height:40px">
+		<div class="divPrincipalPublicar">
+			<input class="inputPost" type="text" value="${doc.data().mensaje}">
+		</div>
+		<img src="./img/publicar.png"
+			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
+		<img src="./img/publicar.png"
+			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
+		<img src="./img/publicar.png"
+			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
+		</div>
+		</div>
+			`
+		
+			console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 		});
 	});
 	
-	
-	
-	
 
 }
+
+	
+
