@@ -1,4 +1,4 @@
-import { signIn, createUser, ingresarGoogle} from './lib/index.js';
+import { signIn, createUser, ingresarGoogle } from './lib/index.js';
 
 let contenido = document.getElementById('root');
 var db = firebase.firestore();
@@ -56,28 +56,28 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 		let email = document.getElementById('email').value;
 		let password = document.getElementById('password').value;
 		e.preventDefault();
-		createUser(email, password);	
-		let nombre= document.getElementById('nombre').value;
-		let apellido= document.getElementById('apellido').value;
+		createUser(email, password);
+		let nombre = document.getElementById('nombre').value;
+		let apellido = document.getElementById('apellido').value;
 
 		let db = firebase.firestore();
 
 		db.collection("users").add({
-		  nombre: nombre,
-		  apellido:apellido
-	  })
-	  .then(function(docRef) {
-		  console.log("Document written with ID: ", docRef.id);
-			document.getElementById('nombre').value= '';
-			document.getElementById('apellido').value= '';
-			document.getElementById('email').value= '';
-			document.getElementById('password').value= '';
-	  })
-	  .catch(function(error) {
-		  console.error("Error adding document: ", error);
-	  });
-	  e.preventDefault();
-	  createUser(email, password);
+			nombre: nombre,
+			apellido: apellido
+		})
+			.then(function (docRef) {
+				console.log("Document written with ID: ", docRef.id);
+				document.getElementById('nombre').value = '';
+				document.getElementById('apellido').value = '';
+				document.getElementById('email').value = '';
+				document.getElementById('password').value = '';
+			})
+			.catch(function (error) {
+				console.error("Error adding document: ", error);
+			});
+		e.preventDefault();
+		createUser(email, password);
 
 	});
 });
@@ -179,7 +179,7 @@ function mostrarHome(user) {
 	
 		`;
 		//<----------------Agregar documentos-------------------->
-		
+
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
 			firebase.auth().signOut()
@@ -194,36 +194,40 @@ function mostrarHome(user) {
 	}
 };
 
-function guardarPost(){
-	
+function guardarPost() {
+
 	document.getElementById('publicar').addEventListener('click', () => {
-		let writePost=document.getElementById('post').value;
-		
+		let writePost = document.getElementById('post').value;
+
 		db.collection("post").add({
-			mensaje: writePost
-			// datetime: timestamp
+			mensaje: writePost,
+			datatime: new Date()
 		})
-		.then(function(docRef) {
-			console.log("Document written with ID: ", docRef.id);
-			document.getElementById('post').value=''; //para que después de enviar los datos se vacié el input
-		})
-		.catch(function(error) {
-			console.error("Error adding document: ", error);
-		});
-		
+			.then(function (docRef) {
+				console.log("Document written with ID: ", docRef.id);
+				document.getElementById('post').value = ''; //para que después de enviar los datos se vacié el input
+			})
+			.catch(function (error) {
+				console.error("Error adding document: ", error);
+			});
+
 	});
 }
-	
-function mostrarPost(){
+
+function mostrarPost() {
 	//<!----------------Lee los datos y los imprime-------------------->
-	db.collection("post").onSnapshot((querySnapshot) => {
-		
-		let mostrar=document.getElementById('mostrar');
+	let collecionPost = db.collection("post");
+
+	let collecionPostOrdenada = collecionPost.orderBy("datatime", "desc");
+	
+	collecionPostOrdenada.onSnapshot((querySnapshot) => {
+
+		let mostrar = document.getElementById('mostrar');
 		mostrar.innerHTML = '';
 		querySnapshot.forEach((doc) => {
-		
-		// <!----------------- Post dinámicos  --------------------->
-		mostrar.innerHTML +=`
+
+			// <!----------------- Post dinámicos  --------------------->
+			mostrar.innerHTML += `
 		<div class="postDinamico">
 		<div class="divPrincipalImg">
 		<img src="img/iconopost.png" style="width: 40px; height:40px">
@@ -239,10 +243,10 @@ function mostrarPost(){
 		</div>
 		</div>
 			`
-		
+
 			console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 		});
 	});
-	
+
 
 }
