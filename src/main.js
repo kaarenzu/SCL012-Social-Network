@@ -6,7 +6,8 @@ mostrarLogin();
 
 function mostrarLogin() {
 	window.location.hash = '/Inicio';
-	contenido.innerHTML = `	
+	contenido.innerHTML = `
+	<div class="container">	
 		<div>
 			<img src="img/logo tech.png" class="logo">
 	  	</div>
@@ -20,7 +21,9 @@ function mostrarLogin() {
 				<button id="gmail" class="btn2">Gmail</button>
 				<a href="#" class="recuperar">¿Olvidaste tu contraseña? Recupérala Aquí</a>
       			<a href="#" id="crearCuenta" class="aqui">Crear cuenta aquí</a> 
-	  	</div>`;
+		  </div>
+	<div>
+	`;
 }
 //<-------------Iniciar Sesión-------------->
 document.getElementById('ingresar').addEventListener('click', (e) => {
@@ -35,22 +38,25 @@ document.getElementById('gmail').addEventListener('click', ingresarGoogle);
 //<-------------Link crea tu cuenta aquí-------------->
 document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
-	contenido.innerHTML =
-		`<div>
-    <img src="img/logo tech.png"class="logo">
-    </div>
-    <div class="login">
-		<h1>Crea tu cuenta</h1>
-			<form>
-				<input type="text" name="" id="nombre" placeholder="Nombre" class="input" requiere>
-    			<input type="text" name=""  id="apellido" placeholder="Apellido" class="input"requiere>
-    			<input type="email" name="" id="email" placeholder="Usuario o correo electrónico" class="input"requiere>
-    			<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
-				<p>Contraseña debe tener mínimo 8 caracteres.</p>
-				<p>Campos con * son obligatorios.</p>
-				<button id="registrarse" class="btn">Registrarse</button>
-			</form>
-	</div>`;
+	contenido.innerHTML =`
+	<div class="container">	
+		<div>
+    	<img src="img/logo tech.png"class="logo">
+    	</div>
+    	<div class="login">
+			<h1>Crea tu cuenta</h1>
+				<form>
+					<input type="text" name="" id="nombre" placeholder="Nombre*" class="input" requiere>
+    				<input type="text" name=""  id="apellido" placeholder="Apellido" class="input"requiere>
+    				<input type="email" name="" id="email" placeholder="Correo electrónico*" class="input"requiere>
+    				<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
+					<p>Contraseña debe tener mínimo 8 caracteres.</p>
+					<p>Campos con * son obligatorios.</p>
+					<button id="registrarse" class="btn">Registrarse</button>
+				</form>
+		</div>
+	<div>
+		`;
 	//<-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
 		let email = document.getElementById('email').value;
