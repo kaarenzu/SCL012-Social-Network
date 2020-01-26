@@ -1,7 +1,7 @@
-import { signIn, createUser, ingresarGoogle } from './lib/index.js';
+import { signIn, createUser, ingresarGoogle, deletePost } from './lib/index.js';
 
 let contenido = document.getElementById('root');
-var db = firebase.firestore();
+let db = firebase.firestore();
 mostrarLogin();
 
 function mostrarLogin() {
@@ -38,7 +38,7 @@ document.getElementById('gmail').addEventListener('click', ingresarGoogle);
 //<-------------Link crea tu cuenta aquí-------------->
 document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
-	contenido.innerHTML =`
+	contenido.innerHTML = `
 	<div class="container">	
 		<div>
     	<img src="img/logo tech.png"class="logo">
@@ -98,7 +98,7 @@ function observador() {
 			var displayName = user.displayName;
 			var email = user.email;
 			console.log('*****************');
-			console.log(user.emailVerified);
+			console.log(user.emailerified);
 			console.log('*****************');
 			var emailVerified = user.emailVerified;
 			var photoURL = user.photoURL;
@@ -170,7 +170,6 @@ function mostrarHome(user) {
         </nav>
     </header>
 		
-		
    <!----------------- Escribe aquí tu publicación  --------------------->
 	<div class="contenedor">
 		<div class="divPrincipalImg">
@@ -184,8 +183,6 @@ function mostrarHome(user) {
 	</div>
 	
 		`;
-		//<----------------Agregar documentos-------------------->
-
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
 			firebase.auth().signOut()
@@ -225,7 +222,7 @@ function mostrarPost() {
 	let collecionPost = db.collection("post");
 
 	let collecionPostOrdenada = collecionPost.orderBy("datatime", "desc");
-	
+
 	collecionPostOrdenada.onSnapshot((querySnapshot) => {
 
 		let mostrar = document.getElementById('mostrar');
@@ -240,7 +237,7 @@ function mostrarPost() {
 		<div class="divPrincipalPublicar">
 			<textarea class="inputPost" type="text">${doc.data().mensaje}</textarea>
 		</div>
-		<img src="./img/eliminar.png"
+		<img id="delete-${doc.id}" src="./img/eliminar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
 		<img src="./img/editar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
@@ -248,11 +245,12 @@ function mostrarPost() {
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
 		</div>
 		</div>
-			`
+			`;
+			// console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 
-			console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+			// <!----------------- función delete post  --------------------->
+			document.getElementById(`delete-${doc.id}`).addEventListener('click', () => deletePost(db, doc.id));
+
 		});
-	});
-
-
+	})
 }
