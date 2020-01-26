@@ -65,16 +65,36 @@ export function ingresarGoogle() {
 		// ...
 	});
 };
-
+//<-------------Función borrar post-------------->
 export let deletePost = (db,id) => {
-	db.collection("post").doc(id).delete()
-		.then(function () {
-			console.log("Document successfully deleted!");
-		}).catch(function (error) {
-			console.error("Error removing document: ", error);
-		});
+	if(confirm('¿Deseas eliminar esta publicación?')){
+		if(document.getElementById('delete-' + id)!=null){
+		db.collection("post").doc(id).delete()
+			.then(function () {
+				console.log("Document successfully deleted!");
+			}).catch(function (error) {
+				console.error("Error removing document: ", error);
+			});
+		}else{
+		 console.log('Hay un problema con el id del post lo trae null');
+		}	
+	}
 };
-// if(document.getElementById('delete-' + doc.id)!=null){
-// }else{
-// 	console.log('Hay un problema con el id del post lo trae null');
-// }
+//<-------------Función editar post-------------->
+//function editPost(db,id,inputPost){
+	// 	document.getElementById('inputPost').value=inputPost;
+	// 	document.getElementById(`edit-${doc.id}`).addEventListener('click', () => {
+	// 		let editRef = db.collection('post').doc(id);
+	// 		return editRef.update({
+	// 			mensaje: writePost
+	// 		})
+	// 		.then(function(){
+	// 			console.log('document successfully updated!!');
+	// 		})
+	// 		.catch(function(){
+	// 			console.log('Error update document: ', error)
+	// 		});
+	
+	// 	})
+	
+//	}
