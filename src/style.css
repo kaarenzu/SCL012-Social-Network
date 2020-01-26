@@ -5,11 +5,16 @@
 }
 
 body{
-    background-image: url("img/fondo-web.jpg");
     font-family: 'PT Sans', sans-serif;
-    background-repeat: no-repeat;
-    margin: 0px !important;
 }
+
+/* Contenedor para fondo de login & registro */
+.container{
+    background-image: url("img/fondo-web.jpg");
+    width: 100%;
+    height: 100vh;
+}
+
 
 /********* Menú de navegación *********/
 a{
@@ -101,7 +106,6 @@ img{
     top:0%;
     position: absolute;
     z-index: 10;
-    
 
     transition: .4s ease;
    -webkit-transition: .4s ease;
@@ -134,11 +138,12 @@ img{
     width: 100%;
     right: 0%;
 }
-/********* Menú de navegación *********/
+/********* Fin menú de navegación *********/
 
 
-
+/******* Login & registro ******/
 h1{
+    margin-top: 3%;
     font-size: 25px;
     margin-bottom: 30px;
 }
@@ -154,12 +159,6 @@ h1{
     font-size: 15px;
     font-weight: normal;
     margin-top: 80px;
-}
-
-.container{
-    display: flex;
-    justify-content: space-around;
-    /* height: 100vh; */
 }
 
 .logo{
@@ -197,7 +196,7 @@ h1{
 .btn{
     cursor: pointer;
     align-self: center;
-    margin: 2%;
+    margin: 5%;
     height: 40px;
     width: 200px;
     border-radius: 19px;
@@ -216,17 +215,7 @@ h1{
     color: floralwhite;
 }
 
-
-
-
-/* .contenedor {
-    position: relative;
-    display: block;
-    min-height: 220px;
-    max-height: 90%;
-    width: 100%;
-} */
-
+/******* Fin login & registro ******/
 
 
     /********** Caja de post **********/
@@ -310,8 +299,27 @@ section div [type = submit] {
     box-shadow: 1px 1px 1px rgba(0,0,0,.3);
     border-radius: 3px;
 }
-/********** Caja de post **********/
+/********** Fin caja de post **********/
 
+/****** Footer *******/
+/* footer{
+    width: 100%;
+    position: fixed;
+    clear: both;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    background-color: #323676;
+    
+}
+
+footer p{
+    font-family: 'PT Sans', sans-serif;
+    color: #FFFFFF;
+    font-size: 13px;
+} */
 
 
 /* @media screen and (max-width:576px) {

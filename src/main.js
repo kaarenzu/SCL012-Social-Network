@@ -1,12 +1,13 @@
-import { signIn, createUser, ingresarGoogle } from './lib/index.js';
+import { signIn, createUser, ingresarGoogle, deletePost } from './lib/index.js';
 
 let contenido = document.getElementById('root');
-var db = firebase.firestore();
+let db = firebase.firestore();
 mostrarLogin();
 
 function mostrarLogin() {
 	window.location.hash = '/Inicio';
-	contenido.innerHTML = `	
+	contenido.innerHTML = `
+	<div class="container">	
 		<div>
 			<img src="img/logo tech.png" class="logo">
 	  	</div>
@@ -20,7 +21,9 @@ function mostrarLogin() {
 				<button id="gmail" class="btn2">Gmail</button>
 				<a href="#" class="recuperar">¿Olvidaste tu contraseña? Recupérala Aquí</a>
       			<a href="#" id="crearCuenta" class="aqui">Crear cuenta aquí</a> 
-	  	</div>`;
+		  </div>
+	<div>
+	`;
 }
 //<-------------Iniciar Sesión-------------->
 document.getElementById('ingresar').addEventListener('click', (e) => {
@@ -35,22 +38,25 @@ document.getElementById('gmail').addEventListener('click', ingresarGoogle);
 //<-------------Link crea tu cuenta aquí-------------->
 document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
-	contenido.innerHTML =
-		`<div>
-    <img src="img/logo tech.png"class="logo">
-    </div>
-    <div class="login">
-		<h1>Crea tu cuenta</h1>
-			<form>
-				<input type="text" name="" id="nombre" placeholder="Nombre" class="input" requiere>
-    			<input type="text" name=""  id="apellido" placeholder="Apellido" class="input"requiere>
-    			<input type="email" name="" id="email" placeholder="Usuario o correo electrónico" class="input"requiere>
-    			<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
-				<p>Contraseña debe tener mínimo 8 caracteres.</p>
-				<p>Campos con * son obligatorios.</p>
-				<button id="registrarse" class="btn">Registrarse</button>
-			</form>
-	</div>`;
+	contenido.innerHTML = `
+	<div class="container">	
+		<div>
+    	<img src="img/logo tech.png"class="logo">
+    	</div>
+    	<div class="login">
+			<h1>Crea tu cuenta</h1>
+				<form>
+					<input type="text" name="" id="nombre" placeholder="Nombre*" class="input" requiere>
+    				<input type="text" name=""  id="apellido" placeholder="Apellido" class="input"requiere>
+    				<input type="email" name="" id="email" placeholder="Correo electrónico*" class="input"requiere>
+    				<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
+					<p>Contraseña debe tener mínimo 8 caracteres.</p>
+					<p>Campos con * son obligatorios.</p>
+					<button id="registrarse" class="btn">Registrarse</button>
+				</form>
+		</div>
+	<div>
+		`;
 	//<-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
 		let email = document.getElementById('email').value;
@@ -92,7 +98,7 @@ function observador() {
 			var displayName = user.displayName;
 			var email = user.email;
 			console.log('*****************');
-			console.log(user.emailVerified);
+			console.log(user.emailerified);
 			console.log('*****************');
 			var emailVerified = user.emailVerified;
 			var photoURL = user.photoURL;
@@ -164,7 +170,6 @@ function mostrarHome(user) {
         </nav>
     </header>
 		
-		
    <!----------------- Escribe aquí tu publicación  --------------------->
 	<div class="contenedor">
 		<div class="divPrincipalImg">
@@ -178,8 +183,6 @@ function mostrarHome(user) {
 	</div>
 	
 		`;
-		//<----------------Agregar documentos-------------------->
-
 		//<-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
 			firebase.auth().signOut()
@@ -219,7 +222,7 @@ function mostrarPost() {
 	let collecionPost = db.collection("post");
 
 	let collecionPostOrdenada = collecionPost.orderBy("datatime", "desc");
-	
+
 	collecionPostOrdenada.onSnapshot((querySnapshot) => {
 
 		let mostrar = document.getElementById('mostrar');
@@ -234,7 +237,7 @@ function mostrarPost() {
 		<div class="divPrincipalPublicar">
 			<textarea class="inputPost" type="text">${doc.data().mensaje}</textarea>
 		</div>
-		<img src="./img/eliminar.png"
+		<img id="delete-${doc.id}" src="./img/eliminar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
 		<img src="./img/editar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
@@ -242,10 +245,19 @@ function mostrarPost() {
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
 		</div>
 		</div>
+<<<<<<< HEAD
 			`
 			console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 		});
 	});
+=======
+			`;
+			// console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+>>>>>>> 9160595badcaa66c6932becc0d54f8131cd24a91
 
+			// <!----------------- función delete post  --------------------->
+			document.getElementById(`delete-${doc.id}`).addEventListener('click', () => deletePost(db, doc.id));
 
+		});
+	})
 }
