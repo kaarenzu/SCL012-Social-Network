@@ -1,4 +1,4 @@
-import { signIn, createUser, ingresarGoogle, deletePost } from './lib/index.js';
+import { signIn, createUser, ingresarGoogle, deletePost} from './lib/index.js';
 
 let contenido = document.getElementById('root');
 let db = firebase.firestore();
@@ -223,34 +223,43 @@ function mostrarPost() {
 
 	let collecionPostOrdenada = collecionPost.orderBy("datatime", "desc");
 
+	
 	collecionPostOrdenada.onSnapshot((querySnapshot) => {
-
+		
 		let mostrar = document.getElementById('mostrar');
 		mostrar.innerHTML = '';
 		querySnapshot.forEach((doc) => {
 
-			// <!----------------- Post dinámicos  --------------------->
+		// <!----------------- Post dinámicos  --------------------->
 			mostrar.innerHTML += `
 		<div class="postDinamico">
 		<div class="divPrincipalImg">
 		<img src="img/iconopost.png" style="width: 40px; height:40px">
 		<div class="divPrincipalPublicar">
-			<textarea class="inputPost" type="text">${doc.data().mensaje}</textarea>
+			<textarea id="inputPost"class="inputPost" type="text">${doc.data().mensaje}</textarea>
 		</div>
 		<img id="delete-${doc.id}" src="./img/eliminar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
-		<img src="./img/editar.png"
+		<img id="edit-${doc.id}" src="./img/editar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
 		<img src="./img/megusta.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
 		</div>
 		</div>
 			`;
-			// console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-
-			// <!----------------- función delete post  --------------------->
-			document.getElementById(`delete-${doc.id}`).addEventListener('click', () => deletePost(db, doc.id));
-
+		// console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+			
+		// <!----------------- función delete post  --------------------->
+		
+		// editPost(db,doc.id);
 		});
+
+		querySnapshot.forEach((doc) => {
+			document.getElementById(`delete-${doc.id}`).addEventListener('click', (e)=> deletePost(db,doc.id));
+			//document.getElementById(`delete-${doc.id}`).addEventListener('click', (e)=> deletePost(db,doc.id));
+			//document.getElementById(`delete-${doc.id}`).addEventListener('click', (e)=> deletePost(db,doc.id));
+		});
+
 	})
 }
+
