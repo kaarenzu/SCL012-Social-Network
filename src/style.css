@@ -301,6 +301,20 @@ section div [type = submit] {
 }
 /********** Fin caja de post **********/
 
+
+/* ------- EDITAR BOTON CONFIRMAR/CANCELAR --------  */
+.containerEditHide{
+    display: none;
+}
+.containerEditShow{
+    display: block;
+}
+.tips-font{
+    color: #EC2E2E;
+    cursor: pointer;
+}
+
+
 /****** Footer *******/
 /* footer{
     width: 100%;
