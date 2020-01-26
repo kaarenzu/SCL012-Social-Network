@@ -245,15 +245,8 @@ function mostrarPost() {
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
 		</div>
 		</div>
-<<<<<<< HEAD
-			`
-			console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-		});
-	});
-=======
 			`;
 			// console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
->>>>>>> 9160595badcaa66c6932becc0d54f8131cd24a91
 
 			// <!----------------- función delete post  --------------------->
 			document.getElementById(`delete-${doc.id}`).addEventListener('click', () => deletePost(db, doc.id));
