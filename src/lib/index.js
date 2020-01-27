@@ -81,20 +81,15 @@ export let deletePost = (db,id) => {
 	}
 };
 //<-------------Función editar post-------------->
-//function editPost(db,id,inputPost){
-	// 	document.getElementById('inputPost').value=inputPost;
-	// 	document.getElementById(`edit-${doc.id}`).addEventListener('click', () => {
-	// 		let editRef = db.collection('post').doc(id);
-	// 		return editRef.update({
-	// 			mensaje: writePost
-	// 		})
-	// 		.then(function(){
-	// 			console.log('document successfully updated!!');
-	// 		})
-	// 		.catch(function(){
-	// 			console.log('Error update document: ', error)
-	// 		});
-	
-	// 	})
-	
-//	}
+// function editPost(db,id){
+// 			let editRef = db.collection('post').doc(id);
+// 			return editRef.update({
+// 				mensaje: writePost
+// 			})
+// 			.then(function(){
+// 				console.log('document successfully updated!!');
+// 			})
+// 			.catch(function(){
+// 				console.log('Error update document: ', error)
+// 			});
+// }

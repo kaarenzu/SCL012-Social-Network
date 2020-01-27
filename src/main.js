@@ -1,4 +1,4 @@
-import { signIn, createUser, ingresarGoogle, deletePost} from './lib/index.js';
+import { signIn, createUser, ingresarGoogle, deletePost } from './lib/index.js';
 
 let contenido = document.getElementById('root');
 let db = firebase.firestore();
@@ -223,20 +223,24 @@ function mostrarPost() {
 
 	let collecionPostOrdenada = collecionPost.orderBy("datatime", "desc");
 
-	
+
 	collecionPostOrdenada.onSnapshot((querySnapshot) => {
-		
+
 		let mostrar = document.getElementById('mostrar');
 		mostrar.innerHTML = '';
 		querySnapshot.forEach((doc) => {
 
-		// <!----------------- Post dinámicos  --------------------->
+			// <!----------------- Post dinámicos  --------------------->
 			mostrar.innerHTML += `
 		<div class="postDinamico">
 		<div class="divPrincipalImg">
 		<img src="img/iconopost.png" style="width: 40px; height:40px">
 		<div class="divPrincipalPublicar">
-			<textarea id="inputPost"class="inputPost" type="text">${doc.data().mensaje}</textarea>
+			<textarea id="inputPost" class="inputPost" type="text">${doc.data().mensaje}</textarea>
+			<div id="editContainer-${doc.id}" class="containerEditHide" >
+					<a id="confirmEdit-${doc.id}" class="tips-font">Confirmar</a>
+					<a class="tips-font">Cancelar</a>
+			</div>
 		</div>
 		<img id="delete-${doc.id}" src="./img/eliminar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
@@ -247,19 +251,22 @@ function mostrarPost() {
 		</div>
 		</div>
 			`;
-		// console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-			
-		// <!----------------- función delete post  --------------------->
-		
-		// editPost(db,doc.id);
+			// console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 		});
 
 		querySnapshot.forEach((doc) => {
-			document.getElementById(`delete-${doc.id}`).addEventListener('click', (e)=> deletePost(db,doc.id));
-			//document.getElementById(`delete-${doc.id}`).addEventListener('click', (e)=> deletePost(db,doc.id));
-			//document.getElementById(`delete-${doc.id}`).addEventListener('click', (e)=> deletePost(db,doc.id));
-		});
+			// <!----------------- función delete post  --------------------->
+			document.getElementById(`delete-${doc.id}`).addEventListener('click', (e) => deletePost(db, doc.id));
+			
+			// <!-----Poner a la escucha cancel/confirm --- /Edit Post/  ------>	
+			document.getElementById(`edit-${doc.id}`).addEventListener('click', (e) => {
+				document.getElementById(`editContainer-${doc.id}`).className = 'containerEditShow';
+			});
 
+			// <!----- Función Edit Post  ------>
+			//document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', (e) => editPost(db, doc.id));
+
+		});
 	})
 }
 
