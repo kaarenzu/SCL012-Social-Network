@@ -183,7 +183,8 @@ function guardarPost() {
 
 		db.collection("post").add({
 			mensaje: writePost,
-			datatime: new Date()
+			datatime: new Date(),
+			like: 0
 		})
 			.then(function (docRef) {
 				console.log("Document written with ID: ", docRef.id);
@@ -225,7 +226,7 @@ function mostrarPost() {
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
 		<img id="edit-${doc.id}" src="./img/editar.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
-		<img src="./img/megusta.png"
+		<img id="like-${doc.id}"src="./img/megusta.png"
 			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
 		</div>
 		</div>
@@ -234,19 +235,22 @@ function mostrarPost() {
 		});
 
 		querySnapshot.forEach((doc) => {
-			
 			// <!----------------- función delete post  --------------------->
 			document.getElementById(`delete-${doc.id}`).addEventListener('click', () => deletePost(db, doc.id));
-			
 			// <!-----Poner a la escucha cancel/confirm --- /Edit Post/  ------>	
 			document.getElementById(`edit-${doc.id}`).addEventListener('click', () => {
 				document.getElementById(`editContainer-${doc.id}`).className = 'containerEditShow';
 			});
 		
 			// <!----- Función Edit Post  ------>
-			const message=document.getElementById('inputPost').value;
-			document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id,message));
+			document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id,document.getElementById('inputPost').value));
+			
+			// <!----- Función likes Post  ------>
+			//document.getElementById(`like-${doc.id}`).addEventListener('click', () => editPost());
 		});
+		
 	})
 }
+
+
 
