@@ -1,4 +1,4 @@
-import { signIn, createUser, ingresarGoogle, deletePost } from './lib/index.js';
+import { signIn, createUser, ingresarGoogle, deletePost, editPost} from './lib/index.js';
 import { mostrarLogin } from './lib/views.js';
 let contenido = document.getElementById('root');
 let db = firebase.firestore();
@@ -230,17 +230,18 @@ function mostrarPost() {
 		});
 
 		querySnapshot.forEach((doc) => {
+			
 			// <!----------------- función delete post  --------------------->
-			document.getElementById(`delete-${doc.id}`).addEventListener('click', (e) => deletePost(db, doc.id));
+			document.getElementById(`delete-${doc.id}`).addEventListener('click', () => deletePost(db, doc.id));
 			
 			// <!-----Poner a la escucha cancel/confirm --- /Edit Post/  ------>	
-			document.getElementById(`edit-${doc.id}`).addEventListener('click', (e) => {
+			document.getElementById(`edit-${doc.id}`).addEventListener('click', () => {
 				document.getElementById(`editContainer-${doc.id}`).className = 'containerEditShow';
 			});
-
+		
 			// <!----- Función Edit Post  ------>
-			//document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', (e) => editPost(db, doc.id));
-
+			const message=document.getElementById('inputPost').value;
+			document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id,message));
 		});
 	})
 }
