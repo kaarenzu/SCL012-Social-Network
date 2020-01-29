@@ -152,12 +152,11 @@ function mostrarHome(user) {
    <!----------------- Escribe aquí tu publicación  --------------------->
 	<div class="contenedor">
 		<div class="divPrincipalImg">
-			<img src="img/iconopost.png" style="width: 40px; height:40px">
+			<img src="img/iconopost.png" class="icono-post">
 			<div class="divPrincipalPublicar">
 				<textarea id="post" class="inputPost" type="text"></textarea>
 			</div>
-			<img id="publicar" src="./img/publicar.png"
-				style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
+			<img id="publicar" src="./img/publicar.png" class="btn-publicar">
 		</div>
 	</div>
 	
@@ -186,7 +185,11 @@ function guardarPost() {
 		db.collection("post").add({
 			mensaje: writePost,
 			datatime: new Date(),
+<<<<<<< HEAD
 			uid: email
+=======
+			like: 0
+>>>>>>> e398daacd58953134cd730bcccc430128799a8a7
 		})
 			.then(function (docRef) {
 				console.log("Document written with ID: ", docRef.id);
@@ -216,20 +219,17 @@ function mostrarPost() {
 			mostrar.innerHTML += `
 		<div class="postDinamico">
 		<div class="divPrincipalImg">
-		<img src="img/iconopost.png" style="width: 40px; height:40px">
+		<img src="img/iconopost.png" class="icono-post">
 		<div class="divPrincipalPublicar">
 			<textarea id="inputPost" class="inputPost" type="text">${doc.data().mensaje}</textarea>
 			<div id="editContainer-${doc.id}" class="containerEditHide" >
 					<a id="confirmEdit-${doc.id}" class="tips-font">Confirmar</a>
 					<a class="tips-font">Cancelar</a>
 			</div>
-		</div>
-		<img id="delete-${doc.id}" src="./img/eliminar.png"
-			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 60px; margin-bottom: 10px;">
-		<img id="edit-${doc.id}" src="./img/editar.png"
-			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 105px; margin-bottom: 10px;">
-		<img src="./img/megusta.png"
-			style="width: 35px; height:35px; position: absolute; right: 0; bottom: 0; margin-right: 150px; margin-bottom: 10px;">
+		</div class="contenedor-iconos">
+		<img id="delete-${doc.id}" src="./img/eliminar.png" class="btn-eliminar">
+		<img id="edit-${doc.id}" src="./img/editar.png" class="btn-editar">
+		<img src="./img/megusta.png" class="btn-megusta">
 		</div>
 		</div>
 			`;
@@ -237,19 +237,22 @@ function mostrarPost() {
 		});
 
 		querySnapshot.forEach((doc) => {
-			
 			// <!----------------- función delete post  --------------------->
 			document.getElementById(`delete-${doc.id}`).addEventListener('click', () => deletePost(db, doc.id));
-			
 			// <!-----Poner a la escucha cancel/confirm --- /Edit Post/  ------>	
 			document.getElementById(`edit-${doc.id}`).addEventListener('click', () => {
 				document.getElementById(`editContainer-${doc.id}`).className = 'containerEditShow';
 			});
 		
 			// <!----- Función Edit Post  ------>
-			const message=document.getElementById('inputPost').value;
-			document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id,message));
+			document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id,document.getElementById('inputPost').value));
+			
+			// <!----- Función likes Post  ------>
+			//document.getElementById(`like-${doc.id}`).addEventListener('click', () => editPost());
 		});
+		
 	})
 }
+
+
 

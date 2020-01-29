@@ -221,6 +221,7 @@ h1{
     /********** Caja de post **********/
 .divPrincipalPublicar {
     width: 400px;
+    /* width: 70%; */
     height: 80px;
     margin-left: 60px;
     background-color: #E0E2FA;
@@ -233,6 +234,7 @@ h1{
 
 .inputPost{
     width: 400px;
+    /* width: 100%; */
     height: 80px;
     background-color: #E0E2FA;
 } 
@@ -259,7 +261,7 @@ section div img {
 }
 
 section div textarea {
-    width: 400px;
+    width: 40px;
     height: 60px;
     border: none;
     padding: 5px 10px;
@@ -302,6 +304,48 @@ section div [type = submit] {
 /********** Fin caja de post **********/
 
 
+/* Botones de post */
+.btn-publicar{
+    width: 35px;
+    height:35px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 60px;
+}
+.btn-eliminar{
+    width: 35px;
+    height:35px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 60px;
+    margin-bottom: 10px;
+}
+.btn-editar{
+    width: 35px;
+    height:35px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 105px;
+    margin-bottom: 10px;
+}
+.btn-megusta{
+    width: 35px;
+    height:35px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 150px;
+    margin-bottom: 10px;
+}
+.icono-post{
+    width: 40px;
+    height:40px
+}
+
+
 /* ------- EDITAR BOTON CONFIRMAR/CANCELAR --------  */
 .containerEditHide{
     display: none;
@@ -336,93 +380,89 @@ footer p{
 } */
 
 
-/* @media screen and (max-width:576px) {
+/* Responsive para celular */
+ @media (max-width:360px) {
+    /******* Login y registro ********/
     h1 {
      color: transparent;
     }
+
     .logo{
-        position: absolute;
         height: 27%;
-        left: 39%;
-        top: 2%;
+        left: 30%;
+        top: 10%;
     }
+
     .login{
         display: flex;
         flex-direction: column;
         width: 380px;
-        height: 450px;
-        margin-left: -119%;
-        top: 15%;
+        height: 400px;
+        margin-left: -220%;
+        top: 30%;
         background: transparent;
         border: transparent;
         box-shadow: none;
     }
+
     h3{
         font-size: 15px;
         font-weight: normal;
         margin-top: 12%;
         margin-right:60px; 
     }
+
     .input{
         align-self: center;
-        width: 90%;
+        width: 80%;
         margin: 2%;
         height: -1%;
         border: 1px solid #83ACB1;
         box-sizing: border-box;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
-    
+
     .btn{
         align-self: center;
         margin: 10px;
         height: 35px;
-        width: 350px;
+        width: 300px;
         border-radius: 19px;
         background-color: #323676;
         color: floralwhite;
     }
-    
+
     .btn2{
         align-self: center;
         margin: 10px;
         height: 35px;
-        width: 350px;
+        width: 300px;
         border-radius: 19px;
         background: #EC2E2E;
         color: floralwhite;
     }
-     ul {
-        width: 50%;
-        height: 100%;
-        margin-top: 18%;
-        position: fixed;
-        background: white;
-    }
-    .btnMenu{
-       display: block; 
-       float: none;
-       border-bottom:#323676 ;
-       color:#323676 ;
-    }
-    .post{
+
+    /***** Página de inicio *****/
+
+    .title{
         display: none;
     }
-    .menu {
-        display: block;
-        max-width: 12%;
-        margin-top: 2%;
-        margin-left: 4%;
+
+    .menu{
+        height: 50px;
     }
-    .imagenes{
-        display: none;
+
+    li a {
+        display: flex;
+        flex-direction: column;
     }
-    .cerrar {
-        display: block;
-        max-width: 21%;
-        margin-top: -180%;
-        margin-left: 172%;
-        background: wheat;
+
+    .divPrincipalImg{
+        width: 280px;
+        left: -7%;
     }
-    
-} */
+    .tips-font{
+        font-size: 12px;
+    }
+
+} 
