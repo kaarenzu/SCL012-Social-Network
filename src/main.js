@@ -178,12 +178,15 @@ function mostrarHome(user) {
 
 function guardarPost() {
 
-	document.getElementById('publicar').addEventListener('click', () => {
+	document.getElementById("publicar").addEventListener('click', () => {
 		let writePost = document.getElementById('post').value;
+		let user = firebase.auth().currentUser;
+		var email = user.email;
 
 		db.collection("post").add({
 			mensaje: writePost,
-			datatime: new Date()
+			datatime: new Date(),
+			uid: email
 		})
 			.then(function (docRef) {
 				console.log("Document written with ID: ", docRef.id);
