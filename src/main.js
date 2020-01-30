@@ -11,34 +11,35 @@ document.getElementById('ingresar').addEventListener('click', (e) => {
 	let password2 = document.getElementById('password2').value;
 	e.preventDefault();
 	signIn(email2, password2);
+
 });
 //<-------------Ingresar con Google-------------->
-document.getElementById('gmail').addEventListener('click', ingresarGoogle);
+document.getElementById('gmail').addEventListener('click', ingresarGoogle)
 //<-------------Link crea tu cuenta aquí-------------->
-document.getElementById("crearCuenta").addEventListener('click', () => {
-	console.log("entro click")
+document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
 	contenido.innerHTML = `
-	<div class="container">
-
+		<div class="container">
+		
         <div class="logo">
-            <img src="img/logo tech.png">
+		<img src="img/logo tech.png">
         </div>
-
+		
         <div class="login">
-
-            <h1>Crea tu cuenta</h1>
-            <input type="text" id="nombre" placeholder="Nombre*" class="datos" requiere>
-            <input type="text" id="apellido" placeholder="Apellido" class="datos" requiere>
-            <input type="email" id="email" placeholder="Correo electrónico*" class="datos" requiere>
-            <input type="password" id="password" placeholder="**************" class="datos" requiere>
-            <p>Contraseña debe tener mínimo 8 caracteres.</p>
-            <p>Campos con * son obligatorios.</p>
-            <button id="registrarse" class="btn">Registrarse</button>
-
+		
+		<h1>Crea tu cuenta</h1>
+		<input type="text" id="nombre" placeholder="Nombre*" class="datos" requiere>
+		<input type="text" id="apellido" placeholder="Apellido" class="datos" requiere>
+		<input type="email" id="email" placeholder="Correo electrónico*" class="datos" requiere>
+		<input type="password" id="password" placeholder="**************" class="datos" requiere>
+		<p>Contraseña debe tener mínimo 8 caracteres.</p>
+		<p>Campos con * son obligatorios.</p>
+		<button id="registrarse" class="btn">Registrarse</button>
+		
         </div>
     </div>
 		`;
+
 	// <-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
 		let email = document.getElementById('email').value;
@@ -202,22 +203,21 @@ function mostrarPost() {
 		});
 
 		querySnapshot.forEach((doc) => {
-			
+
 			// <!----------------- función delete post  --------------------->
 			document.getElementById(`delete-${doc.id}`).addEventListener('click', () => deletePost(db, doc.id));
-			
+
 			// <!-----Poner a la escucha cancel/confirm --- /Edit Post/  ------>	
 			document.getElementById(`edit-${doc.id}`).addEventListener('click', () => {
 				document.getElementById(`editContainer-${doc.id}`).className = 'containerEditShow';
 			});
-			
+
 			// <!----- Función Edit Post  ------>
 			document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id, document.getElementById('inputPost').value));
-			
+
 			// <!----- Función likes Post  ------>
 			document.getElementById(`like-${doc.id}`).addEventListener('click', () => postLike(doc.id));
 		});
-	})
-}
-
+	});
+};
 

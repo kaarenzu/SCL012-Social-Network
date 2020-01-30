@@ -16,7 +16,7 @@ export function mostrarLogin() {
             <button class="btn" id="ingresar">Ingresar</button>
             <button class="btn2" id="gmail">Gmail</button>
             <a href="" class="recuperar">¿Olvidaste tu contraseña? Recupérala aquí</a>
-            <a href="" class="aqui" id="crearCuenta">Crea tu cuenta Aquí</a>
+            <a href="#" class="aqui" id="crearCuenta">Crea tu cuenta Aquí</a>
 
 
         </div>
