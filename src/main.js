@@ -18,51 +18,49 @@ document.getElementById('gmail').addEventListener('click', ingresarGoogle);
 document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
 	contenido.innerHTML = `
-	<div class="container">	
+	<div class='container'>	
 		<div>
-    	<img src="img/logo tech.png"class="logo">
+    	<img src='img/logo tech.png'class='logo'>
     	</div>
-    	<div class="login">
+    	<div class='login'>
 			<h1>Crea tu cuenta</h1>
 				<form>
-					<input type="text" name="" id="nombre" placeholder="Nombre*" class="input" requiere>
-    				<input type="text" name=""  id="apellido" placeholder="Apellido" class="input"requiere>
-    				<input type="email" name="" id="email" placeholder="Correo electrónico*" class="input"requiere>
-    				<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
+					<input type='text' name="" id='nombre' placeholder='Nombre*' class='input' requiere>
+    				<input type='text' name=""  id='apellido' placeholder='Apellido' class='input'requiere>
+    				<input type='email' name="" id='email' placeholder='Correo electrónico*' class='input'requiere>
+    				<input type='password' name="" id='password' placeholder='**************' class='input'requiere>
 					<p>Contraseña debe tener mínimo 8 caracteres.</p>
 					<p>Campos con * son obligatorios.</p>
-					<button id="registrarse" class="btn">Registrarse</button>
+					<button id='registrarse' class='btn'>Registrarse</button>
 				</form>
 		</div>
 	<div>
 		`;
-	//<-------------Crear Usuario-------------->
+	// <-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
 		let email = document.getElementById('email').value;
 		let password = document.getElementById('password').value;
+		let nombre = document.getElementById('nombre').value;
+		let apellido = document.getElementById('apellido').value;
+
+		let db = firebase.firestore();
+
+		db.collection("users").add({
+			nombre: nombre,
+			apellido: apellido
+		})
+			.then(function (docRef) {
+				console.log("Document written with ID: ", docRef.id);
+				document.getElementById('nombre').value = '';
+				document.getElementById('apellido').value = '';
+				document.getElementById('email').value = '';
+				document.getElementById('password').value = '';
+			})
+			.catch(function (error) {
+				console.error("Error adding document: ", error);
+			});
 		e.preventDefault();
 		createUser(email, password);
-		// let nombre = document.getElementById('nombre').value;
-		// let apellido = document.getElementById('apellido').value;
-
-		// let db = firebase.firestore();
-
-		// db.collection("users").add({
-		// 	nombre: nombre,
-		// 	apellido: apellido
-		// })
-		// 	.then(function (docRef) {
-		// 		console.log("Document written with ID: ", docRef.id);
-		// 		document.getElementById('nombre').value = '';
-		// 		document.getElementById('apellido').value = '';
-		// 		document.getElementById('email').value = '';
-		// 		document.getElementById('password').value = '';
-		// 	})
-		// 	.catch(function (error) {
-		// 		console.error("Error adding document: ", error);
-		// 	});
-		// e.preventDefault();
-		// createUser(email, password);
 
 	});
 });
@@ -74,16 +72,16 @@ function observador() {
 			mostrarPost();
 			guardarPost();
 			// User is signed in.
-			var displayName = user.displayName;
-			var email = user.email;
+			let displayName = user.displayName;
+			let email = user.email;
 			console.log('*****************');
 			console.log(user.emailVerified);
 			console.log('*****************');
-			var emailVerified = user.emailVerified;
-			var photoURL = user.photoURL;
-			var isAnonymous = user.isAnonymous;
-			var uid = user.uid;
-			var providerData = user.providerData;
+			let emailVerified = user.emailVerified;
+			let photoURL = user.photoURL;
+			let isAnonymous = user.isAnonymous;
+			let uid = user.uid;
+			let providerData = user.providerData;
 		} else {
 			console.log('no existe usuario activo');
 		}
@@ -120,18 +118,18 @@ function mostrarHome(user) {
     </header>
 		
    <!----------------- Escribe aquí tu publicación  --------------------->
-	<div class="contenedor">
-		<div class="divPrincipalImg">
-			<img src="img/iconopost.png" class="icono-post">
-			<div class="divPrincipalPublicar">
-				<textarea id="post" class="inputPost" type="text"></textarea>
+	<div class='contenedor'>
+		<div class='divPrincipalImg'>
+			<img src='img/iconopost.png' class='icono-post'>
+			<div class='divPrincipalPublicar'>
+				<textarea id='post' class='inputPost' type='text'></textarea>
 			</div>
-			<img id="publicar" src="./img/publicar.png" class="btn-publicar">
+			<img id='publicar' src='./img/publicar.png' class='btn-publicar'>
 		</div>
 	</div>
 	
 		`;
-		//<-------------Función botón Cerrar Sesión-------------->
+		// <-------------Función botón Cerrar Sesión-------------->
 		document.getElementById('cerrarSesion').addEventListener('click', () => {
 			firebase.auth().signOut()
 				.then(function () {
@@ -149,28 +147,27 @@ function guardarPost() {
 
 	document.getElementById('publicar').addEventListener('click', () => {
 		let writePost = document.getElementById('post').value;
-
-		db.collection("post").add({
+		db.collection('post').add({
 			mensaje: writePost,
 			datatime: new Date(),
 			like: []
 		})
 			.then(function (docRef) {
-				console.log("Document written with ID: ", docRef.id);
+				console.log('Document written with ID: ', docRef.id);
 				document.getElementById('post').value = ''; //para que después de enviar los datos se vacié el input
 			})
 			.catch(function (error) {
-				console.error("Error adding document: ", error);
+				console.error('Error adding document: ', error);
 			});
 
 	});
 }
 
 function mostrarPost() {
-	//<!----------------Lee los datos y los imprime-------------------->
-	let collecionPost = db.collection("post");
+	// <!----------------Lee los datos y los imprime-------------------->
+	let collecionPost = db.collection('post');
 
-	let collecionPostOrdenada = collecionPost.orderBy("datatime", "desc");
+	let collecionPostOrdenada = collecionPost.orderBy('datatime', 'desc');
 
 
 	collecionPostOrdenada.onSnapshot((querySnapshot) => {
@@ -181,14 +178,14 @@ function mostrarPost() {
 
 			// <!----------------- Post dinámicos  --------------------->
 			mostrar.innerHTML += `
-		<div class="postDinamico">
-		<div class="divPrincipalImg">
-		<img src="img/iconopost.png" class="icono-post">
-		<div class="divPrincipalPublicar">
-			<textarea id="inputPost" class="inputPost" type="text">${doc.data().mensaje}</textarea>
-			<div id="editContainer-${doc.id}" class="containerEditHide" >
-					<a id="confirmEdit-${doc.id}" class="tips-font">Confirmar</a>
-					<a class="tips-font">Cancelar</a>
+		<div class='postDinamico'>
+		<div class='divPrincipalImg'>
+		<img src='img/iconopost.png' class='icono-post'>
+		<div class='divPrincipalPublicar'>
+			<textarea id='inputPost' class='inputPost' type='text'>${doc.data().mensaje}</textarea>
+			<div id='editContainer-${doc.id}' class='containerEditHide' >
+					<a id='confirmEdit-${doc.id}' class='tips-font'>Confirmar</a>
+					<a class='tips-font'>Cancelar</a>
 			</div>
 		</div class="contenedor-iconos">
 		<img id="delete-${doc.id}" src="./img/eliminar.png" class="btn-eliminar">
