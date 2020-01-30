@@ -381,7 +381,7 @@ footer p{
 
 
 /* Responsive para celular */
- @media (max-width:360px) {
+ @media (min-width:260px) and (max-width:576px) {
     /******* Login y registro ********/
     h1 {
      color: transparent;
