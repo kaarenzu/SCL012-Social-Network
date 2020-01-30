@@ -40,29 +40,27 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 	document.getElementById('registrarse').addEventListener('click', (e) => {
 		let email = document.getElementById('email').value;
 		let password = document.getElementById('password').value;
+		let nombre = document.getElementById('nombre').value;
+		let apellido = document.getElementById('apellido').value;
+
+		let db = firebase.firestore();
+
+		db.collection("users").add({
+			nombre: nombre,
+			apellido: apellido
+		})
+			.then(function (docRef) {
+				console.log("Document written with ID: ", docRef.id);
+				document.getElementById('nombre').value = '';
+				document.getElementById('apellido').value = '';
+				document.getElementById('email').value = '';
+				document.getElementById('password').value = '';
+			})
+			.catch(function (error) {
+				console.error("Error adding document: ", error);
+			});
 		e.preventDefault();
 		createUser(email, password);
-		// let nombre = document.getElementById('nombre').value;
-		// let apellido = document.getElementById('apellido').value;
-
-		// let db = firebase.firestore();
-
-		// db.collection("users").add({
-		// 	nombre: nombre,
-		// 	apellido: apellido
-		// })
-		// 	.then(function (docRef) {
-		// 		console.log("Document written with ID: ", docRef.id);
-		// 		document.getElementById('nombre').value = '';
-		// 		document.getElementById('apellido').value = '';
-		// 		document.getElementById('email').value = '';
-		// 		document.getElementById('password').value = '';
-		// 	})
-		// 	.catch(function (error) {
-		// 		console.error("Error adding document: ", error);
-		// 	});
-		// e.preventDefault();
-		// createUser(email, password);
 
 	});
 });
@@ -179,7 +177,6 @@ function guardarPost() {
 
 	document.getElementById('publicar').addEventListener('click', () => {
 		let writePost = document.getElementById('post').value;
-	
 		db.collection('post').add({
 			mensaje: writePost,
 			datatime: new Date(),

@@ -102,11 +102,11 @@ export let postLike = (id) => {
 			console.log("ento al like vacio");
 		}
 
-		if (post.like.includes(user.displayName)) {
+		if (post.like.includes(user.uid)) {
 
 			for (let i = 0; i < post.like.length; i++) {
 
-				if (post.like[i] === user.displayName) { //verifica si ya el usuario está en el array
+				if (post.like[i] === user.uid) { //verifica si ya el usuario está en el array
 
 					post.like.splice(i, 1); // sentencia para eliminar un elemento de un array
 					
@@ -118,7 +118,7 @@ export let postLike = (id) => {
 			}
 		} else {
 
-			post.like.push(user.displayName);
+			post.like.push(user.uid);
 			db.collection('post').doc(id).update({
 				like: post.like
 			});
