@@ -220,18 +220,11 @@ function mostrarPost() {
 					<a id='confirmEdit-${doc.id}' class='tips-font'>Confirmar</a>
 					<a class='tips-font'>Cancelar</a>
 			</div>
-<<<<<<< HEAD
-		</div class='contenedor-iconos'>
-		<img id='delete-${doc.id}' src='./img/eliminar.png' class='btn-eliminar'>
-		<img id='edit-${doc.id}' src='./img/editar.png' class='btn-editar'>
-		<img id='like'src='./img/megusta.png' class='btn-megusta'>
-=======
 		</div class="contenedor-iconos">
 		<img id="delete-${doc.id}" src="./img/eliminar.png" class="btn-eliminar">
 		<img id="edit-${doc.id}" src="./img/editar.png" class="btn-editar">
 		<img id="like-${doc.id}" src="./img/megusta.png" class="btn-megusta">
 		<span id="numero-${doc.id}" class="numeros-megusta">${doc.data().like.length}</span>
->>>>>>> d64d9ebfef66506c97611a48e30c21daa62fb6b5
 		</div>
 		</div>
 			`;
