@@ -340,6 +340,16 @@ section div [type = submit] {
     margin-right: 150px;
     margin-bottom: 10px;
 }
+.numeros-megusta{
+    width: 35px;
+    height:35px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 170px;
+    margin-bottom: 1px;
+}
+
 .icono-post{
     width: 40px;
     height:40px

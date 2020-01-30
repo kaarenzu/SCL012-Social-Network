@@ -1,4 +1,4 @@
-import { signIn, createUser, ingresarGoogle, deletePost, editPost} from './lib/index.js';
+import { signIn, createUser, ingresarGoogle, deletePost, editPost, postLike } from './lib/index.js';
 import { mostrarLogin } from './lib/views.js';
 let contenido = document.getElementById('root');
 let db = firebase.firestore();
@@ -42,27 +42,27 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 		let password = document.getElementById('password').value;
 		e.preventDefault();
 		createUser(email, password);
-		let nombre = document.getElementById('nombre').value;
-		let apellido = document.getElementById('apellido').value;
+		// let nombre = document.getElementById('nombre').value;
+		// let apellido = document.getElementById('apellido').value;
 
-		let db = firebase.firestore();
+		// let db = firebase.firestore();
 
-		db.collection('users').add({
-			nombre: nombre,
-			apellido: apellido
-		})
-			.then(function (docRef) {
-				console.log('Document written with ID: ', docRef.id);
-				document.getElementById('nombre').value = '';
-				document.getElementById('apellido').value = '';
-				document.getElementById('email').value = '';
-				document.getElementById('password').value = '';
-			})
-			.catch(function (error) {
-				console.error('Error adding document: ', error);
-			});
-		e.preventDefault();
-		createUser(email, password);
+		// db.collection("users").add({
+		// 	nombre: nombre,
+		// 	apellido: apellido
+		// })
+		// 	.then(function (docRef) {
+		// 		console.log("Document written with ID: ", docRef.id);
+		// 		document.getElementById('nombre').value = '';
+		// 		document.getElementById('apellido').value = '';
+		// 		document.getElementById('email').value = '';
+		// 		document.getElementById('password').value = '';
+		// 	})
+		// 	.catch(function (error) {
+		// 		console.error("Error adding document: ", error);
+		// 	});
+		// e.preventDefault();
+		// createUser(email, password);
 
 	});
 });
@@ -77,7 +77,7 @@ function observador() {
 			let displayName = user.displayName;
 			let email = user.email;
 			console.log('*****************');
-			console.log(user.emailerified);
+			console.log(user.emailVerified);
 			console.log('*****************');
 			let emailVerified = user.emailVerified;
 			let photoURL = user.photoURL;
@@ -179,16 +179,11 @@ function guardarPost() {
 
 	document.getElementById('publicar').addEventListener('click', () => {
 		let writePost = document.getElementById('post').value;
-		let user = firebase.auth().currentUser;
-		var uid = user.uid;
-
+	
 		db.collection('post').add({
 			mensaje: writePost,
 			datatime: new Date(),
-			like:{
-				'uid' : uid ,
-				'likes': 0
-			}
+			like: []
 		})
 			.then(function (docRef) {
 				console.log('Document written with ID: ', docRef.id);
@@ -225,10 +220,18 @@ function mostrarPost() {
 					<a id='confirmEdit-${doc.id}' class='tips-font'>Confirmar</a>
 					<a class='tips-font'>Cancelar</a>
 			</div>
+<<<<<<< HEAD
 		</div class='contenedor-iconos'>
 		<img id='delete-${doc.id}' src='./img/eliminar.png' class='btn-eliminar'>
 		<img id='edit-${doc.id}' src='./img/editar.png' class='btn-editar'>
 		<img id='like'src='./img/megusta.png' class='btn-megusta'>
+=======
+		</div class="contenedor-iconos">
+		<img id="delete-${doc.id}" src="./img/eliminar.png" class="btn-eliminar">
+		<img id="edit-${doc.id}" src="./img/editar.png" class="btn-editar">
+		<img id="like-${doc.id}" src="./img/megusta.png" class="btn-megusta">
+		<span id="numero-${doc.id}" class="numeros-megusta">${doc.data().like.length}</span>
+>>>>>>> d64d9ebfef66506c97611a48e30c21daa62fb6b5
 		</div>
 		</div>
 			`;
@@ -236,18 +239,22 @@ function mostrarPost() {
 		});
 
 		querySnapshot.forEach((doc) => {
+			
 			// <!----------------- función delete post  --------------------->
 			document.getElementById(`delete-${doc.id}`).addEventListener('click', () => deletePost(db, doc.id));
+			
 			// <!-----Poner a la escucha cancel/confirm --- /Edit Post/  ------>	
 			document.getElementById(`edit-${doc.id}`).addEventListener('click', () => {
 				document.getElementById(`editContainer-${doc.id}`).className = 'containerEditShow';
 			});
-		
+			
 			// <!----- Función Edit Post  ------>
-			document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id,document.getElementById('inputPost').value));
+			document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id, document.getElementById('inputPost').value));
 			
 			// <!----- Función likes Post  ------>
-			// document.getElementById(`like-${doc.id}`).addEventListener('click', () => editPost());
-		});		
+			document.getElementById(`like-${doc.id}`).addEventListener('click', () => postLike(doc.id));
+		});
 	})
-};
+}
+
+
