@@ -76,7 +76,7 @@ export let deletePost = (db, id) => {
 };
 //<-------------Función editar post-------------->
 export let editPost = (id, writePost) => {
-	db.collection('post').doc(id).set({
+	db.collection('post').doc(id).update({
 		mensaje: writePost,
 		datatime: new Date()
 	}).then(function () {
@@ -87,3 +87,47 @@ export let editPost = (id, writePost) => {
 		});
 };
 
+//<-------------Función Likear post-------------->
+export let postLike = (id) => {
+
+	let user = firebase.auth().currentUser;	
+	
+	// de la collection post traeme el documento con el ID, "id"
+	db.collection('post').doc(id).get().then((respuesta) => {
+
+		let post = respuesta.data();
+
+		if (post.like == null || post.like == '') {
+			post.like = [];
+			console.log("ento al like vacio");
+		}
+
+		if (post.like.includes(user.displayName)) {
+
+			for (let i = 0; i < post.like.length; i++) {
+
+				if (post.like[i] === user.displayName) { //verifica si ya el usuario está en el array
+
+					post.like.splice(i, 1); // sentencia para eliminar un elemento de un array
+					
+					db.collection('post').doc(id).update({ // para actualizar el array
+						like: post.like
+					}); 
+
+				}
+			}
+		} else {
+
+			post.like.push(user.displayName);
+			db.collection('post').doc(id).update({
+				like: post.like
+			});
+			
+		}
+
+		document.getElementById(`numero-${doc.id}`).value = post.like.length;
+	})
+		.catch(function (error) {
+
+		});	
+};
