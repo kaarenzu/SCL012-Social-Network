@@ -95,56 +95,26 @@ function mostrarHome(user) {
 		contenido.innerHTML = `
 		
 	<!------------ Menú de navegación ----------->
-    <section class='title'>
-        <h1>TIPS TECH</h1>
-    </section>
     <header>
-        <nav class='navegacion'>
-            <ul class='menu'>
-                <li class='first-item'>
-                    <a href="">
-                        <img src='img/01.png' alt="" class='imagen'>
-                        <span class='text-item'>Inicio</span>
-                        <span class='down-item'></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src='img/02.png' alt="" class='imagen'>
-                        <span class='text-item'>Computación</span>
-                        <span class='down-item'></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src='img/03.png' alt="" class='imagen'>
-                        <span class='text-item'>Videojuegos</span>
-                        <span class='down-item'></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src='img/04.png' alt="" class='imagen'>
-                        <span class='text-item'>Celulares</span>
-                        <span class='down-item'></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src='img/05.png' alt="" class='imagen'>
-                        <span class='text-item'>Accesorios</span>
-                        <span class='down-item'></span>
-                    </a>
-                </li>
-                <li id='cerrarSesion'>
-                    <a href="">
-                        <img src='img/06.png' alt="" class='imagen'>
-                        <span class='text-item'>Mi sesión</span>
-                        <span class='down-item'></span>
-                    </a>
-                </li>
+
+        <div class="title">
+            <h1>TIPS TECH</h1>
+        </div>
+
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu"><i class="icono fas fa-bars"></i></label>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Computación</a></li>
+                <li><a href="">Videojuegos</a></li>
+                <li><a href="">Celulares</a></li>
+                <li><a href="">Accesorios</a></li>
+                <li id="cerrarSesion"><a href="">Cerrar sesión</a></li>
             </ul>
         </nav>
+
     </header>
 		
    <!----------------- Escribe aquí tu publicación  --------------------->
