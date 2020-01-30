@@ -15,7 +15,8 @@ document.getElementById('ingresar').addEventListener('click', (e) => {
 //<-------------Ingresar con Google-------------->
 document.getElementById('gmail').addEventListener('click', ingresarGoogle);
 //<-------------Link crea tu cuenta aquí-------------->
-document.getElementById('crearCuenta').addEventListener('click', () => {
+document.getElementById("crearCuenta").addEventListener('click', () => {
+	console.log("entro click")
 	contenido.innerHTML = '';
 	contenido.innerHTML = `
 	<div class="container">
