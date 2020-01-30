@@ -79,81 +79,83 @@ header label .icono:hover{
 /********* Fin menú de navegación *********/
 
 
-/******* Login & registro ******/
-h1{
-    margin-top: 3%;
-    font-size: 25px;
-    margin-bottom: 30px;
+/******* Inicio Login & registro ******/
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.recuperar{
-    font-size: 15px;
-    margin-bottom: -5%;
-    margin-top: 3%;
- }
-
-.aqui{
-    text-align: center;
-    font-size: 15px;
-    font-weight: normal;
-    margin-top: 80px;
+.logo, .login{
+    width: 30%;
+    height: 70%;
 }
 
-.logo{
-    position: absolute;
-    height: 400px;
-    left: 230px;
-    top: 80px;
+.logo img{
+    max-width: 80%;
 }
 
 .login{
     display: flex;
     flex-direction: column;
-    border: ridge;
-    text-align: center;
-    position: absolute;
-    width: 380px;
-    height: 450px;
-    left: 780px;
-    top: 70px;
+    align-items: center;
+    width: 350px;
+    padding: 1%;
+    margin-left: 10%;
     background: rgb(220, 220, 220, 0.5);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+    border: ridge;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
-.input{
-    align-self: center;
-    width: 350px;
-    margin: 10px;
-    height: 35px;
-    border: 1px solid #83ACB1;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+h1{
+    text-align: center;
+    padding: 5%;
+    font-size: 25px;
+}
+
+.datos{
+    margin-bottom: 10px;
+    width: 90%;
+    margin: 2%;
+    padding: 6px;
+    box-shadow: 3px 8px 10px -7px rgba(0,0,0,1)
+}
+
+.btn, .btn2{
+    cursor: pointer;
+    padding: 3%;
+    margin: 3%;
+    width: 200px;
+    color: #FFF;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
 .btn{
-    cursor: pointer;
-    align-self: center;
-    margin: 5%;
-    height: 40px;
-    width: 200px;
-    border-radius: 19px;
+    margin-top: 5%;
     background-color: #323676;
-    color: floralwhite;
 }
 
 .btn2{
-    cursor: pointer;
-    align-self: center;
-    margin: 2%;
-    height: 40px;
-    width: 200px;
-    border-radius: 19px;
-    background: #EC2E2E;
-    color: floralwhite;
+    background-color: #EC2E2E;
 }
 
-/******* Fin login & registro ******/
+.recuperar{
+    margin:7%;
+}
+
+p{
+    margin:3%;
+}
+/******* Fin Login & registro ******/
 
 
     /********** Caja de post **********/
@@ -331,7 +333,7 @@ footer p{
 /* Responsive para celular */
  @media (max-width:700px) {
     /******* Login y registro ********/
-    h1 {
+    /* h1 {
      color: transparent;
     }
 
@@ -388,7 +390,7 @@ footer p{
         border-radius: 19px;
         background: #EC2E2E;
         color: floralwhite;
-    }
+    } */
 
     /***** Página de inicio *****/
     .title{

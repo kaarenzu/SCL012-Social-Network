@@ -18,23 +18,25 @@ document.getElementById('gmail').addEventListener('click', ingresarGoogle);
 document.getElementById('crearCuenta').addEventListener('click', () => {
 	contenido.innerHTML = '';
 	contenido.innerHTML = `
-	<div class="container">	
-		<div>
-    	<img src="img/logo tech.png"class="logo">
-    	</div>
-    	<div class="login">
-			<h1>Crea tu cuenta</h1>
-				<form>
-					<input type="text" name="" id="nombre" placeholder="Nombre*" class="input" requiere>
-    				<input type="text" name=""  id="apellido" placeholder="Apellido" class="input"requiere>
-    				<input type="email" name="" id="email" placeholder="Correo electrónico*" class="input"requiere>
-    				<input type="password" name="" id="password" placeholder="**************" class="input"requiere>
-					<p>Contraseña debe tener mínimo 8 caracteres.</p>
-					<p>Campos con * son obligatorios.</p>
-					<button id="registrarse" class="btn">Registrarse</button>
-				</form>
-		</div>
-	<div>
+	<div class="container">
+
+        <div class="logo">
+            <img src="img/logo tech.png">
+        </div>
+
+        <div class="login">
+
+            <h1>Crea tu cuenta</h1>
+            <input type="text" id="nombre" placeholder="Nombre*" class="datos" requiere>
+            <input type="text" id="apellido" placeholder="Apellido" class="datos" requiere>
+            <input type="email" id="email" placeholder="Correo electrónico*" class="datos" requiere>
+            <input type="password" id="password" placeholder="**************" class="datos" requiere>
+            <p>Contraseña debe tener mínimo 8 caracteres.</p>
+            <p>Campos con * son obligatorios.</p>
+            <button id="registrarse" class="btn">Registrarse</button>
+
+        </div>
+    </div>
 		`;
 	//<-------------Crear Usuario-------------->
 	document.getElementById('registrarse').addEventListener('click', (e) => {
