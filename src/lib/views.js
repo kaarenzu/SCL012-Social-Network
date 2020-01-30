@@ -1,7 +1,8 @@
-let contenido = document.getElementById('root');
+/* eslint-disable no-tabs */
+const contenido = document.getElementById('root');
 export function mostrarLogin() {
-	window.location.hash = '/Inicio';
-	contenido.innerHTML = `
+  window.location.hash = '/Inicio';
+  contenido.innerHTML = `
 	<div class="container">	
 		<div>
 			<img src="img/logo tech.png" class="logo">

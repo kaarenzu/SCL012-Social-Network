@@ -1,30 +1,43 @@
-import { signIn, createUser, ingresarGoogle, deletePost, editPost, postLike } from './lib/index.js';
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-shadow */
+/* eslint-disable object-shorthand */
+/* eslint-disable no-console */
+/* eslint-disable no-tabs */
+import {
+  signIn,
+  createUser,
+  ingresarGoogle,
+  deletePost,
+  editPost,
+  postLike,
+} from './lib/index.js';
 import { mostrarLogin } from './lib/views.js';
-let contenido = document.getElementById('root');
-let db = firebase.firestore();
+
+const contenido = document.getElementById('root');
+const db = firebase.firestore();
 mostrarLogin();
 
-//<-------------Iniciar Sesión-------------->
+// <-------------Iniciar Sesión-------------->
 document.getElementById('ingresar').addEventListener('click', (e) => {
-	console.log('entró el click')
-	let email2 = document.getElementById('email2').value;
-	let password2 = document.getElementById('password2').value;
-	e.preventDefault();
-	signIn(email2, password2);
+  console.log('entró el click');
+  const email2 = document.getElementById('email2').value;
+  const password2 = document.getElementById('password2').value;
+  e.preventDefault();
+  signIn(email2, password2);
 });
-//<-------------Ingresar con Google-------------->
+// <-------------Ingresar con Google-------------->
 document.getElementById('gmail').addEventListener('click', ingresarGoogle);
-//<-------------Link crea tu cuenta aquí-------------->
+// <-------------Link crea tu cuenta aquí-------------->
 document.getElementById('crearCuenta').addEventListener('click', () => {
-	contenido.innerHTML = '';
-	contenido.innerHTML = `
-	<div class='container'>	
-		<div>
-    	<img src='img/logo tech.png'class='logo'>
-    	</div>
-    	<div class='login'>
-			<h1>Crea tu cuenta</h1>
-				<form>
+  contenido.innerHTML = '';
+  contenido.innerHTML = `
+    <div class='container'>
+      <div>
+        <img src='img/logo tech.png'class='logo'>
+      </div>
+      <div class='login'>
+        <h1>Crea tu cuenta</h1>
+          <form>
 					<input type='text' name="" id='nombre' placeholder='Nombre*' class='input' requiere>
     				<input type='text' name=""  id='apellido' placeholder='Apellido' class='input'requiere>
     				<input type='email' name="" id='email' placeholder='Correo electrónico*' class='input'requiere>
@@ -36,63 +49,61 @@ document.getElementById('crearCuenta').addEventListener('click', () => {
 		</div>
 	<div>
 		`;
-	// <-------------Crear Usuario-------------->
-	document.getElementById('registrarse').addEventListener('click', (e) => {
-		let email = document.getElementById('email').value;
-		let password = document.getElementById('password').value;
-		let nombre = document.getElementById('nombre').value;
-		let apellido = document.getElementById('apellido').value;
+  // <-------------Crear Usuario-------------->
+  document.getElementById('registrarse').addEventListener('click', (e) => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const db = firebase.firestore();
 
-		let db = firebase.firestore();
-
-		db.collection("users").add({
-			nombre: nombre,
-			apellido: apellido
-		})
-			.then(function (docRef) {
-				console.log("Document written with ID: ", docRef.id);
-				document.getElementById('nombre').value = '';
-				document.getElementById('apellido').value = '';
-				document.getElementById('email').value = '';
-				document.getElementById('password').value = '';
-			})
-			.catch(function (error) {
-				console.error("Error adding document: ", error);
-			});
-		e.preventDefault();
-		createUser(email, password);
-
-	});
+    db.collection('users').add({
+      nombre: nombre,
+      apellido: apellido,
+    })
+      .then((docRef) => {
+        console.log('Document written with ID: ', docRef.id);
+        document.getElementById('nombre').value = '';
+        document.getElementById('apellido').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('password').value = '';
+      })
+      .catch((error) => {
+        console.error('Error adding document: ', error);
+      });
+    e.preventDefault();
+    createUser(email, password);
+  });
 });
 function observador() {
-	firebase.auth().onAuthStateChanged(function (user) {
-		if (user) {
-			console.log('existe usuario activo');
-			mostrarHome(user);
-			mostrarPost();
-			guardarPost();
-			// User is signed in.
-			let displayName = user.displayName;
-			let email = user.email;
-			console.log('*****************');
-			console.log(user.emailVerified);
-			console.log('*****************');
-			let emailVerified = user.emailVerified;
-			let photoURL = user.photoURL;
-			let isAnonymous = user.isAnonymous;
-			let uid = user.uid;
-			let providerData = user.providerData;
-		} else {
-			console.log('no existe usuario activo');
-		}
-	})
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log('existe usuario activo');
+      mostrarHome(user);
+      mostrarPost();
+      guardarPost();
+      // User is signed in.
+      // let displayName = user.displayName;
+      // let email = user.email;
+      console.log('*****************');
+      console.log(user.emailVerified);
+      console.log('*****************');
+      // let emailVerified = user.emailVerified;
+      // let photoURL = user.photoURL;
+      // let isAnonymous = user.isAnonymous;
+      // let uid = user.uid;
+      // let providerData = user.providerData;
+    } else {
+      console.log('no existe usuario activo');
+    }
+  });
 }
 observador();
 
 function mostrarHome(user) {
-	if (user.emailVerified) {
-		window.location.hash = '/Home';
-		contenido.innerHTML = `
+  if (user.emailVerified) {
+    window.location.hash = '/Home';
+    contenido.innerHTML = `
 		
 	<!------------ Menú de navegación ----------->
     <header>
@@ -129,55 +140,51 @@ function mostrarHome(user) {
 	</div>
 	
 		`;
-		// <-------------Función botón Cerrar Sesión-------------->
-		document.getElementById('cerrarSesion').addEventListener('click', () => {
-			firebase.auth().signOut()
-				.then(function () {
-					mostrarLogin();
-					console.log('Saliendo...')
-				})
-				.catch(function (error) {
-					console.log(error);
-				})
-		});
-	}
-};
+    // <-------------Función botón Cerrar Sesión-------------->
+    document.getElementById('cerrarSesion').addEventListener('click', () => {
+      firebase.auth().signOut()
+        .then(() => {
+          mostrarLogin();
+          console.log('Saliendo...');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+  }
+}
 
 function guardarPost() {
-
-	document.getElementById('publicar').addEventListener('click', () => {
-		let writePost = document.getElementById('post').value;
-		db.collection('post').add({
-			mensaje: writePost,
-			datatime: new Date(),
-			like: []
-		})
-			.then(function (docRef) {
-				console.log('Document written with ID: ', docRef.id);
-				document.getElementById('post').value = ''; //para que después de enviar los datos se vacié el input
-			})
-			.catch(function (error) {
-				console.error('Error adding document: ', error);
-			});
-
-	});
+  document.getElementById('publicar').addEventListener('click', () => {
+    const writePost = document.getElementById('post').value;
+    db.collection('post').add({
+      mensaje: writePost,
+      datatime: new Date(),
+      like: [],
+    })
+      .then((docRef) => {
+        console.log('Document written with ID: ', docRef.id);
+        document.getElementById('post').value = ''; // para que después de enviar los datos se vacié el input
+      })
+      .catch((error) => {
+        console.error('Error adding document: ', error);
+      });
+  });
 }
 
 function mostrarPost() {
-	// <!----------------Lee los datos y los imprime-------------------->
-	let collecionPost = db.collection('post');
+  // <!----------------Lee los datos y los imprime-------------------->
+  const collecionPost = db.collection('post');
 
-	let collecionPostOrdenada = collecionPost.orderBy('datatime', 'desc');
+  const collecionPostOrdenada = collecionPost.orderBy('datatime', 'desc');
 
 
-	collecionPostOrdenada.onSnapshot((querySnapshot) => {
-
-		let mostrar = document.getElementById('mostrar');
-		mostrar.innerHTML = '';
-		querySnapshot.forEach((doc) => {
-
-			// <!----------------- Post dinámicos  --------------------->
-			mostrar.innerHTML += `
+  collecionPostOrdenada.onSnapshot((querySnapshot) => {
+    const mostrar = document.getElementById('mostrar');
+    mostrar.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      // <!----------------- Post dinámicos  --------------------->
+      mostrar.innerHTML += `
 		<div class='postDinamico'>
 		<div class='divPrincipalImg'>
 		<img src='img/iconopost.png' class='icono-post'>
@@ -195,26 +202,23 @@ function mostrarPost() {
 		</div>
 		</div>
 			`;
-			// console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-		});
+      // console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+    });
 
-		querySnapshot.forEach((doc) => {
-			
-			// <!----------------- función delete post  --------------------->
-			document.getElementById(`delete-${doc.id}`).addEventListener('click', () => deletePost(db, doc.id));
-			
-			// <!-----Poner a la escucha cancel/confirm --- /Edit Post/  ------>	
-			document.getElementById(`edit-${doc.id}`).addEventListener('click', () => {
-				document.getElementById(`editContainer-${doc.id}`).className = 'containerEditShow';
-			});
-			
-			// <!----- Función Edit Post  ------>
-			document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id, document.getElementById('inputPost').value));
-			
-			// <!----- Función likes Post  ------>
-			document.getElementById(`like-${doc.id}`).addEventListener('click', () => postLike(doc.id));
-		});
-	})
+    querySnapshot.forEach((doc) => {
+      // <!----------------- función delete post  --------------------->
+      document.getElementById(`delete-${doc.id}`).addEventListener('click', () => deletePost(db, doc.id));
+
+      // <!-----Poner a la escucha cancel/confirm --- /Edit Post/  ------>
+      document.getElementById(`edit-${doc.id}`).addEventListener('click', () => {
+        document.getElementById(`editContainer-${doc.id}`).className = 'containerEditShow';
+      });
+
+      // <!----- Función Edit Post  ------>
+      document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id, document.getElementById('inputPost').value));
+
+      // <!----- Función likes Post  ------>
+      document.getElementById(`like-${doc.id}`).addEventListener('click', () => postLike(doc.id));
+    });
+  });
 }
-
-
