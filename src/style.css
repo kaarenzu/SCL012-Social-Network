@@ -8,14 +8,6 @@ body{
     font-family: 'PT Sans', sans-serif;
 }
 
-/* Contenedor para fondo de login & registro */
-.container{
-    background-image: url("img/fondo-web.jpg");
-    width: 100%;
-    height: 100vh;
-}
-
-
 /********* Inicio Menú de navegación *********/
 header{
     width: 100%;
@@ -81,10 +73,12 @@ header label .icono:hover{
 
 /******* Inicio Login & registro ******/
 .container{
+    background-image: url("img/fondo-web.jpg");
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
 }
 
 .logo, .login{
@@ -161,7 +155,6 @@ p{
     /********** Caja de post **********/
 .divPrincipalPublicar {
     width: 400px;
-    /* width: 70%; */
     height: 80px;
     margin-left: 60px;
     background-color: #E0E2FA;
@@ -174,7 +167,6 @@ p{
 
 .inputPost{
     width: 400px;
-    /* width: 100%; */
     height: 80px;
     background-color: #E0E2FA;
 } 
@@ -332,75 +324,49 @@ footer p{
 
 /* Responsive para celular */
  @media (max-width:700px) {
-    /******* Login y registro ********/
-    /* h1 {
-     color: transparent;
-    }
-
-    .logo{
-        height: 27%;
-        left: 30%;
-        top: 10%;
-    }
-
-    .login{
+   /* Login & registro */
+   .container{
         display: flex;
         flex-direction: column;
-        width: 380px;
-        height: 400px;
-        margin-left: -220%;
-        top: 30%;
+        align-items: center;
+    }
+    .logo{
+        height: 30%;
+    }
+    .logo img{
+        max-width: 100%;
+        margin: 60px 10%; 
+    }
+    .login{
+        display: flex;
+        justify-content: center;
+        border: none;
         background: transparent;
-        border: transparent;
-        box-shadow: none;
+        margin-left: 0;
     }
-
-    h3{
-        font-size: 15px;
-        font-weight: normal;
-        margin-top: 12%;
-        margin-right:60px; 
+    h1{
+        display: none;
     }
-
-    .input{
-        align-self: center;
+    .datos{
+        margin: 10px;
         width: 80%;
-        margin: 2%;
-        height: -1%;
-        border: 1px solid #83ACB1;
-        box-sizing: border-box;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
-
     .btn{
-        align-self: center;
-        margin: 10px;
-        height: 35px;
-        width: 300px;
-        border-radius: 19px;
-        background-color: #323676;
-        color: floralwhite;
+        margin-top: 30px;
     }
-
-    .btn2{
-        align-self: center;
-        margin: 10px;
+    .btn, .btn2{
         height: 35px;
-        width: 300px;
-        border-radius: 19px;
-        background: #EC2E2E;
-        color: floralwhite;
-    } */
-
-    /***** Página de inicio *****/
+        width: 80%;
+    }
+  
+    /* Página de inicio */
     .title{
         display: none;
     }
-
     header label .icono{
         display: block;
+        color: #FFF;
     }
-
     .menu{
         position: absolute;
         background-color: #323676;
@@ -412,27 +378,35 @@ footer p{
         -ms-transition: all 0.5s ;
         -o-transition: all 0.5s ;
     }
-
     .menu ul{
         flex-direction: column;
     }
-
     .menu li{
         text-align: left;
         border-top: 1px solid #FFF;
     }
-
     #btn-menu:checked ~ .menu {
         margin: 0;
     }
-
     .divPrincipalImg{
         width: 280px;
         left: -7%;
     }
-
     .tips-font{
         font-size: 12px;
     }
+}
 
-} 
+/********** Responsive para tablet **************/
+@media (min-width:701px) and (max-width:1200px){
+    /* Login & registro */
+    .logo{
+        height: 50%;
+    }
+    .login{
+        max-width: 40%;
+    }
+    p, a{
+        text-align: center;
+    }
+}
