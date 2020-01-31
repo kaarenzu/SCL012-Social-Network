@@ -359,7 +359,7 @@ footer p{
         width: 80%;
     }
   
-    /* Página de inicio */
+    /* Página de home */
     .title{
         display: none;
     }
@@ -368,8 +368,10 @@ footer p{
         color: #FFF;
     }
     .menu{
+        z-index: 100;
         position: absolute;
-        background-color: #323676;
+        overflow: visible;
+        background: #323676;
         width: 50%;
         margin-left: -50%;
         transition: all 0.5s ;
