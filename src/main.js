@@ -111,7 +111,6 @@ function mostrarHome(user) {
     window.location.hash = '/Home';
     contenido.innerHTML = `
 		
-	<!------------ Menú de navegación ----------->
     <header>
 
         <div class="title">
@@ -134,7 +133,7 @@ function mostrarHome(user) {
 
     </header>
 		
-   <!----------------- Escribe aquí tu publicación  --------------------->
+  
 	<div class='contenedor'>
 		<div class='divPrincipalImg'>
 			<img src='img/iconopost.png' class='icono-post'>
