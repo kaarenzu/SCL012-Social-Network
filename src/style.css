@@ -34,7 +34,6 @@ header{
     text-align: center;
 }
 
-
 #btn-menu, .icono{
     display: none;
 }
@@ -44,11 +43,12 @@ header label .icono{
     font-size: 30px;
     color: #FFF;
     width: 30px;
-    height: 30px;
+    height: 50px;
     padding: 10px;
 }
 
 header label .icono:hover{
+    width: 50px;
     cursor: pointer;
     background-color: #7F81B1;
 }
@@ -160,7 +160,6 @@ p{
 }
 /******* Fin Login & registro ******/
 
-
     /********** Caja de post **********/
 .divPrincipalPublicar {
     width: 400px;
@@ -246,52 +245,36 @@ section div [type = submit] {
 
 
 /* Botones de post */
-.btn-publicar{
+.btn-publicar, .btn-eliminar, .btn-editar, .btn-megusta, .numeros-megusta{
+    cursor: pointer;
     width: 35px;
     height:35px;
     position: absolute;
     right: 0;
     bottom: 0;
+}
+
+.btn-publicar{
     margin-right: 27px;
 }
+
 .btn-eliminar{
-    width: 35px;
-    height:35px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
     margin-right: 27px;
     margin-bottom: 10px;
 }
 .btn-editar{
-    width: 35px;
-    height:35px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
     margin-right: 68px;
     margin-bottom: 10px;
 }
 .btn-megusta{
-    width: 35px;
-    height:35px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
     margin-right: 111px;
     margin-bottom: 10px;
 }
 .numeros-megusta{
-    width: 35px;
-    height:35px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
     margin-right: 130px;
     margin-bottom: 1px;
     font-size: 16px;
 }
-
 .icono-post{
     width: 40px;
     height:40px
