@@ -148,11 +148,12 @@ h1{
 }
 
 .recuperar{
-    margin:7%;
+    text-align: center;
+    margin:8%;
 }
 
 p{
-    margin:3%;
+    margin-top:7%;
 }
 /******* Fin Login & registro ******/
 
