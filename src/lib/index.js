@@ -106,7 +106,7 @@ export const postLike = (id) => {
     if (post.like == null || post.like == '') {
       post.like = [];
       // eslint-disable-next-line no-console
-      console.log('ento al like vacio');
+      console.log('entró al like vacio');
     }
 
     if (post.like.includes(user.uid)) {
