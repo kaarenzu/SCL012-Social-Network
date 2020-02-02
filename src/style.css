@@ -8,6 +8,7 @@ body{
     font-family: 'PT Sans', sans-serif;
 }
 
+
 /********* Inicio Menú de navegación *********/
 header{
     width: 100%;
@@ -18,16 +19,18 @@ header{
     width: 100%;
     background-color:#7F81B1;
     margin: auto;
-    padding: 30px;
+    padding: 10px;
 }
 
 .title h1{
     font-family: 'Exo 2', sans-serif;
     color: #FFFFFF;
+    padding: 3%;
     font-size: 50px;
     font-weight: 200;
     text-align: center;
 }
+
 
 #btn-menu, .icono{
     display: none;
@@ -118,6 +121,9 @@ h1{
     margin: 2%;
     padding: 6px;
     box-shadow: 3px 8px 10px -7px rgba(0,0,0,1)
+}
+.google{
+    font-size: 15px;
 }
 
 .btn, .btn2{
@@ -302,23 +308,23 @@ section div [type = submit] {
 
 
 /****** Footer *******/
-/* footer{
+footer{
     width: 100%;
     position: fixed;
-    clear: both;
     bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70px;
+    height: 60px;
     background-color: #323676;
+    z-index: 4;
     
 }
 footer p{
     font-family: 'PT Sans', sans-serif;
     color: #FFFFFF;
-    font-size: 13px;
-} */
+    font-size: 12px;
+}
 
 
 /* Responsive para celular */
@@ -378,6 +384,7 @@ footer p{
         -moz-transition: all 0.5s ;
         -ms-transition: all 0.5s ;
         -o-transition: all 0.5s ;
+        z-index: 4;
     }
     .menu ul{
         flex-direction: column;

@@ -15,7 +15,7 @@ export function mostrarLogin() {
             <input class="datos" type="email" id="email2" placeholder="Correo electrónico" required>
             <input class="datos" type="password" id="password2" placeholder="***************" required>
             <button class="btn" id="ingresar">Ingresar</button>
-            <button class="btn2" id="gmail">Gmail</button>
+            <button class="btn2" id="gmail"><i class="google fab fa-google"></i>   Google</button>
             <a href="" class="recuperar">¿Olvidaste tu contraseña? Recupérala aquí</a>
             <a href="#" class="aqui" id="crearCuenta">Crea tu cuenta Aquí</a>
 

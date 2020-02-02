@@ -111,6 +111,11 @@ function mostrarHome(user) {
     window.location.hash = '/Home';
     contenido.innerHTML = `
 		
+
+  <!------------ Menú de navegación ----------->
+  
+
+
     <header>
 
         <div class="title">
@@ -142,8 +147,8 @@ function mostrarHome(user) {
 			</div>
 			<img id='publicar' src='./img/publicar.png' class='btn-publicar'>
 		</div>
-	</div>
-	
+  </div>
+  
 		`;
     // <-------------Función botón Cerrar Sesión-------------->
     document.getElementById('cerrarSesion').addEventListener('click', () => {
@@ -190,6 +195,7 @@ function mostrarPost() {
     querySnapshot.forEach((doc) => {
       // <!----------------- Post dinámicos  --------------------->
       mostrar.innerHTML += `
+    
 		<div class='postDinamico'>
 		<div class='divPrincipalImg'>
 		<img src='img/iconopost.png' class='icono-post'>
@@ -205,7 +211,15 @@ function mostrarPost() {
 		<img id="like-${doc.id}" src="./img/megusta.png" class="btn-megusta">
 		<span id="numero-${doc.id}" class="numeros-megusta">${doc.data().like.length}</span>
 		</div>
-		</div>
+    </div>
+
+    <!------------ Footer ----------->
+	<footer>
+	  <p>
+		  Copyright 2020 Diseño y desarrollo por Corina Varas, Karen Zuñiga & Camila Osores.
+	  </p>
+	</footer>
+    
 			`;
       // console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
     });
