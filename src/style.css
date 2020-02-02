@@ -1,13 +1,16 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
 body{
     font-family: 'PT Sans', sans-serif;
-}
 
+}
+.contenedor{
+    
+}
 
 /********* Inicio Menú de navegación *********/
 header{
@@ -250,24 +253,27 @@ section div [type = submit] {
     right: 0;
     bottom: 0;
 }
+
 .btn-publicar{
-    margin-right: 60px;
+    margin-right: 27px;
 }
+
 .btn-eliminar{
-    margin-right: 60px;
+    margin-right: 27px;
     margin-bottom: 10px;
 }
 .btn-editar{
-    margin-right: 105px;
+    margin-right: 68px;
     margin-bottom: 10px;
 }
 .btn-megusta{
-    margin-right: 150px;
+    margin-right: 111px;
     margin-bottom: 10px;
 }
 .numeros-megusta{
-    margin-right: 170px;
+    margin-right: 130px;
     margin-bottom: 1px;
+    font-size: 16px;
 }
 .icono-post{
     width: 40px;
@@ -301,7 +307,6 @@ footer{
     z-index: 4;
     
 }
-
 footer p{
     font-family: 'PT Sans', sans-serif;
     color: #FFFFFF;
@@ -346,7 +351,7 @@ footer p{
         width: 80%;
     }
   
-    /* Página de inicio */
+    /* Página de home */
     .title{
         display: none;
     }
@@ -355,8 +360,10 @@ footer p{
         color: #FFF;
     }
     .menu{
+        z-index: 100;
         position: absolute;
-        background-color: #323676;
+        overflow: visible;
+        background: #323676;
         width: 50%;
         margin-left: -50%;
         transition: all 0.5s ;

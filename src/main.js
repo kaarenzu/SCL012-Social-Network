@@ -111,8 +111,11 @@ function mostrarHome(user) {
     window.location.hash = '/Home';
     contenido.innerHTML = `
 		
+
   <!------------ Menú de navegación ----------->
   
+
+
     <header>
 
         <div class="title">
@@ -197,7 +200,7 @@ function mostrarPost() {
 		<div class='divPrincipalImg'>
 		<img src='img/iconopost.png' class='icono-post'>
 		<div class='divPrincipalPublicar'>
-			<textarea id='inputPost' class='inputPost' type='text'>${doc.data().mensaje}</textarea>
+			<textarea id='inputPost-${doc.id}' class='inputPost' type='text'>${doc.data().mensaje}</textarea>
 			<div id='editContainer-${doc.id}' class='containerEditHide' >
 					<a id='confirmEdit-${doc.id}' class='tips-font'>Confirmar</a>
 					<a class='tips-font'>Cancelar</a>
@@ -231,7 +234,7 @@ function mostrarPost() {
       });
 
       // <!----- Función Edit Post  ------>
-      document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id, document.getElementById('inputPost').value));
+      document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id, document.getElementById(`inputPost-${doc.id}`).value));
 
       // <!----- Función likes Post  ------>
       document.getElementById(`like-${doc.id}`).addEventListener('click', () => postLike(doc.id));
