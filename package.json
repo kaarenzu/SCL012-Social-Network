@@ -13,10 +13,6 @@
     "htmlhint": "htmlhint dist/*.html ",
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
-<<<<<<< HEAD
-=======
-   
->>>>>>> c8ef4a411dbf9ec699a2edaac5f926eb0d873294
     "test": "jest --coverage",
     "start": "serve src/"
   },
