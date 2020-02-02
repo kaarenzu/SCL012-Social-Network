@@ -111,7 +111,11 @@ function mostrarHome(user) {
     window.location.hash = '/Home';
     contenido.innerHTML = `
 		
-	<!------------ Menú de navegación ----------->
+
+  <!------------ Menú de navegación ----------->
+  
+
+
     <header>
 
         <div class="title">
@@ -143,8 +147,8 @@ function mostrarHome(user) {
 			</div>
 			<img id='publicar' src='./img/publicar.png' class='btn-publicar'>
 		</div>
-	</div>
-	
+  </div>
+  
 		`;
     // <-------------Función botón Cerrar Sesión-------------->
     document.getElementById('cerrarSesion').addEventListener('click', () => {
@@ -191,11 +195,12 @@ function mostrarPost() {
     querySnapshot.forEach((doc) => {
       // <!----------------- Post dinámicos  --------------------->
       mostrar.innerHTML += `
+    
 		<div class='postDinamico'>
 		<div class='divPrincipalImg'>
 		<img src='img/iconopost.png' class='icono-post'>
 		<div class='divPrincipalPublicar'>
-			<textarea id='inputPost' class='inputPost' type='text'>${doc.data().mensaje}</textarea>
+			<textarea id='inputPost-${doc.id}' class='inputPost' type='text'>${doc.data().mensaje}</textarea>
 			<div id='editContainer-${doc.id}' class='containerEditHide' >
 					<a id='confirmEdit-${doc.id}' class='tips-font'>Confirmar</a>
 					<a class='tips-font'>Cancelar</a>
@@ -206,7 +211,15 @@ function mostrarPost() {
 		<img id="like-${doc.id}" src="./img/megusta.png" class="btn-megusta">
 		<span id="numero-${doc.id}" class="numeros-megusta">${doc.data().like.length}</span>
 		</div>
-		</div>
+    </div>
+
+    <!------------ Footer ----------->
+	<footer>
+	  <p>
+		  Copyright 2020 Diseño y desarrollo por Corina Varas, Karen Zuñiga & Camila Osores.
+	  </p>
+	</footer>
+    
 			`;
       // console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
     });
@@ -221,7 +234,7 @@ function mostrarPost() {
       });
 
       // <!----- Función Edit Post  ------>
-      document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id, document.getElementById('inputPost').value));
+      document.getElementById(`confirmEdit-${doc.id}`).addEventListener('click', () => editPost(doc.id, document.getElementById(`inputPost-${doc.id}`).value));
 
       // <!----- Función likes Post  ------>
       document.getElementById(`like-${doc.id}`).addEventListener('click', () => postLike(doc.id));
