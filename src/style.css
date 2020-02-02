@@ -152,8 +152,8 @@ h1{
     font-size: 15px;
 }
 
-p{
-    margin:3%;
+.login p{
+    margin-top:7%;
 }
 /******* Fin Login & registro ******/
 
@@ -379,11 +379,15 @@ footer p{
         margin: 0;
     }
     .divPrincipalImg{
+        height: 160px;
         width: 280px;
         left: -7%;
     }
     .tips-font{
         font-size: 12px;
+    }
+    footer p{
+        text-align: center;
     }
 }
 
