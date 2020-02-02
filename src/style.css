@@ -6,10 +6,6 @@
 
 body{
     font-family: 'PT Sans', sans-serif;
-
-}
-.contenedor{
-    
 }
 
 /********* Inicio Menú de navegación *********/
@@ -182,7 +178,7 @@ p{
 .divPrincipalImg {
     height: 150px;
     width: 500px;
-    margin: 50px auto;
+    margin: 65px auto;
     overflow: hidden;
     padding: 20px;
     z-index: 3;
@@ -231,7 +227,7 @@ section div [type = submit] {
     border-radius: 3px;
     font-size: 16px;
 }
- 
+
 .post {
     background-color: #fff;
     width: 500px;
@@ -326,8 +322,8 @@ footer p{
         height: 30%;
     }
     .logo img{
-        max-width: 100%;
-        margin: 60px 10%; 
+        max-width: 120%;
+        margin: 50px -10px;
     }
     .login{
         display: flex;
@@ -360,9 +356,7 @@ footer p{
         color: #FFF;
     }
     .menu{
-        z-index: 100;
         position: absolute;
-        overflow: visible;
         background: #323676;
         width: 50%;
         margin-left: -50%;
