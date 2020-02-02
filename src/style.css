@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
 }
 
 body{
@@ -31,7 +31,6 @@ header{
     text-align: center;
 }
 
-
 #btn-menu, .icono{
     display: none;
 }
@@ -41,11 +40,12 @@ header label .icono{
     font-size: 30px;
     color: #FFF;
     width: 30px;
-    height: 30px;
+    height: 50px;
     padding: 10px;
 }
 
 header label .icono:hover{
+    width: 50px;
     cursor: pointer;
     background-color: #7F81B1;
 }
@@ -157,7 +157,6 @@ p{
 }
 /******* Fin Login & registro ******/
 
-
     /********** Caja de post **********/
 .divPrincipalPublicar {
     width: 400px;
@@ -178,7 +177,7 @@ p{
 } 
 
 .divPrincipalImg {
-    height: 120px;
+    height: 150px;
     width: 500px;
     margin: 50px auto;
     overflow: hidden;
@@ -243,51 +242,33 @@ section div [type = submit] {
 
 
 /* Botones de post */
-.btn-publicar{
+.btn-publicar, .btn-eliminar, .btn-editar, .btn-megusta, .numeros-megusta{
+    cursor: pointer;
     width: 35px;
     height:35px;
     position: absolute;
     right: 0;
     bottom: 0;
+}
+.btn-publicar{
     margin-right: 60px;
 }
 .btn-eliminar{
-    width: 35px;
-    height:35px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
     margin-right: 60px;
     margin-bottom: 10px;
 }
 .btn-editar{
-    width: 35px;
-    height:35px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
     margin-right: 105px;
     margin-bottom: 10px;
 }
 .btn-megusta{
-    width: 35px;
-    height:35px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
     margin-right: 150px;
     margin-bottom: 10px;
 }
 .numeros-megusta{
-    width: 35px;
-    height:35px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
     margin-right: 170px;
     margin-bottom: 1px;
 }
-
 .icono-post{
     width: 40px;
     height:40px
