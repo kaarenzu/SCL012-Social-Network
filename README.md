@@ -1,6 +1,6 @@
 # TIPS TECH
 
-![logo](./src/img/logo1.png "logo1")
+![logo](./src/img/logo.png "logo")
 
 Tips Tech es una red social en donde podrás encontrar y compartir tips de ofertas en productos tecnológicos que ofrece el mercado hoy en día a través de internet.
 
