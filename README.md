@@ -23,16 +23,16 @@ Hoy en día debido al poco tiempo libre para buscar ofertas por la ciudad, es m�
 
 ## Definición del Producto
 
-1-Principales usuarios
+#### 1.Principales usuarios
 
 Los usuarios principales de Tips Tech son personas que buscan de forma constante por internet, todo tipo de ofertas en tecnología como accesorios, computadores, videojuegos, etc.
 Tienen entre 20 y 40 años de edad.
 
-2.Necesidades de los usuarios
+#### 2.Necesidades de los usuarios
 
 Los usuarios hoy en día por distintos factores, como por ejemplo el tiempo libre de cada uno y el dinero que tienen para comprar productos de tecnología, cada vez están más interesados en encontrar precios convenientes a través de Internet para poder acceder a ofertas únicas, de una forma rápida, confiable y así ahorrar tiempo buscando de manera física los productos que le interesan.
 
-3.Propuesta
+#### 3.Propuesta
 
 A raíz de la necesidad que hemos descubierto, es que nace la idea de crear una página web en la cuál los usuarios puedan acceder a crear un perfil en el que pueden compartir con otras personas todo tipo de oferta en productos tecnológicos como accesorios, computación, videojuegos, etc. Y así a su vez compartir datos donde pueden encontrar la mejor opción para cada uno, sin usar su tiempo libre recorriendo la ciudad buscando ofertas.
 
@@ -64,8 +64,9 @@ Para acceder [Haz click aquí](https://trello.com/b/5MmBVhKp/red-social)
 
 Sketch para web y mobile
 
-![prototipo](./src/img/prototipobaja1.jpg "prototipobaja1")
-![prototipo](./src/img/prototipobaja2.jpg "prototipobaja2")
+![prototipo](./src/img/protobaja1.png "prototipobaja1")
+
+![prototipo](./src/img/protobaja2.png "prototipobaja2")
 
 Para ingresar a la plataforma Tips Tech debes loguearte como primer paso, si no tienes un usuario creado puedes acceder a la página con una cuenta Google, y si simplemente quieres crear una cuenta desde cero,en la siguiente interfaz puedes hacerlo.
 Luego al ingresar a la página tienes opción de poder escoger la categoría que más te acomode de acuerdo a tus necesidades, para poder publicar o buscar tips de ofertas tecnológicas.
@@ -74,11 +75,16 @@ En primera instancia creamos las siguientes categorías: Computación, Videojueg
 
 ### Prototipo de alta fidelidad
 
-wireframe para web y mobile
+Wireframe web
 
 ![prototipo](./src/img/prototipoalta1.png "prototipoalta1")
+
 ![prototipo](./src/img/prototipoalta2.png "prototipoalta2")
+
+Wireframe mobile
+
 ![prototipo](./src/img/prototipoalta3.png "prototipoalta3")
+
 ![prototipo](./src/img/prototipoalta4.png "prototipoalta4")
 
 El prototipo de alta fidelidad está creado en Figma. En los siguientes enlaces puedes ver su funcionamiento.
