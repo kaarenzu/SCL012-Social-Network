@@ -23,7 +23,7 @@ Hoy en día debido al poco tiempo libre para buscar ofertas por la ciudad, es m�
 
 ## Definición del Producto
 
-#### 1-Principales usuarios
+#### 1.Principales usuarios
 
 Los usuarios principales de Tips Tech son personas que buscan de forma constante por internet, todo tipo de ofertas en tecnología como accesorios, computadores, videojuegos, etc.
 Tienen entre 20 y 40 años de edad.
