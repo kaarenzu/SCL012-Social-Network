@@ -15,11 +15,10 @@ Para visitar la página [Haz click aquí]()
 * [5. Conclusión](##Conclusión)
 
 
-***
-
 ## Introducción
 
 Hoy en día debido al poco tiempo libre para buscar ofertas por la ciudad, es más común que los usuarios naveguen por internet y encuentren ofertas en el área de tecnología más rápido, pudiendo así comprar el producto que necesitan de manera inmediata y expedita directamente por la web.
+
 
 ## Definición del Producto
 
@@ -52,11 +51,13 @@ H.U. 5- Yo como usuario de TipsTech quiero likear una publicación para demostra
 
 Es importante mencionar que para las historias de usuario establecidas anteriormente existen criterios de aceptación que se detallan en la planificación creada en trello, en donde puedes acceder más abajo.
 
+
 ## Planificación
 
 La planificación de nuestra red social esta hecha en Trello.
 
 Para acceder [Haz click aquí](https://trello.com/b/5MmBVhKp/red-social)
+
 
 ## Definición de la interfaz de usuario
 
@@ -93,6 +94,14 @@ El prototipo de alta fidelidad está creado en Figma. En los siguientes enlaces 
 
 [Prototipo mobile](https://www.figma.com/proto/ukCrXNdipeTM81s8LWovGJ/Tips-Tech-mobile?node-id=1%3A2&scaling=scale-down)
 
+
 ### Conclusión
 
 Para concluir con nuestro proyecto destacamos el gran trabajo en equipo que se realizó durante estas 3 semanas, cumpliendo la mayoria de los objetivos planteados.
+
+
+## Integrantes
+
+* [Corina Varas](https://github.com/CorinaVaras)
+* [Karen Zuñiga](https://github.com/kaarenzu)
+* [Camila Osores](https://github.com/camila-osores)
