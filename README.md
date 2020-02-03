@@ -1,6 +1,6 @@
 # TIPS TECH
 
-![logo](./src/img/logo.png "logo")
+![logo](./src/img/logo1.png "logo1")
 
 Tips Tech es una red social en donde podrás encontrar y compartir tips de ofertas en productos tecnológicos que ofrece el mercado hoy en día a través de internet.
 
@@ -64,8 +64,9 @@ Para acceder [Haz click aquí](https://trello.com/b/5MmBVhKp/red-social)
 
 Sketch para web y mobile
 
-![prototipo](./src/img/prototipobaja1.jpg "prototipobaja1")
-![prototipo](./src/img/prototipobaja2.jpg "prototipobaja2")
+![prototipo](./src/img/protobaja1.png "prototipobaja1")
+
+![prototipo](./src/img/protobaja2.png "prototipobaja2")
 
 Para ingresar a la plataforma Tips Tech debes loguearte como primer paso, si no tienes un usuario creado puedes acceder a la página con una cuenta Google, y si simplemente quieres crear una cuenta desde cero,en la siguiente interfaz puedes hacerlo.
 Luego al ingresar a la página tienes opción de poder escoger la categoría que más te acomode de acuerdo a tus necesidades, para poder publicar o buscar tips de ofertas tecnológicas.
@@ -74,11 +75,16 @@ En primera instancia creamos las siguientes categorías: Computación, Videojueg
 
 ### Prototipo de alta fidelidad
 
-wireframe para web y mobile
+Wireframe web
 
 ![prototipo](./src/img/prototipoalta1.png "prototipoalta1")
+
 ![prototipo](./src/img/prototipoalta2.png "prototipoalta2")
+
+Wireframe mobile
+
 ![prototipo](./src/img/prototipoalta3.png "prototipoalta3")
+
 ![prototipo](./src/img/prototipoalta4.png "prototipoalta4")
 
 El prototipo de alta fidelidad está creado en Figma. En los siguientes enlaces puedes ver su funcionamiento.
