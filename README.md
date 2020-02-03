@@ -23,16 +23,16 @@ Hoy en día debido al poco tiempo libre para buscar ofertas por la ciudad, es m�
 
 ## Definición del Producto
 
-1-Principales usuarios
+#### 1-Principales usuarios
 
 Los usuarios principales de Tips Tech son personas que buscan de forma constante por internet, todo tipo de ofertas en tecnología como accesorios, computadores, videojuegos, etc.
 Tienen entre 20 y 40 años de edad.
 
-2.Necesidades de los usuarios
+#### 2.Necesidades de los usuarios
 
 Los usuarios hoy en día por distintos factores, como por ejemplo el tiempo libre de cada uno y el dinero que tienen para comprar productos de tecnología, cada vez están más interesados en encontrar precios convenientes a través de Internet para poder acceder a ofertas únicas, de una forma rápida, confiable y así ahorrar tiempo buscando de manera física los productos que le interesan.
 
-3.Propuesta
+#### 3.Propuesta
 
 A raíz de la necesidad que hemos descubierto, es que nace la idea de crear una página web en la cuál los usuarios puedan acceder a crear un perfil en el que pueden compartir con otras personas todo tipo de oferta en productos tecnológicos como accesorios, computación, videojuegos, etc. Y así a su vez compartir datos donde pueden encontrar la mejor opción para cada uno, sin usar su tiempo libre recorriendo la ciudad buscando ofertas.
 
