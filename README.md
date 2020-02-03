@@ -6,7 +6,7 @@ Tips Tech es una red social en donde podrás encontrar y compartir tips de ofert
 
 Para visitar la página [Haz click aquí]()
 
-## Índice
+## Índice 
 
 * [1. Introducción](##Introducción)
 * [2. Definición del Producto](##Definición-del-Producto)
